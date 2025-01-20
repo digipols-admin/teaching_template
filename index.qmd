@@ -1,5 +1,5 @@
 ---
-title: "teaching_template"
+title: "Teaching template"
 ---
 
 This is a Quarto website.

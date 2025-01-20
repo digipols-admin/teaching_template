@@ -1,8 +1,9 @@
 project:
   type: website
+  output-dir: docs
 
 website:
-  title: "teaching_template"
+  title: "Teaching template"
   navbar:
     left:
       - href: index.qmd
