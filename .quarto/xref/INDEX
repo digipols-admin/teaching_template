@@ -55,5 +55,11 @@
   },
   "sessions-tab/git_quarto_template.qmd": {
     "git_quarto_template.html": "537746c9"
+  },
+  "surveys-tab/tvhours_looker.qmd": {
+    "tvhours_looker.html": "81cc3a25"
+  },
+  "surveys-tab/dust_survey_google.qmd": {
+    "dust_survey_google.html": "f4af1546"
   }
 }

@@ -28,18 +28,67 @@
     "text": "About this site\n\n#&gt; [1] 2\n\nThis is a simple demonstration of generating a plot in an HTML document using Quarto (.qmd) and R.\n\nGenerating a Plot\nWe will create a simple ggplot graph using R’s built-in mtcars dataset."
   },
   {
-    "objectID": "surveys-tab/item_1.html",
-    "href": "surveys-tab/item_1.html",
+    "objectID": "surveys-tab/surveys-index.html",
+    "href": "surveys-tab/surveys-index.html",
+    "title": "Surveys",
+    "section": "",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+  },
+  {
+    "objectID": "surveys-tab/surveys-index.html#a-working-example",
+    "href": "surveys-tab/surveys-index.html#a-working-example",
+    "title": "Surveys",
+    "section": "A working example",
+    "text": "A working example\nThe examples below relate to a real-world example of a multi-country survey fielded for a European Horizon research consortium. The aim was to explore citizens’ attitudes towards participanting in the policy process, with a special focus on regions potentially afflicted by climate change policies.\n\nHosting a survey using google forms\nLink to survey support webpage. This website offers an example of an RStudio workflow website and dashboard used to support a research consortium."
+  },
+  {
+    "objectID": "surveys-tab/surveys-index.html#a-google-approach",
+    "href": "surveys-tab/surveys-index.html#a-google-approach",
+    "title": "Surveys",
+    "section": "A google approach",
+    "text": "A google approach\nAdd introduction\n\nItem 2"
+  },
+  {
+    "objectID": "surveys-tab/dust_survey_google.html",
+    "href": "surveys-tab/dust_survey_google.html",
     "title": "Teaching",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "surveys-tab/tvhours_google.html",
-    "href": "surveys-tab/tvhours_google.html",
-    "title": "Teaching",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data-driven Communication: Content Management & Visualization for Marketing and Communication Sciences",
     "section": "",
-    "text": "Loading…"
+    "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Bla, Bla.\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt Nemo enim ipsam.\n\n\n\n\n\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt Nemo enim ipsam.\nCourse Overview: Access the course overview to see the outline, timetable and links to resources.\n\n© 2025 Digipols. All rights reserved. | Privacy Policy | Terms of Service"
+  },
+  {
+    "objectID": "sessions-tab/template_page.html",
+    "href": "sessions-tab/template_page.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n#&gt; [1] 2\n\nThis is a simple demonstration of generating a plot in an HTML document using Quarto (.qmd) and R.\n\nGenerating a Plot\nWe will create a simple ggplot graph using R’s built-in mtcars dataset."
+  },
+  {
+    "objectID": "sessions-tab/sessions-index.html",
+    "href": "sessions-tab/sessions-index.html",
+    "title": "Course sessions",
+    "section": "",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+  },
+  {
+    "objectID": "sessions-tab/sessions-index.html#links-to-sessions",
+    "href": "sessions-tab/sessions-index.html#links-to-sessions",
+    "title": "Course sessions",
+    "section": "Links to Sessions",
+    "text": "Links to Sessions\n\nSession 1 and 2\nSession 3"
+  },
+  {
+    "objectID": "sessions-tab/session_1.html",
+    "href": "sessions-tab/session_1.html",
+    "title": "Session 1",
+    "section": "",
+    "text": "Introduction to Data-Driven Communication\n\nKey Concepts:\n\nOverview of data-driven approaches in marketing and communication.\nIntroduction to essential tools: GitHub, Google Workspace, RStudio, Quarto.\n\nActivities:\n\nSet up GitHub repositories and enable GitHub Pages.\n\nIntroduction to Google Forms and Google Sheets as data collection and management tools.\n\nTakeaways:\n\nUnderstanding how data underpins strategic communication in marketing.\n\nBasic repository setup and data workflow planning.\n\n\nLinks:\n\nSet up a Quarto website"
   },
   {
     "objectID": "sessions-tab/git_quarto_template.html",
@@ -112,32 +161,11 @@
     "text": "Step 4: Work on your website in R/Quarto\n\nGo into your new project in R (this will mean logging out of your current R project)\nWork on your website\nRemember to “Build” website in R before commiting changes to GitHub\nRegularly commit and push changes to GitHub."
   },
   {
-    "objectID": "sessions-tab/session_1.html",
-    "href": "sessions-tab/session_1.html",
-    "title": "Session 1",
+    "objectID": "surveys-tab/tvhours_google.html",
+    "href": "surveys-tab/tvhours_google.html",
+    "title": "Teaching",
     "section": "",
-    "text": "Introduction to Data-Driven Communication\n\nKey Concepts:\n\nOverview of data-driven approaches in marketing and communication.\nIntroduction to essential tools: GitHub, Google Workspace, RStudio, Quarto.\n\nActivities:\n\nSet up GitHub repositories and enable GitHub Pages.\n\nIntroduction to Google Forms and Google Sheets as data collection and management tools.\n\nTakeaways:\n\nUnderstanding how data underpins strategic communication in marketing.\n\nBasic repository setup and data workflow planning.\n\n\nLinks:\n\nSet up a Quarto website"
-  },
-  {
-    "objectID": "sessions-tab/sessions-index.html",
-    "href": "sessions-tab/sessions-index.html",
-    "title": "Course sessions",
-    "section": "",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\nList of course sessions:\n\nSession 1 and 2\nSession 3"
-  },
-  {
-    "objectID": "sessions-tab/template_page.html",
-    "href": "sessions-tab/template_page.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n#&gt; [1] 2\n\nThis is a simple demonstration of generating a plot in an HTML document using Quarto (.qmd) and R.\n\nGenerating a Plot\nWe will create a simple ggplot graph using R’s built-in mtcars dataset."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Data-driven Communication: Content Management & Visualization for Marketing and Communication Sciences",
-    "section": "",
-    "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Bla, Bla.\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt Nemo enim ipsam.\n\n\n\n\n\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt Nemo enim ipsam.\nCourse Overview: Access the course overview to see the outline, timetable and links to resources.\n\n© 2025 Digipols. All rights reserved. | Privacy Policy | Terms of Service"
+    "text": "Loading…"
   },
   {
     "objectID": "surveys-tab/template_page.html",
@@ -145,13 +173,6 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n#&gt; [1] 2\n\nThis is a simple demonstration of generating a plot in an HTML document using Quarto (.qmd) and R.\n\nGenerating a Plot\nWe will create a simple ggplot graph using R’s built-in mtcars dataset."
-  },
-  {
-    "objectID": "surveys-tab/surveys-index.html",
-    "href": "surveys-tab/surveys-index.html",
-    "title": "Surveys",
-    "section": "",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\nList of items:\n\nItem 1\nItem 2"
   },
   {
     "objectID": "pages/template_page.html",

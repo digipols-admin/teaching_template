@@ -101,4 +101,4 @@ git clone https://YOUR-USERNAME:ADD_YOUR_PAT_HERE@github.com/YOUR-USERNAME/YOUR-
 
 If you do not want to use a template, simply follow steps 1 to 4 above and do not make the Repo a template. 
 
-Although the focus of this document was a website. The same logic can be applied to any type of resource, e.g. a template for a report, or for a book.
+Although the focus of this document was a website, the same logic can be applied to any type of resource, e.g. a template for a report, or for a book.
