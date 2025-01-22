@@ -61,5 +61,11 @@
   },
   "surveys-tab/dust_survey_google.qmd": {
     "dust_survey_google.html": "f4af1546"
+  },
+  "surveys-tab/tvhours_shiny.qmd": {
+    "tvhours_shiny.html": "0e8e8fdf"
+  },
+  "surveys-tab/tvhours_static_report.qmd": {
+    "tvhours_static_report.html": "26d48f5f"
   }
 }

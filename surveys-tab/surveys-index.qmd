@@ -15,7 +15,7 @@ The examples below relate to a real-world example of a multi-country survey fiel
 - [Link to survey support webpage. ](https://fmendez72.github.io/app_dust/){target="_blank"} This website offers an example of an RStudio workflow website and dashboard used to support a research consortium.
 
 
-## A google approach
+## A google approach (tvhours dataset)
 
 Add introduction
 
@@ -26,12 +26,12 @@ Add introduction
 Add list of resources
 
 
-## A Shiny approach
+## A Shiny approach (tvhours dataset)
 
 Add introduction about Shiny
 
 Add links to Quarto Shiny integration
 
-- [Link to Shiny questionnaire](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_google.html)
+- [Link to Shiny questionnaire](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_shiny.html)
 
-- [Links to static Quarto report](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_looker.html)
+- [Links to static Quarto report](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_static_report.html)
