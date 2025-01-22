@@ -21,4 +21,17 @@ Add introduction
 
 - [Example of a google survey form](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_google.html)
 
-- - [Example of a google looker dahsboard](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_looker.html)
+- [Example of a google looker dahsboard](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_looker.html)
+
+Add list of resources
+
+
+## A Shiny approach
+
+Add introduction about Shiny
+
+Add links to Quarto Shiny integration
+
+- [Link to Shiny questionnaire](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_google.html)
+
+- [Links to static Quarto report](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_looker.html)

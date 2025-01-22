@@ -46,7 +46,14 @@
     "href": "surveys-tab/surveys-index.html#a-google-approach",
     "title": "Surveys",
     "section": "A google approach",
-    "text": "A google approach\nAdd introduction\n\nExample of a google survey form\n\nExample of a google looker dahsboard"
+    "text": "A google approach\nAdd introduction\n\nExample of a google survey form\nExample of a google looker dahsboard\n\nAdd list of resources"
+  },
+  {
+    "objectID": "surveys-tab/surveys-index.html#a-shiny-approach",
+    "href": "surveys-tab/surveys-index.html#a-shiny-approach",
+    "title": "Surveys",
+    "section": "A Shiny approach",
+    "text": "A Shiny approach\nAdd introduction about Shiny\nAdd links to Quarto Shiny integration\n\nLink to Shiny questionnaire\nLinks to static Quarto report"
   },
   {
     "objectID": "surveys-tab/dust_survey_google.html",
