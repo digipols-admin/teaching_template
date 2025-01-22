@@ -19,5 +19,14 @@
   },
   "sessions/about.qmd": {
     "about.html": "c94388e3"
+  },
+  "sessions/template_page.qmd": {
+    "template_page.html": "976362aa"
+  },
+  "template_page.qmd": {
+    "template_page.html": "96e316ed"
+  },
+  "pages/template_page.qmd": {
+    "template_page.html": "6c6953d8"
   }
 }

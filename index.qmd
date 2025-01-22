@@ -17,7 +17,7 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
 
 Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt Nemo enim ipsam.
 
-[Course Outline:](https://digipols-admin.github.io/teaching_template/outline.html) Access to the course outline, includes timetable and links to resources. 
+[Course Overview:](https://digipols-admin.github.io/teaching_template/outline.html) Access the course overview to see the outline, timetable and links to resources. 
 
 ::: {.footer style="text-align: left; padding: 1rem; margin-top: 10rem;"}
 © 2025 Digipols. All rights reserved. | [Privacy Policy](#) | [Terms of Service](#)

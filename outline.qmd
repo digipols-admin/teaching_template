@@ -25,8 +25,6 @@ To maximize learning outcomes, students are expected to have the following befor
 ### Timetable
 
 ```{r}
-#library(tidyverse)
-#library(kableExtra)
 # Create the table as a tribble
 sessions <- tribble(
   ~Session, ~Description, ~Date, ~Time,
@@ -39,11 +37,11 @@ sessions <- tribble(
   "Session 6", "Integrating and Presenting Final Projects", "Sunday 23/2/25", "9:2pm"
 )
 
-# Render the table using kableExtra
+# Render the table using kableExtra, remove first column heading
 sessions %>%
+  rename(" "=Session) %>% 
   kbl()
 ```
-
 
 **Note:** Final timetable to be confirmed on first class meeting
 

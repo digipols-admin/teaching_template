@@ -10,7 +10,7 @@ website:
         text: Home
       - href: sessions.qmd
         text: Sessions
-    logo: images/logo1.png
+    logo: images/logo_tepak.png
 
 format:
   html:
