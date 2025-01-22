@@ -8,7 +8,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: sessions.qmd
+      - href: sessions-tab/sessions-index.qmd
         text: Sessions
     logo: images/logo_tepak.png
 

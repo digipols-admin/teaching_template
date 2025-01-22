@@ -28,5 +28,17 @@
   },
   "pages/template_page.qmd": {
     "template_page.html": "6c6953d8"
+  },
+  "sessions-tab/sessions-index.qmd": {
+    "sessions-index.html": "09629cf8"
+  },
+  "sessions-tab/session_1.qmd": {
+    "session_1.html": "2f198c8b"
+  },
+  "sessions-tab/template_page.qmd": {
+    "template_page.html": "c36c270d"
+  },
+  "pages/outline.qmd": {
+    "outline.html": "03db5be4"
   }
 }

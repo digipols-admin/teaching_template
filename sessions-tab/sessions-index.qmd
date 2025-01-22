@@ -7,7 +7,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 List of course sessions:
 
-- [Session 1 and 2](https://digipols-admin.github.io/teaching_template/sessions/session_1.html) 
+- [Session 1 and 2](https://digipols-admin.github.io/teaching_template/sessions-tab/session_1.html) 
 
-- [Session 32](https://digipols-admin.github.io/teaching_template/sessions/session_1.html)
+- [Session 2](https://digipols-admin.github.io/teaching_template/sessions-tab/session_1.html)
 
