@@ -9,5 +9,5 @@ List of course sessions:
 
 - [Session 1 and 2](https://digipols-admin.github.io/teaching_template/sessions-tab/session_1.html) 
 
-- [Session 2](https://digipols-admin.github.io/teaching_template/sessions-tab/session_1.html)
+- [Session 2](https://digipols-admin.github.io/teaching_template/sessions-tab/tvhours_google.html)
 
