@@ -19,9 +19,8 @@ format:
     toc: true
 
 knitr:
-   opts_chunk:
-     fig.path: "images/"
-     comment: "#>"
-     collapse: true
-
+  opts_chunk:
+    comment: "#>"
+    collapse: true
+    echo: false
 
