@@ -1,11 +1,25 @@
 ---
-title: "Teaching template"
+title: "Data-driven Communication: Content Management & Visualization for Marketing and Communication Sciences"
 ---
 
-This is a Quarto website.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
-```{r}
-1 + 1
-```
+::: {.grid}
+::: {.g-col-8}
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Bla, Bla.
+
+Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt Nemo enim ipsam.
+:::
+
+::: {.g-col-4}
+![](images/home3.png){.center width="70%" style="border-radius: 8px;"}
+:::
+:::
+
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Bla, Bla.
+
+Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt Nemo enim ipsam.
+
+::: {.footer style="text-align: left; padding: 1rem; margin-top: 10rem;"}
+© 2025 Digipols. All rights reserved. | [Privacy Policy](#) | [Terms of Service](#)
+:::

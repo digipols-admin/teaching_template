@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Teaching - About</title>
+<title>Teaching - Data-driven Communication: Content Management &amp; Visualization for Marketing and Communication Sciences</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -142,7 +108,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#generating-a-plot" id="toc-generating-a-plot" class="nav-link active" data-scroll-target="#generating-a-plot">Generating a Plot</a></li>
+  <li><a href="#course-overview" id="toc-course-overview" class="nav-link active" data-scroll-target="#course-overview">Course Overview</a>
+  <ul class="collapse">
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#timetable" id="toc-timetable" class="nav-link" data-scroll-target="#timetable">Timetable</a></li>
+  <li><a href="#course-content" id="toc-course-content" class="nav-link" data-scroll-target="#course-content">Course Content</a></li>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link" data-scroll-target="#learning-outcomes">Learning Outcomes</a></li>
+  <li><a href="#teaching-methodology" id="toc-teaching-methodology" class="nav-link" data-scroll-target="#teaching-methodology">Teaching Methodology</a></li>
+  <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a></li>
+  </ul></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   </ul>
 </nav>
     </div>
@@ -151,7 +126,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Data-driven Communication: Content Management &amp; Visualization for Marketing and Communication Sciences</h1>
 </div>
 
 
@@ -166,30 +141,249 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>About this site</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>This is a simple demonstration of generating a plot in an HTML document using Quarto (.qmd) and R.</p>
-<section id="generating-a-plot" class="level1">
-<h1>Generating a Plot</h1>
-<p>We will create a simple ggplot graph using R’s built-in <code>mtcars</code> dataset.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the plot</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">y=</span>mpg)) <span class="sc">+</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Scatter Plot of MPG vs. Weight"</span>) <span class="sc">+</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Weight (1000 lbs)"</span>) <span class="sc">+</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Miles/(US) gallon"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="images/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
+<section id="course-overview" class="level2">
+<h2 class="anchored" data-anchor-id="course-overview">Course Overview</h2>
+<p>This course emphasizes the practical, hands-on skills required to transform data into engaging digital experiences for marketing and communication contexts. Students will become familiar with the full technology stack—ranging from survey creation tools (Google Forms) and collaborative version control (GitHub) to R-based analytics (RStudio, Quarto) for generating clear and visually compelling dashboards. Rather than delving deeply into research theory, the focus is on equipping students to manage content and swiftly transform raw data into meaningful visual stories. By the end of the course, students will not only understand how to gather and analyze data but will also possess the technical know-how to host interactive visualizations online, making insights readily accessible for a variety of real-world scenarios.</p>
+<section id="prerequisites" class="level3">
+<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
+<p>To maximize learning outcomes, students are expected to have the following before starting the course:</p>
+<ol type="1">
+<li><strong>Very basic R knowledge</strong>
+<ul>
+<li>Familiarity with installing and running R scripts.<br>
+</li>
+<li>Understanding of fundamental R operations, such as loading libraries and running basic commands.<br>
+</li>
+</ul></li>
+<li><strong>R Setup</strong>
+<ul>
+<li>R and RStudio installed locally.<br>
+</li>
+<li>While the course will primarily use a cloud-based R environment, local installations are encouraged for additional practice.<br>
+</li>
+</ul></li>
+<li><strong>Google Account</strong>
+<ul>
+<li>A Google account is necessary to access and integrate tools like Google Forms, Google Sheets, and Google Drive via R packages (<code>googlesheets4</code>, <code>googledrive</code>).<br>
+</li>
+</ul></li>
+<li><strong>GitHub Account</strong>
+<ul>
+<li>A GitHub account will be essential for hosting interactive visualizations online. Students are encouraged to sign up to GitHub in advance, i.e.&nbsp;have a username and password ready.</li>
+</ul></li>
+</ol>
+</section>
+<section id="timetable" class="level3">
+<h3 class="anchored" data-anchor-id="timetable">Timetable</h3>
+<p>Session 1 | Introduction to Data-Driven Communication | Saturday 25/1/25 | 4:8pm |<br>
+Session 2 | Survey Design &amp; Implementation | Sunday 26/1/25 | 9:2pm |<br>
+Session 3 | Content management using R | Friday 31/2/25 | 6:8pm |<br>
+Session 4 | Visualization and Dashboard Creation | Friday 7/2/25 | 6:8pm |<br>
+Session 5 | Advanced Analysis: Framing and Sentiment Insights | Saturday 15/2/25 | 4:8pm |<br>
+Session 6 | Integrating and Presenting Final Projects | Friday 21/2/25 | 6:8pm |<br>
+Session 6 | Integrating and Presenting Final Projects | Sunday 23/2/25 | 9:2pm |</p>
+<p><strong>Note:</strong> Final timetable to be confirmed on first class meeting</p>
+</section>
+<section id="course-content" class="level3">
+<h3 class="anchored" data-anchor-id="course-content">Course Content</h3>
+<p><strong>Session 1: Introduction to Data-Driven Communication</strong></p>
+<ul>
+<li><strong>Key Concepts:</strong>
+<ul>
+<li>Overview of data-driven approaches in marketing and communication.<br>
+</li>
+<li>Introduction to essential tools: GitHub, Google Workspace, RStudio, Quarto.<br>
+</li>
+</ul></li>
+<li><strong>Activities:</strong>
+<ul>
+<li>Set up GitHub repositories and enable GitHub Pages.<br>
+</li>
+<li>Introduction to Google Forms and Google Sheets as data collection and management tools.<br>
+</li>
+</ul></li>
+<li><strong>Takeaways:</strong>
+<ul>
+<li>Understanding how data underpins strategic communication in marketing.<br>
+</li>
+<li>Basic repository setup and data workflow planning.</li>
+</ul></li>
+</ul>
+<p><strong>Session 2: Survey Design &amp; Implementation</strong></p>
+<ul>
+<li><strong>Key Concepts:</strong>
+<ul>
+<li>Principles of survey design: question types, scaling, sampling considerations.<br>
+</li>
+<li>Integrating Google Forms with Google Sheets for real-time data collection.<br>
+</li>
+</ul></li>
+<li><strong>Activities:</strong>
+<ul>
+<li>Students create a practical survey relevant to a chosen marketing or communication scenario.<br>
+</li>
+<li>Explore best practices for ensuring reliable and valid data (question wording, format, etc.).<br>
+</li>
+</ul></li>
+<li><strong>Takeaways:</strong>
+<ul>
+<li>Ability to design an effective online survey and understand fundamentals of market research.<br>
+</li>
+<li>Creating and managing data repositories for multiple use cases (consumer behaviour,, brand analysis, etc.).</li>
+</ul></li>
+</ul>
+<p><strong>Session 3: Content management using R</strong></p>
+<ul>
+<li><strong>Key Concepts:</strong>
+<ul>
+<li>Introduction to R programming for marketing analytics (data import, cleaning, wrangling).<br>
+</li>
+<li>Working with Google Sheets data in R (e.g., <code>googlesheets4</code>).<br>
+</li>
+</ul></li>
+<li><strong>Activities:</strong>
+<ul>
+<li>Pull real survey response data into R and perform initial descriptive analyses.<br>
+</li>
+<li>Use the <code>tidyverse</code> framework for cleaning and manipulation.<br>
+</li>
+</ul></li>
+<li><strong>Takeaways:</strong>
+<ul>
+<li>Hands-on experience preparing data for visualization and advanced analysis.<br>
+</li>
+<li>Understanding how R can streamline and automate data workflows.</li>
+</ul></li>
+</ul>
+<p><strong>Session 4: Visualization and Dashboard Creation</strong></p>
+<ul>
+<li><strong>Key Concepts:</strong>
+<ul>
+<li>Introduction to data visualization principles (clarity, aesthetics, storytelling).<br>
+</li>
+<li>Building interactive dashboards in Quarto or alternative frameworks (Shiny, JS observable).<br>
+</li>
+</ul></li>
+<li><strong>Activities:</strong>
+<ul>
+<li>Create interactive charts (bar graphs, line charts, word clouds) to illustrate survey results and findings.<br>
+</li>
+<li>Embed dashboards within websites hosted on GitHub Pages via iFrames.<br>
+</li>
+</ul></li>
+<li><strong>Takeaways:</strong>
+<ul>
+<li>Ability to build compelling visual narratives and dashboards.<br>
+</li>
+<li>Understanding best practices in data storytelling for marketing and communication contexts.</li>
+</ul></li>
+</ul>
+<p><strong>Session 5: Advanced Analysis: Framing and Sentiment Insights</strong></p>
+<ul>
+<li><strong>Key Concepts:</strong>
+<ul>
+<li>Sentiment analysis of social media data (e.g., X mentions, political campaigns).<br>
+</li>
+<li>Basic text mining techniques (tokenization, cleaning, sentiment lexicons).<br>
+</li>
+</ul></li>
+<li><strong>Activities:</strong>
+<ul>
+<li>Acquire sample tweets or social media data with brand/political keywords.<br>
+</li>
+<li>Conduct sentiment analysis using R (e.g., <code>tidytext</code>).<br>
+</li>
+<li>Classify using LLMs in R<br>
+</li>
+</ul></li>
+<li><strong>Takeaways:</strong>
+<ul>
+<li>Insights into audience attitudes and emotional resonance around brands or issues.<br>
+</li>
+<li>Practical application of text analytics in modern communication strategies.</li>
+</ul></li>
+</ul>
+<p><strong>Session 6: Integrating and Presenting Final Projects</strong></p>
+<ul>
+<li><strong>Key Concepts:</strong>
+<ul>
+<li>Consolidating survey data, sentiment analysis, and dashboards into a cohesive communication strategy.<br>
+</li>
+<li>Troubleshooting GitHub Pages deployment, finalizing website design, ensuring data updates.<br>
+</li>
+</ul></li>
+<li><strong>Activities:</strong>
+<ul>
+<li>Students present their final dashboards and discuss key insights from their analyses.<br>
+</li>
+<li>Peer feedback and instructor-led critique of project outcomes.<br>
+</li>
+</ul></li>
+<li><strong>Takeaways:</strong>
+<ul>
+<li>Fully integrated, web-based project showcasing with multi-faceted analysis (survey + social media).<br>
+</li>
+<li>Final demonstration of data-driven communication skills relevant to marketing contexts.</li>
+</ul></li>
+</ul>
+</section>
+<section id="learning-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="learning-outcomes">Learning Outcomes</h3>
+<ol type="1">
+<li>Design Effective Surveys<br>
+</li>
+<li>Use R and Git to manage content workflows<br>
+</li>
+<li>Visualize and Communicate Insights<br>
+</li>
+<li>Develop Transferable Technical Skills<br>
+</li>
+<li>Enhance Strategic Communication</li>
+</ol>
+<hr>
+</section>
+<section id="teaching-methodology" class="level3">
+<h3 class="anchored" data-anchor-id="teaching-methodology">Teaching Methodology</h3>
+<ul>
+<li>Practical Lab Sessions<br>
+</li>
+<li>Discussion &amp; Collaboration<br>
+</li>
+<li>Progressive Project Development</li>
+</ul>
+<hr>
+</section>
+<section id="assessment" class="level3">
+<h3 class="anchored" data-anchor-id="assessment">Assessment</h3>
+<ol type="1">
+<li>Class Participation (30%)<br>
+</li>
+<li>Class Presentation (20%)<br>
+</li>
+<li>Individual Final Project (50%)</li>
+</ol>
+</section>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<ul>
+<li><p><strong>Happy Git and GitHub for the useR</strong>. A full course on using git by Jennifer Bryan. Browse chapter <em>4 Register a GitHub account</em> section <em>4.1</em> on creating a GitHub account.<br>
+<strong>Link</strong>: <a href="https://happygitwithr.com/\">https://happygitwithr.com</a></p></li>
+<li><p><strong>Quarto:</strong> The main resource for Quarto publishing framework<br>
+<strong>Link:</strong> <a href="https://quarto.org/">https://quarto.org/</a></p></li>
+<li><p>An online version of (slightly older but still relevant) chapter from Stephen Few on principles of data visualization<br>
+<strong>Link</strong>: <a href="https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/data-visualization-for-human-perception?cm_mc_sid_50200000=1497196827&amp;cm_mc_uid=13918417820714971968273">https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/data-visualization-for-human-perception</a></p></li>
+<li><p><strong>Modern Data Visualization with R:</strong> An online version of the book “Modern Data Visualization with R<strong>,</strong> which guides you through creating popular visualizations using R, focusing on the <code>ggplot2</code> package.<br>
+<strong>Link:</strong> <a href="https://rkabacoff.github.io/datavis/">https://rkabacoff.github.io/datavis/</a></p></li>
+<li><p>R package <code>ggpubr</code> A good R library for creating publication ready graphs, with useful examples and simpler syntax than <code>ggplot2</code>.<br>
+<strong>Link:</strong> <a href="https://rpkgs.datanovia.com/ggpubr/index.html">https://rpkgs.datanovia.com/ggpubr/index.html</a></p></li>
+<li><p><strong>Silge, J., &amp; Robinson, D. (2017). <em>Text Mining with R: A Tidy Approach</em>. O’Reilly Media.</strong><br>
+A practical resource for sentiment analysis and text mining, highlighting best practices and code examples.</p></li>
+<li><p><strong>Google Looker Studio</strong>, A very good introduction on how to use Google Looker Studio<br>
+<strong>Link</strong>: <a href="https://www.youtube.com/watch?v=Coe_f79Xc2o">https://www.youtube.com/watch?v=Coe_f79Xc2o</a></p></li>
+<li><p><strong>Analytics with Looker Studio</strong>. A useful video on how to integrate Google Analytics into a Looker Studio dahsboard<br>
+Link: <a href="https://www.youtube.com/watch?v=SdDRZFhHS2U">https://www.youtube.com/watch?v=SdDRZFhHS2U</a></p></li>
+</ul>
 
 
 </section>

@@ -4,5 +4,20 @@
   },
   "about.qmd": {
     "about.html": "3db50996"
+  },
+  "setUp_githubPages_Template.md": {
+    "setUp_githubPages_Template.html": "ce443cc2"
+  },
+  "outline.qmd": {
+    "outline.html": "18b90d92"
+  },
+  "sessions.qmd": {
+    "sessions.html": "a85673bc"
+  },
+  "sessions/session_1.qmd": {
+    "session_1.html": "64bc05f2"
+  },
+  "sessions/about.qmd": {
+    "about.html": "c94388e3"
   }
 }

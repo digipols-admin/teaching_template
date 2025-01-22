@@ -3,12 +3,14 @@ project:
   output-dir: docs
 
 website:
-  title: "Teaching template"
+  title: "Teaching"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: sessions.qmd
+        text: Sessions
+    logo: images/logo1.png
 
 format:
   html:
@@ -16,5 +18,10 @@ format:
     css: styles.css
     toc: true
 
+knitr:
+   opts_chunk:
+     fig.path: "images/"
+     comment: "#>"
+     collapse: true
 
 
