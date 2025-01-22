@@ -40,5 +40,14 @@
   },
   "pages/outline.qmd": {
     "outline.html": "03db5be4"
+  },
+  "surveys-tab/template_page.qmd": {
+    "template_page.html": "5866eadf"
+  },
+  "surveys-tab/item_1.qmd": {
+    "item_1.html": "dbeed5b2"
+  },
+  "surveys-tab/surveys-index.qmd": {
+    "surveys-index.html": "de827d8a"
   }
 }

@@ -10,6 +10,8 @@ website:
         text: Home
       - href: sessions-tab/sessions-index.qmd
         text: Sessions
+      - href: surveys-tab/surveys-index.qmd
+        text: Surveys
     logo: images/logo_tepak.png
 
 format:
