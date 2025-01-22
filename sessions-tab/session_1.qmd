@@ -15,3 +15,10 @@ title: "Session 1"
 - **Takeaways:**  
   - Understanding how data underpins strategic communication in marketing.  
   - Basic repository setup and data workflow planning.
+
+
+Links:
+
+- [Set up a Quarto website](https://digipols-admin.github.io/teaching_template/sessions-tab/git_quarto_template.html) 
+
+

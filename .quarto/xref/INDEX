@@ -52,5 +52,8 @@
   },
   "surveys-tab/tvhours_google.qmd": {
     "tvhours_google.html": "28f92bbb"
+  },
+  "sessions-tab/git_quarto_template.qmd": {
+    "git_quarto_template.html": "537746c9"
   }
 }

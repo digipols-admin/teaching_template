@@ -42,11 +42,81 @@
     "text": "Loading…"
   },
   {
-    "objectID": "sessions-tab/template_page.html",
-    "href": "sessions-tab/template_page.html",
-    "title": "About",
+    "objectID": "sessions-tab/git_quarto_template.html",
+    "href": "sessions-tab/git_quarto_template.html",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
     "section": "",
-    "text": "About this site\n\n#&gt; [1] 2\n\nThis is a simple demonstration of generating a plot in an HTML document using Quarto (.qmd) and R.\n\nGenerating a Plot\nWe will create a simple ggplot graph using R’s built-in mtcars dataset."
+    "text": "This document describes how to create a Quarto website template in Git hub and R"
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-1-set-up-a-github-repository-repo",
+    "href": "sessions-tab/git_quarto_template.html#step-1-set-up-a-github-repository-repo",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 1: Set Up a GitHub Repository (repo)",
+    "text": "Step 1: Set Up a GitHub Repository (repo)\n\nThis step is performed via the GitHub website and not in R.\nChoose a name for your repo, the website project. Consider first making the repo a template, so that it can be easily reused to create more websites.\nOnce you’ve create a repo (whether as a template or as a working repo) stay on the repo page, we will use some of the “Quick set up” code later in the R Terminal."
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-2-develop-the-quarto-website-locally",
+    "href": "sessions-tab/git_quarto_template.html#step-2-develop-the-quarto-website-locally",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 2: Develop the Quarto Website Locally",
+    "text": "Step 2: Develop the Quarto Website Locally\n\nCreate a new Quarto project. Since it’s a website, select the create Quarto website option.\nCreate an empty “docs” and an empty “images” folder. These will be needed for compiling the website and adding images if required\nAdjust the YML header so that the project .yml file specifies output to docs, like this:\n\nproject:\n  type: website\n  output-dir: docs\n\nDevelop the website locally on R. If you are developing a template to reuse add some pages and typical features you would like for a template.\nWhen the website template is ready find, the “Build” tab, and press Render Website."
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-3-in-r-initialize-a-git-repository-and-push-to-github",
+    "href": "sessions-tab/git_quarto_template.html#step-3-in-r-initialize-a-git-repository-and-push-to-github",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 3: In R, initialize a Git Repository and Push to GitHub",
+    "text": "Step 3: In R, initialize a Git Repository and Push to GitHub\n\nInstall or load the usethis library.\n\nlibrary(usethis)\nuse_git_config(user.name = \"you-username\", \n               user.email = \"your=email\")\n\nGo the RStuido Terminal or open in Tools.\nIn the Terminal you will initialise git, add files and do a first commit by pasting this code:\n\ngit init\ngit add .\ngit commit -m \"first commit\"\nCopy the lines of code from this part of the open Github webpage and paste into Terminal: “…or push an existing repository from the command line”\nAlternatively run this in terminal - Link the local repository to the GitHub repository:\ngit remote add origin https://github.com/your-username/your-repository.git \n\nPush the commit to GitHub (use master):\n\ngit push -u origin main \n\nYou will probably be prompted for the username and password, so have your git PAT authorization token at hand to use as the password when prompted."
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-4-activate-set-up-github-pages-to-render-website",
+    "href": "sessions-tab/git_quarto_template.html#step-4-activate-set-up-github-pages-to-render-website",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 4: Activate, Set Up GitHub Pages to render website",
+    "text": "Step 4: Activate, Set Up GitHub Pages to render website\n\nIn the git hub website make sure you are in the relevant repo and go to Settings, then choose Pages from left panel.\nUnder Branch, change setting from ‘None’ to ‘Main’, then change ‘/root’ to ’docs. Save changes. In few minutes the website should be running"
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-5-make-the-repository-a-template-optional",
+    "href": "sessions-tab/git_quarto_template.html#step-5-make-the-repository-a-template-optional",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 5: Make the Repository a Template (Optional)",
+    "text": "Step 5: Make the Repository a Template (Optional)\n\nMark the repository as a template in the GitHub repo settings. This way you can reuse the template for creating websites."
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-1-create-new-projects-using-the-template",
+    "href": "sessions-tab/git_quarto_template.html#step-1-create-new-projects-using-the-template",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 1: Create New Projects Using the Template",
+    "text": "Step 1: Create New Projects Using the Template\n\nIn GitHub go to the repo that is the template. Click on ‘Use this template’ to create a new repos. Or go to create “New” repository."
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-2-clone-repo-to-r",
+    "href": "sessions-tab/git_quarto_template.html#step-2-clone-repo-to-r",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 2: Clone repo to R",
+    "text": "Step 2: Clone repo to R\n\nTo clone on RStudio, I will assume you are logged in to a different R project.\nCreate an empty folder with the EXACT same name as the GitHub repo, then:\nOpen R terminal and navigate to the directory where you want the new project:\n\ncd ~/new-project-directory\n\nTo clone the new repository: Note there should be a space and period at the end to tell R not to duplicate the folder\n\ngit clone https://github.com/YOUR-USERNAME/YOUR-NEW-REPO.git .\n\nIf the above code does not work, it could be because of private settings. Try this, where the PAT code should be pasted, remember to leave gap and period.\n\ngit clone https://YOUR-USERNAME:ADD_YOUR_PAT_HERE@github.com/YOUR-USERNAME/YOUR-NEW-REPO.git ."
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-3-configure-website-settings-in-github-pages",
+    "href": "sessions-tab/git_quarto_template.html#step-3-configure-website-settings-in-github-pages",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 3: Configure website settings in GitHub pages",
+    "text": "Step 3: Configure website settings in GitHub pages\n\nIt is likely you will need to activate Git Hub pages. This means repeating the step above: “Step 4: Activate, Set Up GitHub Pages to render website”"
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-4-work-on-your-website-in-rquarto",
+    "href": "sessions-tab/git_quarto_template.html#step-4-work-on-your-website-in-rquarto",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 4: Work on your website in R/Quarto",
+    "text": "Step 4: Work on your website in R/Quarto\n\nGo into your new project in R (this will mean logging out of your current R project)\nWork on your website\nRemember to “Build” website in R before commiting changes to GitHub\nRegularly commit and push changes to GitHub."
+  },
+  {
+    "objectID": "sessions-tab/session_1.html",
+    "href": "sessions-tab/session_1.html",
+    "title": "Session 1",
+    "section": "",
+    "text": "Introduction to Data-Driven Communication\n\nKey Concepts:\n\nOverview of data-driven approaches in marketing and communication.\nIntroduction to essential tools: GitHub, Google Workspace, RStudio, Quarto.\n\nActivities:\n\nSet up GitHub repositories and enable GitHub Pages.\n\nIntroduction to Google Forms and Google Sheets as data collection and management tools.\n\nTakeaways:\n\nUnderstanding how data underpins strategic communication in marketing.\n\nBasic repository setup and data workflow planning.\n\n\nLinks:\n\nSet up a Quarto website"
   },
   {
     "objectID": "sessions-tab/sessions-index.html",
@@ -56,11 +126,11 @@
     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum\nList of course sessions:\n\nSession 1 and 2\nSession 2"
   },
   {
-    "objectID": "sessions-tab/session_1.html",
-    "href": "sessions-tab/session_1.html",
-    "title": "Session 1",
+    "objectID": "sessions-tab/template_page.html",
+    "href": "sessions-tab/template_page.html",
+    "title": "About",
     "section": "",
-    "text": "Introduction to Data-Driven Communication\n\nKey Concepts:\n\nOverview of data-driven approaches in marketing and communication.\nIntroduction to essential tools: GitHub, Google Workspace, RStudio, Quarto.\n\nActivities:\n\nSet up GitHub repositories and enable GitHub Pages.\n\nIntroduction to Google Forms and Google Sheets as data collection and management tools.\n\nTakeaways:\n\nUnderstanding how data underpins strategic communication in marketing.\n\nBasic repository setup and data workflow planning."
+    "text": "About this site\n\n#&gt; [1] 2\n\nThis is a simple demonstration of generating a plot in an HTML document using Quarto (.qmd) and R.\n\nGenerating a Plot\nWe will create a simple ggplot graph using R’s built-in mtcars dataset."
   },
   {
     "objectID": "index.html",
