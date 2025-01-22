@@ -9,5 +9,5 @@ List of items:
 
 - [Item 1](https://digipols-admin.github.io/teaching_template/surveys-tab/item_1.html) 
 
-- [Item 2](https://digipols-admin.github.io/teaching_template/sessions-tab/item_1.html)
+- [Item 2](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_google.html)
 
