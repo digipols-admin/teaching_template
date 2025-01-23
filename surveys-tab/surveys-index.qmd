@@ -16,7 +16,7 @@ The examples below relate to a real-world example of a multi-country survey fiel
 
 ## Another working example (EUT dataset)
 
-Add explanation here
+Add explanation and intro to the EUT project and support website
 
 - [Example of a dashboard for a research consortium](https://extras.cut.ac.cy/ero/eut-dashboards/){target="_blank"}
 

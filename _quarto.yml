@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Teaching"
+  title: "MSc XDMComs"
   navbar:
     left:
       - href: index.qmd
