@@ -28,14 +28,16 @@ The course covers a range of topics, focusing on hands-on techniques for transfo
 
 ## Instructors
 
-### Dr. Costas Tziouvas
-Dr. Costas Tziouvas is a computer scientist and faculty member at the Cyprus University of Technology. He has extensive experience in data analytics and digital communication. You can reach him at [costas.tziouvas@cut.ac.cy](mailto:costas.tziouvas@cut.ac.cy).
+### Miss Emelina Mendez
+In week 3 Miss Emelina Mendez will make a special appearance and perform a Talisman visual.
 
 ### Dr. Fernando Mendez
 Dr. Fernando Mendez, is a political scientist and researcher at the University of Zurich. His interests lie at the intersection of data science and political communication. You can reach him at [fernando.mendez@zda.uzh.ch](mailto:fernando.mendez@zda.uzh.ch).
 
-### Miss Emelina Mendez
-In week 3 Miss Emelina Mendez will make a special appearance and perform a Talisman visual.
+### Dr. Costas Tziouvas
+Dr. Costas Tziouvas is a computer scientist and faculty member at the Cyprus University of Technology. He has extensive experience in data analytics and digital communication. You can reach him at [costas.tziouvas@cut.ac.cy](mailto:costas.tziouvas@cut.ac.cy).
+
+
 
 ::: {.footer style="text-align: left; padding: 1rem; margin-top: 10rem;"}
 © 2025 Digipols. All rights reserved. | [Privacy Policy](#) | [Terms of Service](#)
