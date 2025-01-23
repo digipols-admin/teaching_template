@@ -60,7 +60,7 @@
     "href": "surveys-tab/surveys-index.html#a-shiny-approach-tvhours-dataset",
     "title": "Surveys",
     "section": "A Shiny approach (tvhours dataset)",
-    "text": "A Shiny approach (tvhours dataset)\nAdd introduction about Shiny\nAdd links to Quarto Shiny integration\n\nLink to Shiny questionnaire\nDirect link to Shiny questionnaire\nLinks to static Quarto report"
+    "text": "A Shiny approach (tvhours dataset)\nAdd introduction about Shiny\nAdd links to Quarto Shiny integration\n\nLink to Shiny questionnaire in demotec\nLink to Shiny questionnaire in cohesify\nDirect link to Shiny questionnaire\nLinks to static Quarto report"
   },
   {
     "objectID": "surveys-tab/dust_survey_google.html",

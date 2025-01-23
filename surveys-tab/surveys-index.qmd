@@ -37,7 +37,9 @@ Add introduction about Shiny
 
 Add links to Quarto Shiny integration
 
-- [Link to Shiny questionnaire](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_shiny.html)
+- [Link to Shiny questionnaire in demotec](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_shiny.html)
+
+- [Link to Shiny questionnaire in cohesify](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_shiny_cohesify.html)
 
 - [Direct link to Shiny questionnaire](http://demotec.cut.ac.cy/fernando/tvhours/){target="_blank"}
 
