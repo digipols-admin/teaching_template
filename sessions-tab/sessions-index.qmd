@@ -16,7 +16,7 @@ Sessions 1 to 3 provide the foundation for transforming data into visual experie
 
 Together, these sessions set the stage for developing the practical skills needed to turn raw data into visual stories for marketing and communication purposes.
 
-## Setting Up GitHub, R, and Quarto
+### Setting Up GitHub, R, and Quarto (Session 1)
 
 As part of Session 1, you will set up the foundational tools needed for the course:
 
@@ -24,7 +24,17 @@ As part of Session 1, you will set up the foundational tools needed for the cour
 - **R and RStudio**: Configure R and RStudio, the primary tools for data analysis and visualization.
 - **Quarto**: Set up Quarto to create dynamic and visually appealing reports and dashboards.
 
-For detailed instructions, refer to the [Session 1 Setup Guide](https://digipols-admin.github.io/teaching_template/sessions-tab/session_1.html).
+For detailed instructions, refer to the [Session 1 Setup Guide](https://digipols-admin.github.io/teaching_template/sessions-tab/git_quarto_template.html).
+
+### Survey Creation and Basic Dashboards (Session 2)
+
+Session 2 introduces the process of designing and implementing surveys while also exploring the broader application of dashboards in real-world scenarios. Key topics include:
+
+- **Survey Design**: Learn how to create surveys using tools like Google Forms, focusing on effective question design and data collection.
+- **Dashboard Examples**: Explore real-world examples of dashboards, including some that extend beyond survey data, to understand their applications and impact.
+- **Introduction to Dashboards**: Gain foundational knowledge on creating basic dashboards, setting the stage for more advanced topics in later sessions.
+
+To explore this session's content, visit the [Surveys](https://digipols-admin.github.io/teaching_template/surveys-tab/surveys-index.html) tab, which houses detailed examples and guides.
 
 ## Links to Sessions etc
 
