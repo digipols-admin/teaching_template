@@ -16,9 +16,10 @@ The examples below relate to a real-world example of a multi-country survey fiel
 
 ## Another working example (EUT dataset)
 
-Add explanation
+Add explanation here
 
-- Link 
+- [Example of a dashboard for a research consortium](https://extras.cut.ac.cy/ero/eut-dashboards/){target="_blank"}
+
 
 ## A google approach (tvhours dataset)
 
