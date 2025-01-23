@@ -5,9 +5,10 @@ title: "Data-driven Communication: Content Management & Visualization for Market
 
 ::: {.grid}
 ::: {.g-col-8}
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Bla, Bla.
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
 
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt Nemo enim ipsam.
+Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. 
+
 :::
 
 ::: {.g-col-4}
@@ -16,6 +17,8 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
 :::
 
 Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt Nemo enim ipsam.
+
+Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt Nemo enim ipsam.
 
 [Course Overview:](https://digipols-admin.github.io/teaching_template/pages/outline.html) Access the course overview to see the outline, timetable and links to resources. 
 

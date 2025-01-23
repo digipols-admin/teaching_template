@@ -42,6 +42,13 @@
     "text": "A working example\nThe examples below relate to a real-world example of a multi-country survey fielded for a European Horizon research consortium. The aim was to explore citizens’ attitudes towards participanting in the policy process, with a special focus on regions potentially afflicted by climate change policies.\n\nHosting a survey using google forms\nLink to survey support webpage. This website offers an example of an RStudio workflow website and dashboard used to support a research consortium."
   },
   {
+    "objectID": "surveys-tab/surveys-index.html#another-working-example-eut-dataset",
+    "href": "surveys-tab/surveys-index.html#another-working-example-eut-dataset",
+    "title": "Surveys",
+    "section": "Another working example (EUT dataset)",
+    "text": "Another working example (EUT dataset)\nAdd explanation\n\nLink"
+  },
+  {
     "objectID": "surveys-tab/surveys-index.html#a-google-approach-tvhours-dataset",
     "href": "surveys-tab/surveys-index.html#a-google-approach-tvhours-dataset",
     "title": "Surveys",
@@ -53,7 +60,7 @@
     "href": "surveys-tab/surveys-index.html#a-shiny-approach-tvhours-dataset",
     "title": "Surveys",
     "section": "A Shiny approach (tvhours dataset)",
-    "text": "A Shiny approach (tvhours dataset)\nAdd introduction about Shiny\nAdd links to Quarto Shiny integration\n\nLink to Shiny questionnaire\nLinks to static Quarto report"
+    "text": "A Shiny approach (tvhours dataset)\nAdd introduction about Shiny\nAdd links to Quarto Shiny integration\n\nLink to Shiny questionnaire\nDirect link to Shiny questionnaire\nLinks to static Quarto report"
   },
   {
     "objectID": "surveys-tab/dust_survey_google.html",
@@ -67,7 +74,7 @@
     "href": "index.html",
     "title": "Data-driven Communication: Content Management & Visualization for Marketing and Communication Sciences",
     "section": "",
-    "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Bla, Bla.\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt Nemo enim ipsam.\n\n\n\n\n\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt Nemo enim ipsam.\nCourse Overview: Access the course overview to see the outline, timetable and links to resources.\n\n© 2025 Digipols. All rights reserved. | Privacy Policy | Terms of Service"
+    "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.\n\n\n\n\n\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt Nemo enim ipsam.\nSed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt Nemo enim ipsam.\nCourse Overview: Access the course overview to see the outline, timetable and links to resources.\n\n© 2025 Digipols. All rights reserved. | Privacy Policy | Terms of Service"
   },
   {
     "objectID": "sessions-tab/template_page.html",
@@ -214,14 +221,14 @@
     "href": "surveys-tab/tvhours_static_report.html#scatter-plot-age-vs-tv-hours-simulated-data",
     "title": "Survey Data Analysis",
     "section": "Scatter Plot: Age vs TV Hours (simulated data)",
-    "text": "Scatter Plot: Age vs TV Hours (simulated data)\n\n\nCode\n# Scatter plot with smoothed regression line\nscatter_plot &lt;- ggplot(data, aes(x = age, y = tvhours)) +\n  geom_point(color = \"blue\", alpha = 0.6) +\n  geom_smooth(method = \"lm\", se = TRUE, color = \"red\") +\n  labs(title = \"Scatter Plot of Age vs TV Hours\", x = \"Age\", y = \"TV Hours\") +\n  theme_minimal()\n\nscatter_plot\n\n\n#&gt; `geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae."
+    "text": "Scatter Plot: Age vs TV Hours (simulated data)\n\n\nCode\n# Scatter plot with smoothed regression line\nscatter_plot &lt;- ggplot(data, aes(x = age, y = tvhours)) +\n  geom_point(color = \"blue\", alpha = 0.6) +\n  geom_smooth(method = \"lm\", se = TRUE, color = \"red\") +\n  labs(title = \"Scatter Plot of Age vs TV Hours\", x = \"Age\", y = \"TV Hours\") +\n  theme_minimal()\n\nscatter_plot\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae."
   },
   {
     "objectID": "surveys-tab/tvhours_static_report.html#scatter-plot-age-vs-tv-hours-real-data",
     "href": "surveys-tab/tvhours_static_report.html#scatter-plot-age-vs-tv-hours-real-data",
     "title": "Survey Data Analysis",
     "section": "Scatter Plot: Age vs TV Hours real data",
-    "text": "Scatter Plot: Age vs TV Hours real data\n\n\nCode\n# Scatter plot with smoothed regression line\nscatter_plot &lt;- ggplot(tvhours_data, aes(x = age, y = tvhours)) +\n  geom_point(color = \"blue\", alpha = 0.6) +\n  geom_smooth(method = \"lm\", se = TRUE, color = \"red\") +\n  labs(title = \"Scatter Plot of Age vs TV Hours\", x = \"Age\", y = \"TV Hours\") +\n  theme_minimal()\n\nscatter_plot\n\n\n#&gt; `geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae."
+    "text": "Scatter Plot: Age vs TV Hours real data\n\n\nCode\n# Scatter plot with smoothed regression line\nscatter_plot &lt;- ggplot(tvhours_data, aes(x = age, y = tvhours)) +\n  geom_point(color = \"blue\", alpha = 0.6) +\n  geom_smooth(method = \"lm\", se = TRUE, color = \"red\") +\n  labs(title = \"Scatter Plot of Age vs TV Hours\", x = \"Age\", y = \"TV Hours\") +\n  theme_minimal()\n\nscatter_plot\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae."
   },
   {
     "objectID": "surveys-tab/tvhours_static_report.html#exploring-tv-hours-with-poisson-regression",

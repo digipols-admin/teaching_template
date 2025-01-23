@@ -24,6 +24,6 @@ knitr:
   opts_chunk:
     comment: "#>"
     code-fold: true
-    # collapse: true
-    # echo: false
+    message: false
+    warning: false
 
