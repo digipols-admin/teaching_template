@@ -167,8 +167,8 @@ sessions %>%
 - **Silge, J., & Robinson, D. (2017). *Text Mining with R: A Tidy Approach*. O’Reilly Media.**  
   A practical resource for sentiment analysis and text mining, highlighting best practices and code examples.  
     
-- **Google Looker Studio**, A very good introduction on how to use Google Looker Studio   
+- **Google Looker Studio**, A very good introduction on how to use Google Looker Studio, using Google Analytics as a data source example.   
   **Link**: [https://www.youtube.com/watch?v=Coe\_f79Xc2o](https://www.youtube.com/watch?v=Coe_f79Xc2o)
 
-- **Analytics with Looker Studio**. A useful video on how to integrate Google Analytics into a Looker Studio dahsboard   
+- **Analytics with Looker Studio**. Another useful video on how to integrate Google Analytics into a Looker Studio dahsboard   
   Link: [https://www.youtube.com/watch?v=SdDRZFhHS2U](https://www.youtube.com/watch?v=SdDRZFhHS2U)

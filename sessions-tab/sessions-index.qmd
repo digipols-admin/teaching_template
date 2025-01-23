@@ -37,9 +37,3 @@ Sessions 2 and 3 are combined to provide an introduction to survey creation, dat
 
 For additional resources and examples, visit the [Surveys](https://digipols-admin.github.io/teaching_template/surveys-tab/surveys-index.html) tab.
 
-## Links to Sessions etc
-
-- [Session 1 and 2](https://digipols-admin.github.io/teaching_template/sessions-tab/session_1.html) 
-
-- [Session 3](https://digipols-admin.github.io/teaching_template/sessions-tab/session_3.html)
-

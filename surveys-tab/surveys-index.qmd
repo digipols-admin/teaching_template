@@ -36,8 +36,8 @@ Key resources:
 
 **Additional Resources:**
 
-- [Google Forms Overview - YouTube](https://www.youtube.com/watch?v=ylS5jIPea5g): A video tutorial covering the basics of creating surveys using Google Forms.
-- [Getting Started with Google Data Studio](https://support.google.com/datastudio/answer/6283323): A comprehensive guide by Google on using Data Studio for data visualization.
+- [Google Forms Overview](https://support.google.com/docs/answer/6281888): Official Google forms support page.
+- [Getting Started with Google Data Studio](https://www.youtube.com/watch?v=Coe_f79Xc2o): A good introduction to using Data Studio for data visualization.
 
 ## Using Shiny for Dynamic Surveys and Reports
 
@@ -61,6 +61,6 @@ Key highlights:
 
 **Additional Resources:**
 
-- [Hadley Wickham's 2nd Edition R for Data Science - Chapter on Quarto](https://r4ds.had.co.nz/): A comprehensive guide on Quarto and its integration with R.
+- [Hadley Wickham's 2nd Edition R for Data Science - Chapter on Quarto](https://r4ds.hadley.nz/quarto): An introductory guide on Quarto and its integration with R by a leading R programmer/statistician.
 - [Quarto Documentation: Static Reports](https://quarto.org/docs/authoring/): Official documentation for creating static reports.
 - [Quarto Documentation: Interactive Reports with JS Observable](https://quarto.org/docs/interactive/): Learn to integrate JavaScript Observable with Quarto for interactive visualizations.

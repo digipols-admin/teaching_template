@@ -204,6 +204,28 @@ summary(poisson_model)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at nisl vitae felis tristique dictum.
 
+
+
+```{r poisson-model, eval=FALSE}
+# Example Poisson regression with real data
+# NOT RUN
+library(see)
+library(parameters)
+ 
+poisson_model <- glm(tvhours ~ age + race + rincome + partyid, family = poisson, data = tvhours_data)
+
+summary(poisson_model)
+
+result <- model_parameters(
+  poisson_model,
+  effects = "fixed",
+  component = "conditional",
+  verbose = FALSE
+)
+plot(result)
+```
+
+
 # Conclusion
 
 This Quarto report provides an introduction to survey data analysis, including descriptive statistics and visualizations. By using Quarto, we can create dynamic and reproducible reports suitable for teaching and research purposes.
