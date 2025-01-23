@@ -1,5 +1,5 @@
 ---
-title: "MSc. course on 'Data-driven Communication: Content Management & Visualization for Marketing and Communication Sciences'"
+title: "MSc. Course on 'Data-driven Communication: Content Management & Visualization for Marketing & Communication Sciences'"
 ---
 
 
@@ -7,7 +7,7 @@ title: "MSc. course on 'Data-driven Communication: Content Management & Visualiz
 ::: {.g-col-8}
 Welcome to our course platform, designed to guide you through sessions and serve as a comprehensive repository for resources, including reading material, videos, and code. 
 
-This course emphasizes practical, hands-on skills essential for transforming data into compelling visual stories tailored for marketing and communication. You will master the full technology stack—from survey creation tools like Google Forms to collaborative version control using GitHub, and R-based analytics with RStudio and Quarto for generating visually captivating dashboards. 
+This course emphasizes practical, hands-on skills for transforming data into compelling dashboards and visual stories tailored for marketing and communication. You will master the full technology stack—from survey creation tools like Google Forms to collaborative version control using GitHub, and R-based analytics with RStudio and Quarto. 
 
 :::
 
