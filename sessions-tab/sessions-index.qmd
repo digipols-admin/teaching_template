@@ -2,8 +2,19 @@
 title: "Course sessions"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+Each session in this course builds upon the previous, providing a learning approach that takes you from foundational concepts to advanced techniques. Sessions 1, 2, and 3 are designed to be explored together, offering an introduction to the key tools and methods required for transforming data into visual insights. 
 
+Further information on the course sessions will be added to the platform on a weekly basis.
+
+## Sessions 1–3 Overview
+
+Sessions 1 to 3 provide the foundation for transforming data into visual experiences. In these three sessions, you will:
+
+- Explore the basics of data-driven communication and learn about the tools and workflows essential for effective content management.
+- Dive deeper into survey creation using Google Forms and collaborative version control with GitHub to manage and streamline projects.
+- Gain hands-on experience with RStudio and Quarto, mastering analytics and creating visually compelling dashboards that communicate clear insights.
+
+Together, these sessions set the stage for developing the practical skills needed to turn raw data into visual stories for marketing and communication purposes.
 
 ## Links to Sessions
 
