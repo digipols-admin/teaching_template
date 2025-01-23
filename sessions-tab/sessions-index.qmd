@@ -26,15 +26,16 @@ As part of Session 1, you will set up the foundational tools needed for the cour
 
 For detailed instructions, refer to the [Session 1 Setup Guide](https://digipols-admin.github.io/teaching_template/sessions-tab/git_quarto_template.html).
 
-### Survey Creation and Basic Dashboards (Session 2)
+### Surveys and Content Management (Sessions 2 & 3)
 
-Session 2 introduces the process of designing and implementing surveys while also exploring the broader application of dashboards in real-world scenarios. Key topics include:
+Sessions 2 and 3 are combined to provide an introduction to survey creation, data management, and basic dashboard design. Key topics include:
 
-- **Survey Design**: Learn how to create surveys using tools like Google Forms, focusing on effective question design and data collection.
-- **Dashboard Examples**: Explore real-world examples of dashboards, including some that extend beyond survey data, to understand their applications and impact.
-- **Introduction to Dashboards**: Gain foundational knowledge on creating basic dashboards, setting the stage for more advanced topics in later sessions.
+- **Real-World Dashboard Examples**: Explore real-world examples of dashboards that demonstrate diverse applications, some extending beyond survey data, to understand their practical impact.
+- **Survey Design and Implementation**: Learn how to create and implement surveys using tools like Google Forms, focusing on effective question design and data collection.
+- **Content Management with R**: Use R programming to import, clean, and wrangle data. This includes working with tools like `googlesheets4` to integrate and manipulate Google Sheets data efficiently.
+- **Introduction to Dashboards**: Gain foundational knowledge and hands-on experience in creating basic dashboards, setting the stage for more advanced visualization techniques.
 
-To explore this session's content, visit the [Surveys](https://digipols-admin.github.io/teaching_template/surveys-tab/surveys-index.html) tab, which houses detailed examples and guides.
+For additional resources and examples, visit the [Surveys](https://digipols-admin.github.io/teaching_template/surveys-tab/surveys-index.html) tab.
 
 ## Links to Sessions etc
 
