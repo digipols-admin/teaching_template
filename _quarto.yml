@@ -23,6 +23,7 @@ format:
 knitr:
   opts_chunk:
     comment: "#>"
-    collapse: true
-    echo: false
+    code-fold: true
+    # collapse: true
+    # echo: false
 
