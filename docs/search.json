@@ -165,14 +165,21 @@
     "href": "sessions-tab/sessions-index.html#sessions-13-overview",
     "title": "Course sessions",
     "section": "Sessions 1–3 Overview",
-    "text": "Sessions 1–3 Overview\nSessions 1 to 3 provide the foundation for transforming data into visual experiences. In these three sessions, you will:\n\nExplore the basics of data-driven communication and learn about the tools and workflows essential for effective content management.\nDive deeper into survey creation using Google Forms and collaborative version control with GitHub to manage and streamline projects.\nGain hands-on experience with RStudio and Quarto, mastering analytics and creating visually compelling dashboards that communicate clear insights.\n\nTogether, these sessions set the stage for developing the practical skills needed to turn raw data into visual stories for marketing and communication purposes."
+    "text": "Sessions 1–3 Overview\nSessions 1 to 3 provide the foundation for transforming data into visual experiences. In these three sessions, you will:\n\nUnderstand the basics of data-driven communication and learn about the tools and workflows essential for effective content management.\nExplore survey creation using Google Forms and collaborative version control with GitHub to manage and streamline projects.\nGain hands-on experience with RStudio and Quarto, mastering analytics and creating dashboards that communicate clear insights.\n\nTogether, these sessions set the stage for developing the practical skills needed to turn raw data into visual stories for marketing and communication purposes."
   },
   {
-    "objectID": "sessions-tab/sessions-index.html#links-to-sessions",
-    "href": "sessions-tab/sessions-index.html#links-to-sessions",
+    "objectID": "sessions-tab/sessions-index.html#setting-up-github-r-and-quarto",
+    "href": "sessions-tab/sessions-index.html#setting-up-github-r-and-quarto",
     "title": "Course sessions",
-    "section": "Links to Sessions",
-    "text": "Links to Sessions\n\nSession 1 and 2\nSession 3"
+    "section": "Setting Up GitHub, R, and Quarto",
+    "text": "Setting Up GitHub, R, and Quarto\nAs part of Session 1, you will set up the foundational tools needed for the course:\n\nGitHub: Learn the basics of version control, including creating repositories, committing changes, and collaborating on projects.\nR and RStudio: Configure R and RStudio, the primary tools for data analysis and visualization.\nQuarto: Set up Quarto to create dynamic and visually appealing reports and dashboards.\n\nFor detailed instructions, refer to the Session 1 Setup Guide."
+  },
+  {
+    "objectID": "sessions-tab/sessions-index.html#links-to-sessions-etc",
+    "href": "sessions-tab/sessions-index.html#links-to-sessions-etc",
+    "title": "Course sessions",
+    "section": "Links to Sessions etc",
+    "text": "Links to Sessions etc\n\nSession 1 and 2\nSession 3"
   },
   {
     "objectID": "sessions-tab/template_page.html",

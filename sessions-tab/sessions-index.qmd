@@ -10,13 +10,23 @@ Further information on the course sessions will be added to the platform on a we
 
 Sessions 1 to 3 provide the foundation for transforming data into visual experiences. In these three sessions, you will:
 
-- Explore the basics of data-driven communication and learn about the tools and workflows essential for effective content management.
-- Dive deeper into survey creation using Google Forms and collaborative version control with GitHub to manage and streamline projects.
-- Gain hands-on experience with RStudio and Quarto, mastering analytics and creating visually compelling dashboards that communicate clear insights.
+- Understand the basics of data-driven communication and learn about the tools and workflows essential for effective content management.
+- Explore survey creation using Google Forms and collaborative version control with GitHub to manage and streamline projects.
+- Gain hands-on experience with RStudio and Quarto, mastering analytics and creating dashboards that communicate clear insights.
 
 Together, these sessions set the stage for developing the practical skills needed to turn raw data into visual stories for marketing and communication purposes.
 
-## Links to Sessions
+## Setting Up GitHub, R, and Quarto
+
+As part of Session 1, you will set up the foundational tools needed for the course:
+
+- **GitHub**: Learn the basics of version control, including creating repositories, committing changes, and collaborating on projects.
+- **R and RStudio**: Configure R and RStudio, the primary tools for data analysis and visualization.
+- **Quarto**: Set up Quarto to create dynamic and visually appealing reports and dashboards.
+
+For detailed instructions, refer to the [Session 1 Setup Guide](https://digipols-admin.github.io/teaching_template/sessions-tab/session_1.html).
+
+## Links to Sessions etc
 
 - [Session 1 and 2](https://digipols-admin.github.io/teaching_template/sessions-tab/session_1.html) 
 
