@@ -1,68 +1,65 @@
 ---
-title: "Interactive Report"
+title: 'Observable JS in Quarto document'
 format: html
-runtime: shiny
 ---
 
-```{r setup, include=FALSE}
-library(shiny)
-library(ggplot2)
-library(datasets)
-library(dplyr)
+The documents regarding how to use Observable Javascript in Quarto are extremely lacking. Two main sources for this topic are [quarto.org](https://quarto.org/docs/interactive/ojs/) and [quarto dashboard](https://quarto.org/docs/dashboards/interactivity/observable.html).
+
+This note reproduces the example shown in quarto.org.
+
+## Example
+
+Currently, OJS doesn't work interactively with RStudio (see the [github discussion](https://github.com/quarto-dev/quarto-cli/issues/1242#issuecomment-1169863641)). As the [document](https://quarto.org/docs/interactive/ojs/#example) shows, the example based on Allison Horst's [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/).
+
+```{r,eval=FALSE}
+#| message: false
+#| output: false
+library(palmerpenguins)
+library(here)
+data(penguins)
+write_csv(penguins, file = here('palmer-penguins.csv'))
 ```
 
-## Descriptive Statistics
-
-This section includes static descriptive charts for the `mtcars` dataset.
-
-### Distribution of Miles per Gallon (MPG)
-
-```{r}
-ggplot(mtcars, aes(x = mpg)) +
-  geom_histogram(binwidth = 2, fill = "blue", color = "white") +
-  labs(title = "Histogram of Miles per Gallon (MPG)", x = "MPG", y = "Count")
+```{ojs}
+data = FileAttachment('palmer-penguins.csv').csv({ typed: true})
 ```
 
-### Relationship between MPG and Weight
-
-```{r}
-ggplot(mtcars, aes(x = wt, y = mpg)) +
-  geom_point(color = "darkred", size = 2) +
-  labs(title = "Scatter Plot of MPG vs Weight", x = "Weight (1000 lbs)", y = "MPG")
+```{ojs}
+viewof bill_length_min = Inputs.range(
+  [32, 50], 
+  {value: 35, step: 1, label: "Bill length (min):"}
+)
+viewof islands = Inputs.checkbox(
+  ["Torgersen", "Biscoe", "Dream"], 
+  { value: ["Torgersen", "Biscoe"], 
+    label: "Islands:"
+  }
+)
 ```
 
-## Interactive Component: K-Means Clustering
-
-Use the slider below to adjust the number of clusters in the k-means algorithm. The plot will update dynamically based on your selection.
-
-### Slider Input for Clusters
-
-```{r}
-sliderInput("clusters", "Number of Clusters:", min = 2, max = 10, value = 3)
-```
-
-### Reactive Plot
-
-```{r}
-renderPlot({
-  set.seed(123)
-  num_clusters <- input$clusters
-  kmeans_result <- kmeans(mtcars[, c("mpg", "wt")], centers = num_clusters)
-  mtcars$cluster <- factor(kmeans_result$cluster)
-
-  ggplot(mtcars, aes(x = mpg, y = wt, color = cluster)) +
-    geom_point(size = 3) +
-    labs(
-      title = paste("K-Means Clustering with", num_clusters, "Clusters"),
-      x = "Miles per Gallon (MPG)",
-      y = "Weight (1000 lbs)"
-    ) +
-    theme_minimal()
+```{ojs}
+filtered = data.filter(function(penguin) {
+  return bill_length_min < penguin.bill_length_mm &&
+         islands.includes(penguin.island);
 })
 ```
 
-### Output Plot
-
-```{r}
-plotOutput("kmeans_plot")
+```{ojs}
+Plot.rectY(filtered, 
+  Plot.binX(
+    {y: "count"}, 
+    {x: "body_mass_g", fill: "species", thresholds: 20}
+  ))
+  .plot({
+    facet: {
+      data: filtered,
+      x: "sex",
+      y: "species",
+      marginRight: 80
+    },
+    marks: [
+      Plot.frame(),
+    ]
+  }
+)
 ```

@@ -21,27 +21,6 @@
     "text": "Resources\n\nHappy Git and GitHub for the useR. A full course on using git by Jennifer Bryan. Browse chapter 4 Register a GitHub account section 4.1 on creating a GitHub account.\nLink: https://happygitwithr.com\nQuarto: The main resource for Quarto publishing framework\nLink: https://quarto.org/\nAn online version of (slightly older but still relevant) chapter from Stephen Few on principles of data visualization\nLink: https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/data-visualization-for-human-perception\nModern Data Visualization with R: An online version of the book “Modern Data Visualization with R, which guides you through creating popular visualizations using R, focusing on the ggplot2 package.\nLink: https://rkabacoff.github.io/datavis/\nR package ggpubr A good R library for creating publication ready graphs, with useful examples and simpler syntax than ggplot2.\nLink: https://rpkgs.datanovia.com/ggpubr/index.html\nSilge, J., & Robinson, D. (2017). Text Mining with R: A Tidy Approach. O’Reilly Media.\nA practical resource for sentiment analysis and text mining, highlighting best practices and code examples.\nGoogle Looker Studio, A very good introduction on how to use Google Looker Studio, using Google Analytics as a data source example.\nLink: https://www.youtube.com/watch?v=Coe_f79Xc2o\nAnalytics with Looker Studio. Another useful video on how to integrate Google Analytics into a Looker Studio dahsboard\nLink: https://www.youtube.com/watch?v=SdDRZFhHS2U"
   },
   {
-    "objectID": "kmeans.html",
-    "href": "kmeans.html",
-    "title": "Interactive Report",
-    "section": "",
-    "text": "This section includes static descriptive charts for the mtcars dataset.\n\n\n\n\nCode\nggplot(mtcars, aes(x = mpg)) +\n  geom_histogram(binwidth = 2, fill = \"blue\", color = \"white\") +\n  labs(title = \"Histogram of Miles per Gallon (MPG)\", x = \"MPG\", y = \"Count\")\n\n\n\n\n\n\n\n\n\n\nCode\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(color = \"darkred\", size = 2) +\n  labs(title = \"Scatter Plot of MPG vs Weight\", x = \"Weight (1000 lbs)\", y = \"MPG\")"
-  },
-  {
-    "objectID": "kmeans.html#descriptive-statistics",
-    "href": "kmeans.html#descriptive-statistics",
-    "title": "Interactive Report",
-    "section": "",
-    "text": "This section includes static descriptive charts for the mtcars dataset.\n\n\n\n\nCode\nggplot(mtcars, aes(x = mpg)) +\n  geom_histogram(binwidth = 2, fill = \"blue\", color = \"white\") +\n  labs(title = \"Histogram of Miles per Gallon (MPG)\", x = \"MPG\", y = \"Count\")\n\n\n\n\n\n\n\n\n\n\nCode\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(color = \"darkred\", size = 2) +\n  labs(title = \"Scatter Plot of MPG vs Weight\", x = \"Weight (1000 lbs)\", y = \"MPG\")"
-  },
-  {
-    "objectID": "kmeans.html#interactive-component-k-means-clustering",
-    "href": "kmeans.html#interactive-component-k-means-clustering",
-    "title": "Interactive Report",
-    "section": "Interactive Component: K-Means Clustering",
-    "text": "Interactive Component: K-Means Clustering\nUse the slider below to adjust the number of clusters in the k-means algorithm. The plot will update dynamically based on your selection.\n\nSlider Input for Clusters\n\n\nCode\nsliderInput(\"clusters\", \"Number of Clusters:\", min = 2, max = 10, value = 3)\n\n\n\nNumber of Clusters:\n\n\n\n\n\n\nReactive Plot\n\n\nCode\nrenderPlot({\n  set.seed(123)\n  num_clusters &lt;- input$clusters\n  kmeans_result &lt;- kmeans(mtcars[, c(\"mpg\", \"wt\")], centers = num_clusters)\n  mtcars$cluster &lt;- factor(kmeans_result$cluster)\n\n  ggplot(mtcars, aes(x = mpg, y = wt, color = cluster)) +\n    geom_point(size = 3) +\n    labs(\n      title = paste(\"K-Means Clustering with\", num_clusters, \"Clusters\"),\n      x = \"Miles per Gallon (MPG)\",\n      y = \"Weight (1000 lbs)\"\n    ) +\n    theme_minimal()\n})\n\n\n\n\n\n\n\nOutput Plot\n\n\nCode\nplotOutput(\"kmeans_plot\")"
-  },
-  {
     "objectID": "surveys-tab/tvhours_static_report.html",
     "href": "surveys-tab/tvhours_static_report.html",
     "title": "Survey Data Analysis",
@@ -266,17 +245,17 @@
     "text": "Using Shiny for Dynamic Surveys and Reports\nContinuing with the General Social Survey (GSS) dataset on TV hours watched, this section demonstrates how Shiny can be used for survey creation and data collection. Using the shinysurveys package in R, we will build a fully functional survey and collect responses dynamically. The collected data will then be showcased in both static and interactive reports using Quarto.\nShiny stands out as an excellent option for building enterprise-level web applications due to its flexibility and ability to handle dynamic data inputs. Its seamless integration with R makes it a popular choice for industries needing data-driven solutions, from finance to healthcare. Meanwhile, Quarto is emerging as a vanguard publishing solution, providing powerful tools for creating professional, high-quality documents and interactive reports. Its support for JavaScript Observable -as well as Python and VS Code- enhances interactivity, making it an ideal choice for creating engaging and exploratory data narratives.\nKey highlights:\n\nSurvey Creation: Learn to design surveys with Shiny and collect real-time data seamlessly.\nStatic Report: Present collected survey data in a clear and concise Quarto report, ideal for static dissemination.\nInteractive Report: Create an engaging interactive report using Quarto and JavaScript Observable, allowing users to explore the data dynamically.\n\nKey Resources:\n\niFrame example of a Shiny questionnaire hosted on demotec: A demonstration of hosting a Shiny survey. N.B This link may not be working as we are still waiting for https certification!\nDirect link to Shiny questionnaire hosted on demotec: Access the Shiny questionnaire directly.\niFrame example of Shiny questionnaire hosted on cohesify: An alternative hosting solution for the Shiny questionnaire.\nExample of a static Quarto report\nExample of an interactive Quarto report. N.B. Not availabe yet, pending upload\n\nAdditional Resources:\n\nHadley Wickham’s 2nd Edition R for Data Science - Chapter on Quarto: An introductory guide on Quarto and its integration with R by a leading R programmer/statistician.\nQuarto Documentation: Static Reports: Official documentation for creating static reports.\nQuarto Documentation: Interactive Reports with JS Observable: Learn to integrate JavaScript Observable with Quarto for interactive visualizations."
   },
   {
-    "objectID": "template_page.html",
-    "href": "template_page.html",
-    "title": "About",
+    "objectID": "kmeans.html",
+    "href": "kmeans.html",
+    "title": "Observable JS in Quarto document",
     "section": "",
-    "text": "About this site\n\n\nCode\n1 + 1\n\n\n#&gt; [1] 2\n\n\nThis is a simple demonstration of generating a plot in an HTML document using Quarto (.qmd) and R.\n\nGenerating a Plot\nWe will create a simple ggplot graph using R’s built-in mtcars dataset.\n\n\nCode\n# Load necessary libraries\nlibrary(ggplot2)\n\n# Create the plot\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point() +\n  theme_minimal() +\n  ggtitle(\"Scatter Plot of MPG vs. Weight\") +\n  xlab(\"Weight (1000 lbs)\") +\n  ylab(\"Miles/(US) gallon\")"
+    "text": "The documents regarding how to use Observable Javascript in Quarto are extremely lacking. Two main sources for this topic are quarto.org and quarto dashboard.\nThis note reproduces the example shown in quarto.org."
   },
   {
-    "objectID": "pages/faithful.html",
-    "href": "pages/faithful.html",
-    "title": "Old Faithful",
-    "section": "",
-    "text": "Data on eruptions of the Old Faithful geyser in Yellowstone National Park, Wyoming, USA. The data was collected continuously from August 1st until August 15th, 1985.\n\n\n\nNumber of bins:\n\n\n\n\n\n\n\nThe data consists of 299 pairs of measurements, referring to the time interval between the starts of successive eruptions and the duration of the subsequent eruption.\nClick the Code button above to see the source code for this example."
+    "objectID": "kmeans.html#example",
+    "href": "kmeans.html#example",
+    "title": "Observable JS in Quarto document",
+    "section": "Example",
+    "text": "Example\nCurrently, OJS doesn’t work interactively with RStudio (see the github discussion). As the document shows, the example based on Allison Horst’s Palmer Penguins.\n\n\nCode\nlibrary(palmerpenguins)\nlibrary(here)\ndata(penguins)\nwrite_csv(penguins, file = here('palmer-penguins.csv'))\n\n\n\ndata = FileAttachment('palmer-penguins.csv').csv({ typed: true})\n\n\n\n\n\n\n\nviewof bill_length_min = Inputs.range(\n  [32, 50], \n  {value: 35, step: 1, label: \"Bill length (min):\"}\n)\nviewof islands = Inputs.checkbox(\n  [\"Torgersen\", \"Biscoe\", \"Dream\"], \n  { value: [\"Torgersen\", \"Biscoe\"], \n    label: \"Islands:\"\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfiltered = data.filter(function(penguin) {\n  return bill_length_min &lt; penguin.bill_length_mm &&\n         islands.includes(penguin.island);\n})\n\n\n\n\n\n\n\nPlot.rectY(filtered, \n  Plot.binX(\n    {y: \"count\"}, \n    {x: \"body_mass_g\", fill: \"species\", thresholds: 20}\n  ))\n  .plot({\n    facet: {\n      data: filtered,\n      x: \"sex\",\n      y: \"species\",\n      marginRight: 80\n    },\n    marks: [\n      Plot.frame(),\n    ]\n  }\n)"
   }
 ]
