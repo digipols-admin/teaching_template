@@ -11,20 +11,22 @@ This note reproduces the example shown in quarto.org.
 
 Currently, OJS doesn't work interactively with RStudio (see the [github discussion](https://github.com/quarto-dev/quarto-cli/issues/1242#issuecomment-1169863641)). As the [document](https://quarto.org/docs/interactive/ojs/#example) shows, the example based on Allison Horst's [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/).
 
-```{r,eval=FALSE}
+```{r}
 #| message: false
 #| output: false
 library(palmerpenguins)
 library(here)
 data(penguins)
-write_csv(penguins, file = here('palmer-penguins.csv'))
+write_csv(penguins, file = here('datasets/palmer-penguins.csv'))
 ```
 
 ```{ojs}
-data = FileAttachment('palmer-penguins.csv').csv({ typed: true})
+//| code-fold: true
+data = FileAttachment('datasets/palmer-penguins.csv').csv({ typed: true})
 ```
 
 ```{ojs}
+//| code-fold: true
 viewof bill_length_min = Inputs.range(
   [32, 50], 
   {value: 35, step: 1, label: "Bill length (min):"}
@@ -38,6 +40,7 @@ viewof islands = Inputs.checkbox(
 ```
 
 ```{ojs}
+//| code-fold: true
 filtered = data.filter(function(penguin) {
   return bill_length_min < penguin.bill_length_mm &&
          islands.includes(penguin.island);
@@ -45,6 +48,7 @@ filtered = data.filter(function(penguin) {
 ```
 
 ```{ojs}
+//| code-fold: true
 Plot.rectY(filtered, 
   Plot.binX(
     {y: "count"}, 

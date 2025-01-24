@@ -21,7 +21,7 @@ This example focuses on the use of dashboards developed as support for the EUT r
 
 Key resource:
 
-- [Example of a dashboard for a research consortium](https://extras.cut.ac.cy/ero/eut-dashboards/){target="_blank"}: A comprehensive dashboard showcasing data visualization and integration techniques used in collaborative research projects.
+- [Example of a dashboard for a research consortium](https://extras.cut.ac.cy/ero/eut-dashboards/){target="_blank"}: A comprehensive dashboard showcasing data visualization and integration techniques used in collaborative research projects. This iframe may not load if using a TEPAK network.  
 
 ## Leveraging the Google Ecosystem: Surveys and Dashboards
 
@@ -53,14 +53,14 @@ Key highlights:
 
 **Key Resources:**
 
-- [iFrame example of a Shiny questionnaire hosted on demotec](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_shiny.html): A demonstration of hosting a Shiny survey. N.B This link may not be working as we are still waiting for https certification!
-- [Direct link to Shiny questionnaire hosted on demotec](http://demotec.cut.ac.cy/fernando/tvhours/){target="_blank"}: Access the Shiny questionnaire directly.
+- [iFrame example of a Shiny questionnaire hosted on demotec](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_shiny.html): A demonstration of hosting a Shiny survey. **N.B** Since we are still waiting for https certification from the Uni, the iframe in this link is unlikely to work!
+- [Direct link to Shiny questionnaire hosted on demotec](http://demotec.cut.ac.cy/fernando/tvhours/){target="_blank"}: However it is possible to access the Shiny questionnaire directly.
 - [iFrame example of Shiny questionnaire hosted on cohesify](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_shiny_cohesify.html): An alternative hosting solution for the Shiny questionnaire.
 - [Example of a static Quarto report](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_static_report.html)
-- [Example of an interactive Quarto report](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_static_report.html). N.B. Not availabe yet, pending upload
+- [Example of an interactive Quarto report](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_js.html). 
 
 **Additional Resources:**
 
 - [Hadley Wickham's 2nd Edition R for Data Science - Chapter on Quarto](https://r4ds.hadley.nz/quarto): An introductory guide on Quarto and its integration with R by a leading R programmer/statistician.
 - [Quarto Documentation: Static Reports](https://quarto.org/docs/authoring/): Official documentation for creating static reports.
-- [Quarto Documentation: Interactive Reports with JS Observable](https://quarto.org/docs/interactive/): Learn to integrate JavaScript Observable with Quarto for interactive visualizations.
+- [Quarto Documentation: Interactive Reports with JS Observable](https://quarto.org/docs/interactive/): Learn to integrate JavaScript Observable with Quarto for interactive visualizations. **N.B** These examples may not work with an Rstudio server.

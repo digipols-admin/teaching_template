@@ -82,5 +82,11 @@
   },
   "kmeans.qmd": {
     "kmeans.html": "7abdf98e"
+  },
+  "tvhours_js.qmd": {
+    "tvhours_js.html": "808191fe"
+  },
+  "surveys-tab/tvhours_js.qmd": {
+    "tvhours_js.html": "40e617b9"
   }
 }

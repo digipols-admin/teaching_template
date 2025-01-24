@@ -154,6 +154,8 @@ sessions %>%
 - **Quarto:** The main resource for Quarto publishing framework  
   **Link:** [https://quarto.org/](https://quarto.org/)
 
+- [Hadley Wickham's 2nd Edition R for Data Science - Chapter on Quarto](https://r4ds.hadley.nz/quarto): An introductory guide on Quarto and its integration with R by a leading R programmer/statistician.
+
 - An online version of (slightly older but still relevant) chapter from Stephen Few on principles of data visualization  
   **Link**:  [https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/data-visualization-for-human-perception](https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/data-visualization-for-human-perception?cm_mc_sid_50200000=1497196827&cm_mc_uid=13918417820714971968273)
 
@@ -163,9 +165,9 @@ sessions %>%
 - R package `ggpubr` A good R library for creating publication ready graphs, with useful examples and simpler syntax than `ggplot2`.   
   **Link:** [https://rpkgs.datanovia.com/ggpubr/index.html](https://rpkgs.datanovia.com/ggpubr/index.html)  
     
-- **Silge, J., & Robinson, D. (2017). *Text Mining with R: A Tidy Approach*. O’Reilly Media.**  
-  A practical resource for sentiment analysis and text mining, highlighting best practices and code examples.  
-    
+- **Silge, J., & Robinson, D. (2017). *Text Mining with R: A Tidy Approach*. O’Reilly Media.** A practical resource for sentiment analysis and text mining, highlighting best practices and code examples.  
+**Link:** [https://www.tidytextmining.com/](https://www.tidytextmining.com)  
+
 - **Google Looker Studio**, A very good introduction on how to use Google Looker Studio, using Google Analytics as a data source example.   
   **Link**: [https://www.youtube.com/watch?v=Coe\_f79Xc2o](https://www.youtube.com/watch?v=Coe_f79Xc2o)
 
