@@ -206,7 +206,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at nisl vitae fe
 
 
 
-```{r poisson-model, eval=FALSE}
+```{r poisson-model-real, eval=FALSE}
 # Example Poisson regression with real data
 # NOT RUN
 library(see)
