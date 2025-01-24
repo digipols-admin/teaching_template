@@ -17,12 +17,12 @@ Currently, OJS doesn't work interactively with RStudio (see the [github discussi
 library(palmerpenguins)
 library(here)
 data(penguins)
-write_csv(penguins, file = here('datasets/palmer-penguins.csv'))
+write_csv(penguins, file = here('palmer-penguins.csv'))
 ```
 
 ```{ojs}
 //| code-fold: true
-data = FileAttachment('datasets/palmer-penguins.csv').csv({ typed: true})
+data = FileAttachment('palmer-penguins.csv').csv({ typed: true})
 ```
 
 ```{ojs}

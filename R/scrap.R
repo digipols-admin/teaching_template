@@ -13,3 +13,10 @@ dir_copy(source_dir, destination_dir)
 # quarto render
 # git add . && git commit -m "Add git steps2" && git push
 # git config --global credential.helper cache
+
+# > gitcreds::gitcreds_set()
+# 
+# ? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# -> Adding new credentials...
+# -> Removing credentials from cache...
+# -> Done.

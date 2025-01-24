@@ -1,8 +1,6 @@
 ---
 title: 'Observable JS in Quarto Document: Extended Use Case'
 format: html
-editor_options: 
-  chunk_output_type: console
 ---
 
 # Introduction
@@ -18,7 +16,7 @@ library(tidyverse)
 library(ggplot2)
 library(ggpubr) # for nice graphs
 library(rstatix) # for summaries
-library(here)
+# library(here)
 
 tvhours_data <- tibble(
   marital = sample(c("Divorced", "Married", "Never married", "Separated", "Widowed"), 100, replace = TRUE),
@@ -37,7 +35,7 @@ tvhours_data <- tvhours_data %>%
     TRUE ~ "Independent"
   ))
 
-write_csv(tvhours_data, file = here('datasets/tvhours_data_js.csv'))
+# write_csv(tvhours_data, file = here('tvhours_data_js.csv'))
 ```
 
 # Findings
@@ -86,7 +84,7 @@ ggplot(tvhours_data, aes(x = age)) +
 
 ```{ojs}
 //| code-fold: true
-data = FileAttachment('datasets/tvhours_data_js.csv').csv({ typed: true })
+data = FileAttachment('tvhours_data_js.csv').csv({ typed: true })
 
 viewof party_filter = Inputs.select(
   ["Democrat", "Republican", "Independent"],
