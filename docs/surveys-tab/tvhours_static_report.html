@@ -554,25 +554,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example Poisson regression with real data</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># NOT RUN</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(see)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parameters)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>poisson_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(tvhours <span class="sc">~</span> age <span class="sc">+</span> race <span class="sc">+</span> rincome <span class="sc">+</span> partyid, <span class="at">family =</span> poisson, <span class="at">data =</span> tvhours_data)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(poisson_model)</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the parameters package to extract coefficients</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">model_parameters</span>(</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  poisson_model,</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">effects =</span> <span class="st">"fixed"</span>,</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">component =</span> <span class="st">"conditional"</span>,</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">verbose =</span> <span class="cn">FALSE</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the see package to plot results</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(see)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(parameters)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>poisson_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(tvhours <span class="sc">~</span> age <span class="sc">+</span> race <span class="sc">+</span> rincome <span class="sc">+</span> partyid, <span class="at">family =</span> poisson, <span class="at">data =</span> tvhours_data)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(poisson_model)</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the parameters package to extract coefficients</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">model_parameters</span>(</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  poisson_model,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">effects =</span> <span class="st">"fixed"</span>,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">component =</span> <span class="st">"conditional"</span>,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">verbose =</span> <span class="cn">FALSE</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; Parameter                    | Log-Mean |       SE |         95% CI |     z |      p
+#&gt; ------------------------------------------------------------------------------------
+#&gt; (Intercept)                  |     0.91 |     0.08 | [ 0.75,  1.06] | 11.24 | &lt; .001
+#&gt; age                          | 5.14e-03 | 9.45e-04 | [ 0.00,  0.01] |  5.44 | &lt; .001
+#&gt; race [Other]                 |    -0.41 |     0.08 | [-0.57, -0.25] | -5.09 | &lt; .001
+#&gt; race [White]                 |    -0.31 |     0.04 | [-0.39, -0.23] | -7.74 | &lt; .001
+#&gt; rincome [$15000 - 19999]     |     0.11 |     0.09 | [-0.07,  0.29] |  1.18 | 0.238 
+#&gt; rincome [$20000 - 24999]     |     0.11 |     0.09 | [-0.06,  0.29] |  1.25 | 0.211 
+#&gt; rincome [$25000 or more]     |    -0.01 |     0.07 | [-0.15,  0.13] | -0.19 | 0.852 
+#&gt; rincome [Less than 10000]    |     0.28 |     0.07 | [ 0.15,  0.42] |  4.07 | &lt; .001
+#&gt; partyid [Not str democrat]   |     0.03 |     0.04 | [-0.06,  0.12] |  0.65 | 0.513 
+#&gt; partyid [Not str republican] | 4.76e-03 |     0.05 | [-0.10,  0.10] |  0.09 | 0.925 
+#&gt; partyid [Strong democrat]    |     0.09 |     0.05 | [ 0.00,  0.19] |  1.98 | 0.047 
+#&gt; partyid [Strong republican]  |    -0.11 |     0.06 | [-0.23,  0.00] | -1.96 | 0.050</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the see package to plot results</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="tvhours_static_report_files/figure-html/poisson-model-real-1.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 </section>
 </section>
