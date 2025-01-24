@@ -1,0 +1,68 @@
+---
+title: "Interactive Report"
+format: html
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(shiny)
+library(ggplot2)
+library(datasets)
+library(dplyr)
+```
+
+## Descriptive Statistics
+
+This section includes static descriptive charts for the `mtcars` dataset.
+
+### Distribution of Miles per Gallon (MPG)
+
+```{r}
+ggplot(mtcars, aes(x = mpg)) +
+  geom_histogram(binwidth = 2, fill = "blue", color = "white") +
+  labs(title = "Histogram of Miles per Gallon (MPG)", x = "MPG", y = "Count")
+```
+
+### Relationship between MPG and Weight
+
+```{r}
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point(color = "darkred", size = 2) +
+  labs(title = "Scatter Plot of MPG vs Weight", x = "Weight (1000 lbs)", y = "MPG")
+```
+
+## Interactive Component: K-Means Clustering
+
+Use the slider below to adjust the number of clusters in the k-means algorithm. The plot will update dynamically based on your selection.
+
+### Slider Input for Clusters
+
+```{r}
+sliderInput("clusters", "Number of Clusters:", min = 2, max = 10, value = 3)
+```
+
+### Reactive Plot
+
+```{r}
+renderPlot({
+  set.seed(123)
+  num_clusters <- input$clusters
+  kmeans_result <- kmeans(mtcars[, c("mpg", "wt")], centers = num_clusters)
+  mtcars$cluster <- factor(kmeans_result$cluster)
+
+  ggplot(mtcars, aes(x = mpg, y = wt, color = cluster)) +
+    geom_point(size = 3) +
+    labs(
+      title = paste("K-Means Clustering with", num_clusters, "Clusters"),
+      x = "Miles per Gallon (MPG)",
+      y = "Weight (1000 lbs)"
+    ) +
+    theme_minimal()
+})
+```
+
+### Output Plot
+
+```{r}
+plotOutput("kmeans_plot")
+```

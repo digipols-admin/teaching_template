@@ -142,9 +142,8 @@ sessions %>%
 
 ### Assessment
 
-1. Class Participation (30%)  
-2. Class Presentation (20%)  
-3. Individual Final Project (50%)
+1. Class Participation/Presentation (20%)  
+2. Individual Final Project (80%)
 
 
 ## Resources
