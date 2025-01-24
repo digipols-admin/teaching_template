@@ -23,7 +23,7 @@ Key resource:
 
 - [Example of a dashboard for a research consortium](https://extras.cut.ac.cy/ero/eut-dashboards/){target="_blank"}: A comprehensive dashboard showcasing data visualization and integration techniques used in collaborative research projects. This iframe may not load if using a TEPAK network.  
 
-## Leveraging the Google Ecosystem: Surveys and Dashboards
+## Using the Google Ecosystem: Surveys and Dashboards
 
 Google Forms and Google Looker Data Studio are widely used tools in various industries for data collection and visualization. Google Forms simplifies the process of designing and distributing surveys, while Looker Data Studio offers robust visualization capabilities to turn raw survey data into actionable insights. These tools are not only user-friendly but also highly adaptable to diverse research and business needs.
 

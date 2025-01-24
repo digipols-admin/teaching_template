@@ -9,6 +9,8 @@ library(lubridate) # for dates
 library(conflicted) # for managing namespace conflicts (functions with the same name)
 conflicts_prefer(dplyr::select)
 conflicts_prefer(dplyr::filter)
+library(see)
+library(parameters)
 
 ```
 
@@ -191,22 +193,55 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum p
 
 Given that `tvhours` is a count variable, a Poisson regression can be useful for exploring relationships with predictors such as age, race, or income.
 
+### Synthetic data
 ```{r poisson-model}
 # Example Poisson regression
 poisson_model <- glm(tvhours ~ age + race + rincome, family = poisson, data = data)
+#summary(poisson_model)
 
-# summary(poisson_model)
+# Use the parameters package to extract coefficients
+result <- model_parameters(
+  poisson_model,
+  effects = "fixed",
+  component = "conditional",
+  verbose = FALSE
+)
+
+print(result)
+
+# Use the see package to plot results
+plot(result)
 ```
+
+
+### Synthetic data (age scaled)
+```{r poisson-model-scaled}
+# Example Poisson regression
+poisson_model <- glm(tvhours ~ scale(age) + race + rincome, family = poisson, data = data)
+#summary(poisson_model)
+
+# Use the parameters package to extract coefficients
+result <- model_parameters(
+  poisson_model,
+  effects = "fixed",
+  component = "conditional",
+  verbose = FALSE
+)
+
+print(result)
+
+# Use the see package to plot results
+plot(result)
+```
+
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at nisl vitae felis tristique dictum.
 
-
+### Real data
 ```{r poisson-model-real}
 # Example Poisson regression with real data
-library(see)
-library(parameters)
- 
-poisson_model <- glm(tvhours ~ age + race + rincome + partyid, family = poisson, data = tvhours_data)
+
+poisson_model <- glm(tvhours ~ scale(age) + race + rincome + partyid, family = poisson, data = tvhours_data)
 
 #summary(poisson_model)
 
