@@ -79,5 +79,8 @@
   },
   "pages/kmeans.qmd": {
     "kmeans.html": "bf607791"
+  },
+  "kmeans.qmd": {
+    "kmeans.html": "7abdf98e"
   }
 }
