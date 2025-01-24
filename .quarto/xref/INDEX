@@ -70,5 +70,11 @@
   },
   "surveys-tab/tvhours_shiny_cohesify.qmd": {
     "tvhours_shiny_cohesify.html": "ea193fc3"
+  },
+  "surveys-tab/02_tvhours_static_report.qmd": {
+    "02_tvhours_static_report.html": "c6818262"
+  },
+  "pages/faithful.qmd": {
+    "faithful.html": "58e95356"
   }
 }

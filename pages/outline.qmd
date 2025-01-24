@@ -104,7 +104,7 @@ sessions %>%
 - **Activities:**  
   - Acquire sample tweets or social media data with brand/political keywords.  
   - Conduct sentiment analysis using R (e.g., `tidytext`).  
-  - Classify using LLMs in R  
+  - Supervised and Unsupervised Classification using LLMs in R  
 - **Takeaways:**  
   - Insights into audience attitudes and emotional resonance around brands or issues.  
   - Practical application of text analytics in modern communication strategies.
