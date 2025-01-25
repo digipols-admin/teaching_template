@@ -1,9 +1,0 @@
----
-title: "Slides"
----
-
-Here are the (very few) course slides. You can view the presentation source files in the GitHub repo. 
-
-- [Course overview](https://digipols-admin.github.io/teaching_template/slides-tab/course_overview.html) 
-
-

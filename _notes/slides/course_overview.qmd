@@ -1,110 +1,95 @@
 ---
-title: "Course Overview"
+title: "Course overview"
+subtitle: "Data-driven Communication: Content Management & Visualization for Marketing & Communication Sciences"
 format: 
   revealjs:
-    theme: simple
     slide-number: true
-    #transition: fade
-    self-contained: true
-execute: 
-  echo: false
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: home3.png
 ---
 
-<!-- Slide 1 -->
-# Course Overview
 
-![](images/presentation/homepage.png)
+## What this course is about {.smaller}
 
----
+::: columns
+::: {.column width="45%"}
+#### 1. Workflow
 
-<!-- Slide 2 -->
-## Example Dashboard 1
+![](workflow.png)
+:::
 
-![](images/presentation/homepage.png)
+::: {.column width="5%"}
+:::
 
----
+::: {.column width="45%"}
+#### 2. Communicating data
+![](tidyflow.png)
+![](homepage.png)
+:::
+:::
 
-<!-- Slide 3 -->
+
+## Communicating data: Dashboard
+
+![](dashboard_1.png)
+
+
 ## Example Dashboard 2
 
-![](images/presentation/homepage.png)
+![](dashboard_2.png)
 
----
-
-<!-- Slide 4 -->
 ## Example Dashboard 3
 
-![](images/presentation/homepage.png)
+![](dashboard_3.png)
 
----
 
-<!-- Slide 5 -->
 ## Example Dashboard 4
 
-![](images/presentation/homepage.png)
+![](dashboard_4.png)
 
----
 
-<!-- Slide 6 -->
-## Example Dashboard 5
-
-![](images/presentation/homepage.png)
-
----
-
-<!-- Slide 7 -->
 ## What is a Dashboard?
 
 - Dashboards provide a visual display of the most important information needed to achieve one or more objectives.
 - They consolidate and arrange information on a single screen.
 
----
-
-<!-- Slide 8 -->
-## Key Characteristics of Effective Dashboards
+### Key Characteristics of Effective Dashboards
 
 - **Clarity**: Information should be easy to read and interpret.
 - **Accuracy**: Data must be accurate and up-to-date.
 - **Relevance**: Content should align with user goals and needs.
 
----
 
-<!-- Slide 9 -->
+## Definition by Stephen Few
+
+![](definition.png)
+
 ## The Role of Visual Design
 
 - Minimize distractions and unnecessary elements.
 - Use consistent layouts and formatting.
 - Apply thoughtful use of color and typography.
 
----
-
-<!-- Slide 10 -->
-## Best Practices for Dashboard Design
+### Best Practices for Dashboard Design
 
 - **Avoid clutter**: Only display essential information.
 - **Prioritize data**: Highlight key metrics and KPIs.
 - **Use visual hierarchy**: Direct the viewer's focus to the most important elements.
 
----
 
-<!-- Slide 11 -->
 ## Common Pitfalls to Avoid
 
 - Overloading the user with too much data.
 - Using overly complex or inconsistent designs.
 - Neglecting the importance of user testing.
 
----
-
-<!-- Slide 12 -->
-## A User-Centric Approach
+### What You Shoud Do
 
 - Focus on the needs and goals of the dashboard's end-users.
 - Iteratively test and refine designs to improve usability.
 
----
-
-<!-- Slide 13 -->
 ## Summary
 
 - Dashboards are powerful tools for decision-making.

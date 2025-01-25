@@ -298,7 +298,7 @@
     "href": "slides-tab/course_overview.html#what-this-course-is-about",
     "title": "Course overview",
     "section": "What this course is about",
-    "text": "What this course is about"
+    "text": "What this course is about\n\n\nWorkflow\n\n\n\n\nCommunicating data"
   },
   {
     "objectID": "slides-tab/course_overview.html#example-dashboard-1",
@@ -340,7 +340,7 @@
     "href": "slides-tab/course_overview.html#what-is-a-dashboard",
     "title": "Course overview",
     "section": "What is a Dashboard?",
-    "text": "What is a Dashboard?\n\nDashboards provide a visual display of the most important information needed to achieve one or more objectives.\nThey consolidate and arrange information on a single screen."
+    "text": "What is a Dashboard?\n\nDashboards provide a visual display of the most important information needed to achieve one or more objectives.\nThey consolidate and arrange information on a single screen.\n\nKey Characteristics of Effective Dashboards\n\nClarity: Information should be easy to read and interpret.\nAccuracy: Data must be accurate and up-to-date.\nRelevance: Content should align with user goals and needs."
   },
   {
     "objectID": "slides-tab/course_overview.html#key-characteristics-of-effective-dashboards",
@@ -354,7 +354,7 @@
     "href": "slides-tab/course_overview.html#the-role-of-visual-design",
     "title": "Course overview",
     "section": "The Role of Visual Design",
-    "text": "The Role of Visual Design\n\nMinimize distractions and unnecessary elements.\nUse consistent layouts and formatting.\nApply thoughtful use of color and typography."
+    "text": "The Role of Visual Design\n\nMinimize distractions and unnecessary elements.\nUse consistent layouts and formatting.\nApply thoughtful use of color and typography.\n\nBest Practices for Dashboard Design\n\nAvoid clutter: Only display essential information.\nPrioritize data: Highlight key metrics and KPIs.\nUse visual hierarchy: Direct the viewer’s focus to the most important elements."
   },
   {
     "objectID": "slides-tab/course_overview.html#best-practices-for-dashboard-design",
@@ -368,7 +368,7 @@
     "href": "slides-tab/course_overview.html#common-pitfalls-to-avoid",
     "title": "Course overview",
     "section": "Common Pitfalls to Avoid",
-    "text": "Common Pitfalls to Avoid\n\nOverloading the user with too much data.\nUsing overly complex or inconsistent designs.\nNeglecting the importance of user testing."
+    "text": "Common Pitfalls to Avoid\n\nOverloading the user with too much data.\nUsing overly complex or inconsistent designs.\nNeglecting the importance of user testing.\n\nWhat You Shoud Do\n\nFocus on the needs and goals of the dashboard’s end-users.\nIteratively test and refine designs to improve usability."
   },
   {
     "objectID": "slides-tab/course_overview.html#a-user-centric-approach",
@@ -383,5 +383,33 @@
     "title": "Course overview",
     "section": "Summary",
     "text": "Summary\n\nDashboards are powerful tools for decision-making.\nEffective dashboards balance clarity, relevance, and visual appeal.\nAvoid common pitfalls by focusing on user needs and testing designs."
+  },
+  {
+    "objectID": "slides-tab/course_overview.html#column-layout",
+    "href": "slides-tab/course_overview.html#column-layout",
+    "title": "Course overview",
+    "section": "Column Layout",
+    "text": "Column Layout\nArrange content into columns of varying widths:\n\n\nMotor Trend Car Road Tests\nThe data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles.\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\nwt\n\n\n\n\nMazda RX4\n21.0\n6\n160\n110\n2.620\n\n\nMazda RX4 Wag\n21.0\n6\n160\n110\n2.875\n\n\nDatsun 710\n22.8\n4\n108\n93\n2.320\n\n\nHornet 4 Drive\n21.4\n6\n258\n110\n3.215\n\n\nHornet Sportabout\n18.7\n8\n360\n175\n3.440\n\n\nValiant\n18.1\n6\n225\n105\n3.460"
+  },
+  {
+    "objectID": "slides-tab/course_overview.html#what-this-course-is-about-1",
+    "href": "slides-tab/course_overview.html#what-this-course-is-about-1",
+    "title": "Course overview",
+    "section": "What this course is about",
+    "text": "What this course is about"
+  },
+  {
+    "objectID": "slides-tab/course_overview.html#communicating-data-dashboard",
+    "href": "slides-tab/course_overview.html#communicating-data-dashboard",
+    "title": "Course overview",
+    "section": "Communicating data: Dashboard",
+    "text": "Communicating data: Dashboard"
+  },
+  {
+    "objectID": "slides-tab/course_overview.html#definition-by-stephen-few",
+    "href": "slides-tab/course_overview.html#definition-by-stephen-few",
+    "title": "Course overview",
+    "section": "Definition by Stephen Few",
+    "text": "Definition by Stephen Few"
   }
 ]
