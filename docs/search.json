@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "slides-tab/slides-index.html",
+    "href": "slides-tab/slides-index.html",
+    "title": "Slides",
+    "section": "",
+    "text": "Here are the (very few) course slides\n\nCourse overview"
+  },
+  {
     "objectID": "pages/outline.html",
     "href": "pages/outline.html",
     "title": "Data-driven Communication: Content Management & Visualization for Marketing and Communication Sciences",
@@ -285,5 +292,96 @@
     "title": "Survey Data Analysis",
     "section": "Exploring TV Hours with Poisson Regression",
     "text": "Exploring TV Hours with Poisson Regression\nGiven that tvhours is a count variable, a Poisson regression can be useful for exploring relationships with predictors such as age, race, or income.\n\nSynthetic data\n\n\nCode\n# Example Poisson regression\npoisson_model &lt;- glm(tvhours ~ age + race + rincome, family = poisson, data = data)\n#summary(poisson_model)\n\n# Use the parameters package to extract coefficients\nresult &lt;- model_parameters(\n  poisson_model,\n  effects = \"fixed\",\n  component = \"conditional\",\n  verbose = FALSE\n)\n\nprint(result)\n\n\n#&gt; Parameter                 |  Log-Mean |       SE |        95% CI |         z |      p\n#&gt; -------------------------------------------------------------------------------------\n#&gt; (Intercept)               |      0.18 |     0.20 | [-0.21, 0.56] |      0.93 | 0.352 \n#&gt; age                       |      0.03 | 2.57e-03 | [ 0.02, 0.03] |      9.81 | &lt; .001\n#&gt; race [Other]              |      0.01 |     0.15 | [-0.28, 0.31] |      0.10 | 0.923 \n#&gt; race [White]              | -1.11e-03 |     0.15 | [-0.30, 0.29] | -7.37e-03 | 0.994 \n#&gt; rincome [$15000 - 19999]  |      0.06 |     0.19 | [-0.32, 0.44] |      0.29 | 0.774 \n#&gt; rincome [$20000 - 24999]  |     -0.09 |     0.18 | [-0.44, 0.27] |     -0.47 | 0.636 \n#&gt; rincome [$25000 or more]  |      0.03 |     0.18 | [-0.32, 0.38] |      0.15 | 0.882 \n#&gt; rincome [Less than 10000] |     -0.11 |     0.24 | [-0.59, 0.35] |     -0.47 | 0.637\n\n\nCode\n# Use the see package to plot results\nplot(result)\n\n\n\n\n\n\n\nSynthetic data (age scaled)\n\n\nCode\n# Example Poisson regression\npoisson_model &lt;- glm(tvhours ~ scale(age) + race + rincome, family = poisson, data = data)\n#summary(poisson_model)\n\n# Use the parameters package to extract coefficients\nresult &lt;- model_parameters(\n  poisson_model,\n  effects = \"fixed\",\n  component = \"conditional\",\n  verbose = FALSE\n)\n\nprint(result)\n\n\n#&gt; Parameter                 |  Log-Mean |   SE |        95% CI |         z |      p\n#&gt; ---------------------------------------------------------------------------------\n#&gt; (Intercept)               |      0.96 | 0.15 | [ 0.65, 1.25] |      6.21 | &lt; .001\n#&gt; age                       |      0.45 | 0.05 | [ 0.36, 0.54] |      9.81 | &lt; .001\n#&gt; race [Other]              |      0.01 | 0.15 | [-0.28, 0.31] |      0.10 | 0.923 \n#&gt; race [White]              | -1.11e-03 | 0.15 | [-0.30, 0.29] | -7.37e-03 | 0.994 \n#&gt; rincome [$15000 - 19999]  |      0.06 | 0.19 | [-0.32, 0.44] |      0.29 | 0.774 \n#&gt; rincome [$20000 - 24999]  |     -0.09 | 0.18 | [-0.44, 0.27] |     -0.47 | 0.636 \n#&gt; rincome [$25000 or more]  |      0.03 | 0.18 | [-0.32, 0.38] |      0.15 | 0.882 \n#&gt; rincome [Less than 10000] |     -0.11 | 0.24 | [-0.59, 0.35] |     -0.47 | 0.637\n\n\nCode\n# Use the see package to plot results\nplot(result)\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at nisl vitae felis tristique dictum.\n\n\nReal data\n\n\nCode\n# Example Poisson regression with real data\n\npoisson_model &lt;- glm(tvhours ~ scale(age) + race + rincome + partyid, family = poisson, data = tvhours_data)\n\n#summary(poisson_model)\n\n# Use the parameters package to extract coefficients\nresult &lt;- model_parameters(\n  poisson_model,\n  effects = \"fixed\",\n  component = \"conditional\",\n  verbose = FALSE\n)\n\nprint(result)\n\n\n#&gt; Parameter                    | Log-Mean |   SE |         95% CI |     z |      p\n#&gt; --------------------------------------------------------------------------------\n#&gt; (Intercept)                  |     1.14 | 0.08 | [ 0.99,  1.29] | 15.15 | &lt; .001\n#&gt; age                          |     0.09 | 0.02 | [ 0.06,  0.12] |  5.44 | &lt; .001\n#&gt; race [Other]                 |    -0.41 | 0.08 | [-0.57, -0.25] | -5.09 | &lt; .001\n#&gt; race [White]                 |    -0.31 | 0.04 | [-0.39, -0.23] | -7.74 | &lt; .001\n#&gt; rincome [$15000 - 19999]     |     0.11 | 0.09 | [-0.07,  0.29] |  1.18 | 0.238 \n#&gt; rincome [$20000 - 24999]     |     0.11 | 0.09 | [-0.06,  0.29] |  1.25 | 0.211 \n#&gt; rincome [$25000 or more]     |    -0.01 | 0.07 | [-0.15,  0.13] | -0.19 | 0.852 \n#&gt; rincome [Less than 10000]    |     0.28 | 0.07 | [ 0.15,  0.42] |  4.07 | &lt; .001\n#&gt; partyid [Not str democrat]   |     0.03 | 0.04 | [-0.06,  0.12] |  0.65 | 0.513 \n#&gt; partyid [Not str republican] | 4.76e-03 | 0.05 | [-0.10,  0.10] |  0.09 | 0.925 \n#&gt; partyid [Strong democrat]    |     0.09 | 0.05 | [ 0.00,  0.19] |  1.98 | 0.047 \n#&gt; partyid [Strong republican]  |    -0.11 | 0.06 | [-0.23,  0.00] | -1.96 | 0.050\n\n\nCode\n# Use the see package to plot results\nplot(result)"
+  },
+  {
+    "objectID": "slides-tab/course_overview.html#what-this-course-is-about",
+    "href": "slides-tab/course_overview.html#what-this-course-is-about",
+    "title": "Course overview",
+    "section": "What this course is about",
+    "text": "What this course is about"
+  },
+  {
+    "objectID": "slides-tab/course_overview.html#example-dashboard-1",
+    "href": "slides-tab/course_overview.html#example-dashboard-1",
+    "title": "Course overview",
+    "section": "Example Dashboard 1",
+    "text": "Example Dashboard 1"
+  },
+  {
+    "objectID": "slides-tab/course_overview.html#example-dashboard-2",
+    "href": "slides-tab/course_overview.html#example-dashboard-2",
+    "title": "Course overview",
+    "section": "Example Dashboard 2",
+    "text": "Example Dashboard 2"
+  },
+  {
+    "objectID": "slides-tab/course_overview.html#example-dashboard-3",
+    "href": "slides-tab/course_overview.html#example-dashboard-3",
+    "title": "Course overview",
+    "section": "Example Dashboard 3",
+    "text": "Example Dashboard 3"
+  },
+  {
+    "objectID": "slides-tab/course_overview.html#example-dashboard-4",
+    "href": "slides-tab/course_overview.html#example-dashboard-4",
+    "title": "Course overview",
+    "section": "Example Dashboard 4",
+    "text": "Example Dashboard 4"
+  },
+  {
+    "objectID": "slides-tab/course_overview.html#example-dashboard-5",
+    "href": "slides-tab/course_overview.html#example-dashboard-5",
+    "title": "Course overview",
+    "section": "Example Dashboard 5",
+    "text": "Example Dashboard 5"
+  },
+  {
+    "objectID": "slides-tab/course_overview.html#what-is-a-dashboard",
+    "href": "slides-tab/course_overview.html#what-is-a-dashboard",
+    "title": "Course overview",
+    "section": "What is a Dashboard?",
+    "text": "What is a Dashboard?\n\nDashboards provide a visual display of the most important information needed to achieve one or more objectives.\nThey consolidate and arrange information on a single screen."
+  },
+  {
+    "objectID": "slides-tab/course_overview.html#key-characteristics-of-effective-dashboards",
+    "href": "slides-tab/course_overview.html#key-characteristics-of-effective-dashboards",
+    "title": "Course overview",
+    "section": "Key Characteristics of Effective Dashboards",
+    "text": "Key Characteristics of Effective Dashboards\n\nClarity: Information should be easy to read and interpret.\nAccuracy: Data must be accurate and up-to-date.\nRelevance: Content should align with user goals and needs."
+  },
+  {
+    "objectID": "slides-tab/course_overview.html#the-role-of-visual-design",
+    "href": "slides-tab/course_overview.html#the-role-of-visual-design",
+    "title": "Course overview",
+    "section": "The Role of Visual Design",
+    "text": "The Role of Visual Design\n\nMinimize distractions and unnecessary elements.\nUse consistent layouts and formatting.\nApply thoughtful use of color and typography."
+  },
+  {
+    "objectID": "slides-tab/course_overview.html#best-practices-for-dashboard-design",
+    "href": "slides-tab/course_overview.html#best-practices-for-dashboard-design",
+    "title": "Course overview",
+    "section": "Best Practices for Dashboard Design",
+    "text": "Best Practices for Dashboard Design\n\nAvoid clutter: Only display essential information.\nPrioritize data: Highlight key metrics and KPIs.\nUse visual hierarchy: Direct the viewer’s focus to the most important elements."
+  },
+  {
+    "objectID": "slides-tab/course_overview.html#common-pitfalls-to-avoid",
+    "href": "slides-tab/course_overview.html#common-pitfalls-to-avoid",
+    "title": "Course overview",
+    "section": "Common Pitfalls to Avoid",
+    "text": "Common Pitfalls to Avoid\n\nOverloading the user with too much data.\nUsing overly complex or inconsistent designs.\nNeglecting the importance of user testing."
+  },
+  {
+    "objectID": "slides-tab/course_overview.html#a-user-centric-approach",
+    "href": "slides-tab/course_overview.html#a-user-centric-approach",
+    "title": "Course overview",
+    "section": "A User-Centric Approach",
+    "text": "A User-Centric Approach\n\nFocus on the needs and goals of the dashboard’s end-users.\nIteratively test and refine designs to improve usability."
+  },
+  {
+    "objectID": "slides-tab/course_overview.html#summary",
+    "href": "slides-tab/course_overview.html#summary",
+    "title": "Course overview",
+    "section": "Summary",
+    "text": "Summary\n\nDashboards are powerful tools for decision-making.\nEffective dashboards balance clarity, relevance, and visual appeal.\nAvoid common pitfalls by focusing on user needs and testing designs."
   }
 ]

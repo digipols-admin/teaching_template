@@ -1,0 +1,9 @@
+---
+title: "Slides"
+---
+
+Here are the (very few) course slides 
+
+- [Course overview](https://digipols-admin.github.io/teaching_template/slides-tab/course_overview.html) 
+
+

@@ -1,0 +1,112 @@
+---
+title: "Course Overview"
+format: 
+  revealjs:
+    theme: simple
+    slide-number: true
+    #transition: fade
+    self-contained: true
+execute: 
+  echo: false
+---
+
+<!-- Slide 1 -->
+# Course Overview
+
+![](images/presentation/homepage.png)
+
+---
+
+<!-- Slide 2 -->
+## Example Dashboard 1
+
+![](images/presentation/homepage.png)
+
+---
+
+<!-- Slide 3 -->
+## Example Dashboard 2
+
+![](images/presentation/homepage.png)
+
+---
+
+<!-- Slide 4 -->
+## Example Dashboard 3
+
+![](images/presentation/homepage.png)
+
+---
+
+<!-- Slide 5 -->
+## Example Dashboard 4
+
+![](images/presentation/homepage.png)
+
+---
+
+<!-- Slide 6 -->
+## Example Dashboard 5
+
+![](images/presentation/homepage.png)
+
+---
+
+<!-- Slide 7 -->
+## What is a Dashboard?
+
+- Dashboards provide a visual display of the most important information needed to achieve one or more objectives.
+- They consolidate and arrange information on a single screen.
+
+---
+
+<!-- Slide 8 -->
+## Key Characteristics of Effective Dashboards
+
+- **Clarity**: Information should be easy to read and interpret.
+- **Accuracy**: Data must be accurate and up-to-date.
+- **Relevance**: Content should align with user goals and needs.
+
+---
+
+<!-- Slide 9 -->
+## The Role of Visual Design
+
+- Minimize distractions and unnecessary elements.
+- Use consistent layouts and formatting.
+- Apply thoughtful use of color and typography.
+
+---
+
+<!-- Slide 10 -->
+## Best Practices for Dashboard Design
+
+- **Avoid clutter**: Only display essential information.
+- **Prioritize data**: Highlight key metrics and KPIs.
+- **Use visual hierarchy**: Direct the viewer's focus to the most important elements.
+
+---
+
+<!-- Slide 11 -->
+## Common Pitfalls to Avoid
+
+- Overloading the user with too much data.
+- Using overly complex or inconsistent designs.
+- Neglecting the importance of user testing.
+
+---
+
+<!-- Slide 12 -->
+## A User-Centric Approach
+
+- Focus on the needs and goals of the dashboard's end-users.
+- Iteratively test and refine designs to improve usability.
+
+---
+
+<!-- Slide 13 -->
+## Summary
+
+- Dashboards are powerful tools for decision-making.
+- Effective dashboards balance clarity, relevance, and visual appeal.
+- Avoid common pitfalls by focusing on user needs and testing designs.
