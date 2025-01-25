@@ -16,21 +16,21 @@ format:
 
 ## Example Dashboard 1
 
-![](homepage.png)
+![](dashboard_1.png)
 
 
 ## Example Dashboard 2
 
-![](homepage.png)
+![](dashboard_2.png)
 
 ## Example Dashboard 3
 
-![](homepage.png)
+![](dashboard_3.png)
 
 
 ## Example Dashboard 4
 
-![](homepage.png)
+![](dashboard_4.png)
 
 
 ## Example Dashboard 5
