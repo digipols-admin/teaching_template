@@ -5,7 +5,7 @@ title: "MSc. Course on 'Data-driven Communication: Content Management & Visualiz
 
 ::: {.grid}
 ::: {.g-col-8}
-Welcome to our course platform, designed to guide you through sessions and serve as a comprehensive repository for resources, including reading material, videos, and code. 
+Welcome to our course platform, designed to guide you through sessions and serve as a comprehensive repository for resources, including reading material, videos and code. 
 
 This course emphasizes practical, hands-on skills for transforming data into compelling dashboards and visual stories tailored for marketing and communication. You will master the full technology stack—from survey creation tools like Google Forms to collaborative version control using GitHub, and R-based analytics with RStudio and Quarto. 
 
