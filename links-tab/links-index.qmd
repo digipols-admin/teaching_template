@@ -1,0 +1,13 @@
+---
+title: "Links"
+---
+
+Here are some useful links to have open during set up: 
+
+**This website's git hub** [https://github.com/digipols-admin/teaching_template](https://github.com/digipols-admin/teaching_template).
+
+**Your website template** [https://github.com/YOUR-USERNAME/class_website_template](https://github.com/YOUR-USERNAME/class_website_template).
+
+**The R server** [http://demotec.cut.ac.cy:8787](http://demotec.cut.ac.cy:8787).
+
+

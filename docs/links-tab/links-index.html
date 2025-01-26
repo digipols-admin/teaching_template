@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>XDMComs - Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages</title>
+<title>XDMComs - Links</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -97,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Surveys</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../links-tab/links-index.html" rel="" target="">
+    <a class="nav-link active" href="../links-tab/links-index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Useful links</span></a>
   </li>  
 </ul>
@@ -112,36 +112,14 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#create-a-website-template" id="toc-create-a-website-template" class="nav-link" data-scroll-target="#create-a-website-template">1) Create a website template</a>
-  <ul class="collapse">
-  <li><a href="#step-1-set-up-a-github-repository-repo" id="toc-step-1-set-up-a-github-repository-repo" class="nav-link" data-scroll-target="#step-1-set-up-a-github-repository-repo">Step 1: Set Up a GitHub Repository (repo)</a></li>
-  <li><a href="#step-2-develop-the-quarto-website-locally" id="toc-step-2-develop-the-quarto-website-locally" class="nav-link" data-scroll-target="#step-2-develop-the-quarto-website-locally">Step 2: Develop the Quarto Website Locally</a></li>
-  <li><a href="#step-3-in-r-initialize-a-git-repository-and-push-to-github" id="toc-step-3-in-r-initialize-a-git-repository-and-push-to-github" class="nav-link" data-scroll-target="#step-3-in-r-initialize-a-git-repository-and-push-to-github">Step 3: In R, initialize a Git Repository and Push to GitHub</a></li>
-  <li><a href="#step-4-activate-set-up-github-pages-to-render-website" id="toc-step-4-activate-set-up-github-pages-to-render-website" class="nav-link" data-scroll-target="#step-4-activate-set-up-github-pages-to-render-website">Step 4: Activate, Set Up GitHub Pages to render website</a></li>
-  <li><a href="#step-5-make-the-repository-a-template-optional" id="toc-step-5-make-the-repository-a-template-optional" class="nav-link" data-scroll-target="#step-5-make-the-repository-a-template-optional">Step 5: Make the Repository a Template (Optional)</a></li>
-  </ul></li>
-  <li><a href="#use-a-github-template" id="toc-use-a-github-template" class="nav-link" data-scroll-target="#use-a-github-template">2) Use a GitHub template</a>
-  <ul class="collapse">
-  <li><a href="#step-1-create-new-projects-using-the-template" id="toc-step-1-create-new-projects-using-the-template" class="nav-link" data-scroll-target="#step-1-create-new-projects-using-the-template">Step 1: Create New Projects Using the Template</a></li>
-  <li><a href="#step-2-clone-repo-to-r" id="toc-step-2-clone-repo-to-r" class="nav-link" data-scroll-target="#step-2-clone-repo-to-r">Step 2: Clone repo to R</a></li>
-  <li><a href="#step-3-configure-website-settings-in-github-pages" id="toc-step-3-configure-website-settings-in-github-pages" class="nav-link" data-scroll-target="#step-3-configure-website-settings-in-github-pages">Step 3: Configure website settings in GitHub pages</a></li>
-  <li><a href="#step-4-work-on-your-website-in-rquarto" id="toc-step-4-work-on-your-website-in-rquarto" class="nav-link" data-scroll-target="#step-4-work-on-your-website-in-rquarto">Step 4: Work on your website in R/Quarto</a></li>
-  </ul></li>
-  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages</h1>
+<h1 class="title">Links</h1>
 </div>
 
 
@@ -156,123 +134,12 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="overview" class="level1">
-<h1>Overview</h1>
-<p>This document describes how to create a Quarto website template in Git hub and R</p>
-</section>
-<section id="create-a-website-template" class="level1">
-<h1>1) Create a website template</h1>
-<section id="step-1-set-up-a-github-repository-repo" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-set-up-a-github-repository-repo">Step 1: Set Up a GitHub Repository (repo)</h2>
-<ul>
-<li>This step is performed via the GitHub website and not in R.</li>
-<li>Choose a name for your repo, the website project. Consider first making the repo a template, so that it can be easily reused to create more websites.</li>
-<li>Once you’ve create a repo (whether as a template or as a working repo) stay on the repo page, we will use some of the “Quick set up” code later in the R Terminal.</li>
-</ul>
-</section>
-<section id="step-2-develop-the-quarto-website-locally" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-develop-the-quarto-website-locally">Step 2: Develop the Quarto Website Locally</h2>
-<ul>
-<li>Create a new Quarto project. Since it’s a website, select the create Quarto website option.</li>
-<li>Create an empty “docs” and an empty “images” folder. These will be needed for compiling the website and adding images if required</li>
-<li>Adjust the YML header so that the project .yml file specifies output to docs, like this:</li>
-</ul>
-<pre><code>project:
-  type: website
-  output-dir: docs</code></pre>
-<ul>
-<li>Develop the website locally on R. If you are developing a template to reuse add some pages and typical features you would like for a template.</li>
-<li>When the website template is ready find, the “Build” tab, and press Render Website.</li>
-</ul>
-</section>
-<section id="step-3-in-r-initialize-a-git-repository-and-push-to-github" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-in-r-initialize-a-git-repository-and-push-to-github">Step 3: In R, initialize a Git Repository and Push to GitHub</h2>
-<ul>
-<li>Install or load the <code>usethis</code> library.</li>
-</ul>
-<pre><code>library(usethis)
-use_git_config(user.name = "you-username", 
-               user.email = "your=email")</code></pre>
-<ul>
-<li>Go the RStuido Terminal or open in Tools.</li>
-<li>In the Terminal you will initialise git, add files and do a first commit by pasting this code:</li>
-</ul>
-<pre><code>git init
-git add .
-git commit -m "first commit"</code></pre>
-<p>Copy the lines of code from this part of the open Github webpage and paste into Terminal: “…or push an existing repository from the command line”</p>
-<p>Alternatively run this in terminal - Link the local repository to the GitHub repository:</p>
-<pre><code>git remote add origin https://github.com/your-username/your-repository.git </code></pre>
-<ul>
-<li>Push the commit to GitHub (use master):</li>
-</ul>
-<pre><code>git push -u origin main </code></pre>
-<ul>
-<li>You will probably be prompted for the username and password, so have your git PAT authorization token at hand to use as the password when prompted.</li>
-</ul>
-</section>
-<section id="step-4-activate-set-up-github-pages-to-render-website" class="level2">
-<h2 class="anchored" data-anchor-id="step-4-activate-set-up-github-pages-to-render-website">Step 4: Activate, Set Up GitHub Pages to render website</h2>
-<ul>
-<li>In the git hub website make sure you are in the relevant repo and go to Settings, then choose Pages from left panel.</li>
-<li>Under Branch, change setting from ‘None’ to ‘Main’, then change ‘/root’ to ’docs. Save changes. In few minutes the website should be running</li>
-</ul>
-</section>
-<section id="step-5-make-the-repository-a-template-optional" class="level2">
-<h2 class="anchored" data-anchor-id="step-5-make-the-repository-a-template-optional">Step 5: Make the Repository a Template (Optional)</h2>
-<ul>
-<li>Mark the repository as a template in the GitHub repo settings. This way you can reuse the template for creating websites.</li>
-</ul>
-</section>
-</section>
-<section id="use-a-github-template" class="level1">
-<h1>2) Use a GitHub template</h1>
-<section id="step-1-create-new-projects-using-the-template" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-create-new-projects-using-the-template">Step 1: Create New Projects Using the Template</h2>
-<ul>
-<li>In GitHub go to the repo that is the template. Click on ‘Use this template’ to create a new repos. Or go to create “New” repository.</li>
-</ul>
-</section>
-<section id="step-2-clone-repo-to-r" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-clone-repo-to-r">Step 2: Clone repo to R</h2>
-<ul>
-<li>To clone on RStudio, I will assume you are logged in to a different R project.</li>
-<li>Create an empty folder with the EXACT same name as the GitHub repo, then:</li>
-<li>Open R terminal and navigate to the directory where you want the new project:</li>
-</ul>
-<pre><code>cd ~/new-project-directory</code></pre>
-<ul>
-<li>To clone the new repository: Note there should be a space and period at the end to tell R not to duplicate the folder</li>
-</ul>
-<pre><code>git clone https://github.com/YOUR-USERNAME/YOUR-NEW-REPO.git .</code></pre>
-<ul>
-<li>If the above code does not work, it could be because of private settings. Try this, where the PAT code should be pasted, remember to leave gap and period.</li>
-</ul>
-<pre><code>git clone https://YOUR-USERNAME:ADD_YOUR_PAT_HERE@github.com/YOUR-USERNAME/YOUR-NEW-REPO.git .</code></pre>
-</section>
-<section id="step-3-configure-website-settings-in-github-pages" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-configure-website-settings-in-github-pages">Step 3: Configure website settings in GitHub pages</h2>
-<ul>
-<li>It is likely you will need to activate Git Hub pages. This means repeating the step above: “Step 4: Activate, Set Up GitHub Pages to render website”</li>
-</ul>
-</section>
-<section id="step-4-work-on-your-website-in-rquarto" class="level2">
-<h2 class="anchored" data-anchor-id="step-4-work-on-your-website-in-rquarto">Step 4: Work on your website in R/Quarto</h2>
-<ul>
-<li>Go into your new project in R (this will mean logging out of your current R project)</li>
-<li>Work on your website</li>
-<li>Remember to “Build” website in R before commiting changes to GitHub</li>
-<li>Regularly commit and push changes to GitHub.</li>
-</ul>
-</section>
-</section>
-<section id="notes" class="level1">
-<h1>Notes</h1>
-<p>If you do not want to use a template, simply follow steps 1 to 4 above and do not make the Repo a template.</p>
-<p>Although the focus of this document was a website, the same logic can be applied to any type of resource, e.g.&nbsp;a template for a report, or for a book.</p>
+<p>Here are some useful links to have open during set up:</p>
+<p><strong>This website’s git hub</strong> <a href="https://github.com/digipols-admin/teaching_template">https://github.com/digipols-admin/teaching_template</a>.</p>
+<p><strong>Your website template</strong> <a href="https://github.com/YOUR-USERNAME/class_website_template">https://github.com/YOUR-USERNAME/class_website_template</a>.</p>
+<p><strong>The R server</strong> <a href="http://demotec.cut.ac.cy:8787">http://demotec.cut.ac.cy:8787</a>.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
