@@ -15,9 +15,20 @@ Here are some useful links to have open during set up:
 
 To save time in creating websites using R and github we have prepared a short video explainer that covers all the steps. The important aspect is to have a template in your github account that you can re-use at will. 
 
-We have prepared a template, so that you don't have to. Although we do encourage you to create your own templates in github. For instance, you may want a template for creating online presentations, or scientific reports. 
+We have prepared a template, so can avoid the process of creating a template. Although we do encourage you to create your own templates in github. For instance, you may want a template for creating online presentations, or scientific reports. Once you have a template repo in github, it's very simply to push it to R.
 
-Once you have a template repo in github, it's very simply to push it to R.
+These are the basic steps: 
+
+#### Step 1: Clone a repo and make it a template
+
+1. Clone a repo (a template for a Quarto website) from my personal github account: `fmendez72/xdmcoms-website` into your own github account 
+2. In your github account set the cloned repo as a "Template" [so you can re-use it]
+3. Assign the repo you just cloned a "Template" status and use it to create a github repo for a NEW quarto website
+
+#### Step 2: Pull the website into R 
+
+4. Pull the repo as a new R project 
+5. Build the website in R and push it to git 
 
 The video provides a step by step guide on how to do this:
 
