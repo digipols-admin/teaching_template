@@ -11,3 +11,21 @@ Here are some useful links to have open during set up:
 **The R server** [http://demotec.cut.ac.cy:8787](http://demotec.cut.ac.cy:8787).
 
 
+## Cloning a github repo with a Quarto website template and pushing to R
+
+To save time in creating websites using R and github we have prepared a short video explainer that covers all the steps. The important aspect is to have a template in your github account that you can re-use at will. 
+
+We have prepared a template, so that you don't have to. Although we do encourage you to create your own templates in github. For instance, you may want a template for creating online presentations, or scientific reports. 
+
+Once you have a template repo in github, it's very simply to push it to R.
+
+The video provides a step by step guide on how to do this:
+
+{{< video https://youtu.be/e8Cntd5Vv6E >}}
+
+:::{.callout-note}
+This video provides step by step guide. Remember to have your PAT password (the long one) and that you need to go to the Build tab in R in order to click on the "Render website" button. For changes to be reflected on your online website it is necessary to build the website.  
+:::
+
+**Alternatively, you can access the video directly:** [https://youtu.be/e8Cntd5Vv6E](https://youtu.be/e8Cntd5Vv6E)
+

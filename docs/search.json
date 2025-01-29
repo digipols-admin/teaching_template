@@ -147,6 +147,13 @@
     "text": "Here are some useful links to have open during set up:\nThis website’s git hub https://github.com/digipols-admin/teaching_template.\nYour website template https://github.com/YOUR-USERNAME/class_website_template.\nThe R server http://demotec.cut.ac.cy:8787."
   },
   {
+    "objectID": "links-tab/links-index.html#cloning-a-github-repo-with-a-quarto-website-template-and-pushing-to-r",
+    "href": "links-tab/links-index.html#cloning-a-github-repo-with-a-quarto-website-template-and-pushing-to-r",
+    "title": "Links",
+    "section": "Cloning a github repo with a Quarto website template and pushing to R",
+    "text": "Cloning a github repo with a Quarto website template and pushing to R\nTo save time in creating websites using R and github we have prepared a short video explainer that covers all the steps. The important aspect is to have a template in your github account that you can re-use at will.\nWe have prepared a template, so that you don’t have to. Although we do encourage you to create your own templates in github. For instance, you may want a template for creating online presentations, or scientific reports.\nOnce you have a template repo in github, it’s very simply to push it to R.\nThe video provides a step by step guide on how to do this:\n\n\n\n\n\n\n\nNote\n\n\n\nThis video provides step by step guide. Remember to have your PAT password (the long one) and that you need to go to the Build tab in R in order to click on the “Render website” button. For changes to be reflected on your online website it is necessary to build the website.\n\n\nAlternatively, you can access the video directly: https://youtu.be/e8Cntd5Vv6E"
+  },
+  {
     "objectID": "sessions-tab/sessions-index.html",
     "href": "sessions-tab/sessions-index.html",
     "title": "Course sessions",
