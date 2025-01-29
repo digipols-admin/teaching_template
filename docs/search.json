@@ -186,56 +186,63 @@
     "href": "sessions-tab/git_quarto_template.html#step-2-develop-the-quarto-website-locally",
     "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
     "section": "Step 2: Develop the Quarto Website Locally",
-    "text": "Step 2: Develop the Quarto Website Locally\n\nCreate a new Quarto project. Since it’s a website, select the create Quarto website option.\nCreate an empty “docs” and an empty “images” folder. These will be needed for compiling the website and adding images if required\nAdjust the YML header so that the project .yml file specifies output to docs, like this:\n\nproject:\n  type: website\n  output-dir: docs\n\nDevelop the website locally on R. If you are developing a template to reuse add some pages and typical features you would like for a template.\nWhen the website template is ready find, the “Build” tab, and press Render Website."
+    "text": "Step 2: Develop the Quarto Website Locally\n\nGo into RStudio server and create a new Quarto website. For now we will begin with a Quarto website, later you might want to create a Quarto project.\nOpen a Terminal in RStudio (you can also do these from the Tools tab). In Terminal, paste the code from your github repo page (there is a copy/paste icon you can click) \"…or push an existing repository from the command line\"\nYou will be prompted for your github username and PAT (the long password). Once complated this would have opened a connection with your github account and add a README file in your R directory."
   },
   {
-    "objectID": "sessions-tab/git_quarto_template.html#step-3-in-r-initialize-a-git-repository-and-push-to-github",
-    "href": "sessions-tab/git_quarto_template.html#step-3-in-r-initialize-a-git-repository-and-push-to-github",
+    "objectID": "sessions-tab/git_quarto_template.html#step-3-restart-the-r-session-and-develop-the-quarto-website",
+    "href": "sessions-tab/git_quarto_template.html#step-3-restart-the-r-session-and-develop-the-quarto-website",
     "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
-    "section": "Step 3: In R, initialize a Git Repository and Push to GitHub",
-    "text": "Step 3: In R, initialize a Git Repository and Push to GitHub\n\nInstall or load the usethis library.\n\nlibrary(usethis)\nuse_git_config(user.name = \"you-username\", \n               user.email = \"your=email\")\n\nGo the RStuido Terminal or open in Tools.\nIn the Terminal you will initialise git, add files and do a first commit by pasting this code:\n\ngit init\ngit add .\ngit commit -m \"first commit\"\nCopy the lines of code from this part of the open Github webpage and paste into Terminal: “…or push an existing repository from the command line”\nAlternatively run this in terminal - Link the local repository to the GitHub repository:\ngit remote add origin https://github.com/your-username/your-repository.git \n\nPush the commit to GitHub (use master):\n\ngit push -u origin main \n\nYou will probably be prompted for the username and password, so have your git PAT authorization token at hand to use as the password when prompted."
+    "section": "Step 3: Restart the R session and develop the Quarto website",
+    "text": "Step 3: Restart the R session and develop the Quarto website\n\nWe want to restart R now, so that the git options are available. An easy way to this is to switch R project. You can click on the upper right of RStudio and choose a different project, then switch back to the project your had created. This will enable the git option in RStudio.\nIn your Rstudio project, the root directory, create an empty “docs” and an empty “images” folder. These will be needed for compiling the website and adding images&gt;\nAdjust the YML header so that the project .yml file specifies output to docs, like this:\n\nproject:\n  type: website\n  output-dir: docs\n\nWhen the website template is ready find the “Build” tab, and press Render website. It is important to always Render website before pushing to git (that’s the only way your final changes will be reflected on your website)"
   },
   {
-    "objectID": "sessions-tab/git_quarto_template.html#step-4-activate-set-up-github-pages-to-render-website",
-    "href": "sessions-tab/git_quarto_template.html#step-4-activate-set-up-github-pages-to-render-website",
+    "objectID": "sessions-tab/git_quarto_template.html#step-4-in-r-commit-and-push-to-github",
+    "href": "sessions-tab/git_quarto_template.html#step-4-in-r-commit-and-push-to-github",
     "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
-    "section": "Step 4: Activate, Set Up GitHub Pages to render website",
-    "text": "Step 4: Activate, Set Up GitHub Pages to render website\n\nIn the git hub website make sure you are in the relevant repo and go to Settings, then choose Pages from left panel.\nUnder Branch, change setting from ‘None’ to ‘Main’, then change ‘/root’ to ’docs. Save changes. In few minutes the website should be running"
+    "section": "Step 4: In R, Commit and Push to GitHub",
+    "text": "Step 4: In R, Commit and Push to GitHub\n\nThere is a Git tab next to the Build tab. Click on the Commit button, which will open a dialog box. Here you should make sure all the files are checked. You can do this with CONTROL A (or by highlighting all the files) and then press the Space bar on your keyboard. You then need to write a short commit message and press Commit.\nHaving commited the various file you now need to press the Push option in the same dialog box. You will probably be prompted for your username and PAT password."
   },
   {
-    "objectID": "sessions-tab/git_quarto_template.html#step-5-make-the-repository-a-template-optional",
-    "href": "sessions-tab/git_quarto_template.html#step-5-make-the-repository-a-template-optional",
+    "objectID": "sessions-tab/git_quarto_template.html#step-5-activate-set-up-github-pages-to-render-website",
+    "href": "sessions-tab/git_quarto_template.html#step-5-activate-set-up-github-pages-to-render-website",
     "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
-    "section": "Step 5: Make the Repository a Template (Optional)",
-    "text": "Step 5: Make the Repository a Template (Optional)\n\nMark the repository as a template in the GitHub repo settings. This way you can reuse the template for creating websites."
+    "section": "Step 5: Activate, Set Up GitHub Pages to render website",
+    "text": "Step 5: Activate, Set Up GitHub Pages to render website\n\nNow go to your github repo and you should see the files from your RStudio project. In the git hub website make sure you are in the relevant repo and go to Settings, then choose Pages from left panel.\nUnder Branch, change setting from ‘None’ to ‘Main’, then change ‘/root’ to ’docs. Save changes. In few minutes the website should be running"
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-6-make-the-repository-a-template-optional",
+    "href": "sessions-tab/git_quarto_template.html#step-6-make-the-repository-a-template-optional",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 6: Make the Repository a Template (Optional)",
+    "text": "Step 6: Make the Repository a Template (Optional)\n\nMark the repository as a template in the GitHub repo Settings. This way you can reuse the template for creating websites. Note that in this case you should follow the step below for using a Template to create a new project"
   },
   {
     "objectID": "sessions-tab/git_quarto_template.html#step-1-create-new-projects-using-the-template",
     "href": "sessions-tab/git_quarto_template.html#step-1-create-new-projects-using-the-template",
     "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
     "section": "Step 1: Create New Projects Using the Template",
-    "text": "Step 1: Create New Projects Using the Template\n\nIn GitHub go to the repo that is the template. Click on ‘Use this template’ to create a new repos. Or go to create “New” repository."
+    "text": "Step 1: Create New Projects Using the Template\n\nIn GitHub go to the repo that is the Template. Click on ‘Use this template’ and create a new repo. Or go to create “New” repository.\nGive the repo a new name and short description, then press Create repository.\nThe new repo will appear with all the relevant files. Click on the button &lt;&gt; Code and copy paste the HTTPS link that appears"
   },
   {
     "objectID": "sessions-tab/git_quarto_template.html#step-2-clone-repo-to-r",
     "href": "sessions-tab/git_quarto_template.html#step-2-clone-repo-to-r",
     "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
     "section": "Step 2: Clone repo to R",
-    "text": "Step 2: Clone repo to R\n\nTo clone on RStudio, I will assume you are logged in to a different R project.\nCreate an empty folder with the EXACT same name as the GitHub repo, then:\nOpen R terminal and navigate to the directory where you want the new project:\n\ncd ~/new-project-directory\n\nTo clone the new repository: Note there should be a space and period at the end to tell R not to duplicate the folder\n\ngit clone https://github.com/YOUR-USERNAME/YOUR-NEW-REPO.git .\n\nIf the above code does not work, it could be because of private settings. Try this, where the PAT code should be pasted, remember to leave gap and period.\n\ngit clone https://YOUR-USERNAME:ADD_YOUR_PAT_HERE@github.com/YOUR-USERNAME/YOUR-NEW-REPO.git ."
+    "text": "Step 2: Clone repo to R\n\nGo into Rstudio and click on New project. Select Version Control, then select Git\nPaste the link you copied from your github repo into the Repository box, the default one. It will fill automatically in the Project directory name. The press Create Project."
   },
   {
-    "objectID": "sessions-tab/git_quarto_template.html#step-3-configure-website-settings-in-github-pages",
-    "href": "sessions-tab/git_quarto_template.html#step-3-configure-website-settings-in-github-pages",
+    "objectID": "sessions-tab/git_quarto_template.html#step-3-work-on-your-project-website-in-r-and-push-changes-back-to-github",
+    "href": "sessions-tab/git_quarto_template.html#step-3-work-on-your-project-website-in-r-and-push-changes-back-to-github",
     "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
-    "section": "Step 3: Configure website settings in GitHub pages",
-    "text": "Step 3: Configure website settings in GitHub pages\n\nIt is likely you will need to activate Git Hub pages. This means repeating the step above: “Step 4: Activate, Set Up GitHub Pages to render website”"
+    "section": "Step 3: Work on your project (website) in R and push changes back to github",
+    "text": "Step 3: Work on your project (website) in R and push changes back to github\n\nWork on your website\nRemember to “Build” website in R before commiting changes to GitHub\nRegularly commit and push changes to GitHub."
   },
   {
-    "objectID": "sessions-tab/git_quarto_template.html#step-4-work-on-your-website-in-rquarto",
-    "href": "sessions-tab/git_quarto_template.html#step-4-work-on-your-website-in-rquarto",
+    "objectID": "sessions-tab/git_quarto_template.html#step-4-for-websites-configure-settings-in-github-pages",
+    "href": "sessions-tab/git_quarto_template.html#step-4-for-websites-configure-settings-in-github-pages",
     "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
-    "section": "Step 4: Work on your website in R/Quarto",
-    "text": "Step 4: Work on your website in R/Quarto\n\nGo into your new project in R (this will mean logging out of your current R project)\nWork on your website\nRemember to “Build” website in R before commiting changes to GitHub\nRegularly commit and push changes to GitHub."
+    "section": "Step 4: For websites, configure settings in GitHub pages",
+    "text": "Step 4: For websites, configure settings in GitHub pages\n\nIf you are working on a website, it is likely you will need to activate Git Hub pages. This means repeating the step above: “Step 5: Activate, Set Up GitHub Pages to render website”"
   },
   {
     "objectID": "surveys-tab/tvhours_google.html",
