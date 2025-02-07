@@ -1,0 +1,14 @@
+{
+  "hash": "ff81b79fc6a736c96354e5105bc2209d",
+  "result": {
+    "markdown": "---\ntitle: \"Data-driven Communication: Content Management & Visualization for Marketing and Communication Sciences\"\n---\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\n#> ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n#> ✔ dplyr     1.1.4     ✔ readr     2.1.5\n#> ✔ forcats   1.0.0     ✔ stringr   1.5.1\n#> ✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n#> ✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n#> ✔ purrr     1.0.2     \n#> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n#> ✖ dplyr::filter() masks stats::filter()\n#> ✖ dplyr::lag()    masks stats::lag()\n#> ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors\nlibrary(kableExtra)\n#> \n#> Attaching package: 'kableExtra'\n#> \n#> The following object is masked from 'package:dplyr':\n#> \n#>     group_rows\n```\n:::\n\n\n\n::: {.grid}\n::: {.g-col-8}\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Bla, Bla.\n\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt Nemo enim ipsam.\n:::\n\n::: {.g-col-4}\n![](images/home3.png){.center width=\"70%\" style=\"border-radius: 8px;\"}\n:::\n:::\n\nNemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt Nemo enim ipsam.\n\n[Course Outline:](https://digipols-admin.github.io/teaching_template/outline.html) Access to the course outline, includes timetable and links to resources. \n\n::: {.footer style=\"text-align: left; padding: 1rem; margin-top: 10rem;\"}\n© 2025 Digipols. All rights reserved. | [Privacy Policy](#) | [Terms of Service](#)\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

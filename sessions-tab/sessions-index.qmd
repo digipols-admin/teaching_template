@@ -1,0 +1,39 @@
+---
+title: "Course sessions"
+---
+
+Each session in this course builds upon the previous, providing a learning approach that takes you from foundational concepts to advanced techniques. Sessions 1, 2, and 3 are designed to be explored together, offering an introduction to the key tools and methods required for transforming data into visual insights. 
+
+Further information on the course sessions will be added to the platform on a weekly basis.
+
+## Sessions 1–3 Overview
+
+Sessions 1 to 3 provide the foundation for transforming data into visual experiences. In these three sessions, you will:
+
+- Understand the basics of data-driven communication and learn about the tools and workflows essential for effective content management.
+- Explore survey creation using Google Forms and collaborative version control with GitHub to manage and streamline projects.
+- Gain hands-on experience with RStudio and Quarto, mastering analytics and creating dashboards that communicate clear insights.
+
+Together, these sessions set the stage for developing the practical skills needed to turn raw data into visual stories for marketing and communication purposes.
+
+### Setting Up GitHub, R, and Quarto (Session 1)
+
+As part of Session 1, you will set up the foundational tools needed for the course:
+
+- **GitHub**: Learn the basics of version control, including creating repositories, committing changes, and collaborating on projects.
+- **R and RStudio**: Configure R and RStudio, the primary tools for data analysis and visualization.
+- **Quarto**: Set up Quarto to create dynamic and visually appealing reports and dashboards.
+
+For detailed instructions, refer to the [Session 1 Setup Guide](https://digipols-admin.github.io/teaching_template/sessions-tab/git_quarto_template.html).
+
+### Surveys and Content Management (Sessions 2 & 3)
+
+Sessions 2 and 3 are combined to provide an introduction to survey creation, data management, and basic dashboard design. Key topics include:
+
+- **Real-World Dashboard Examples**: Explore real-world examples of dashboards that demonstrate diverse applications, some extending beyond survey data, to understand their practical impact.
+- **Survey Design and Implementation**: Learn how to create and implement surveys using tools like Google Forms, focusing on effective question design and data collection.
+- **Content Management with R**: Use R programming to import, clean, and wrangle data. This includes working with tools like `googlesheets4` to integrate and manipulate Google Sheets data efficiently.
+- **Introduction to Dashboards**: Gain foundational knowledge and hands-on experience in creating basic dashboards, setting the stage for more advanced visualization techniques.
+
+For additional resources and examples, visit the [Surveys](https://digipols-admin.github.io/teaching_template/surveys-tab/surveys-index.html) tab.
+

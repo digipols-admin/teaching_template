@@ -1,0 +1,31 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "XDMComs"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: sessions-tab/sessions-index.qmd
+        text: Sessions
+      - href: surveys-tab/surveys-index.qmd
+        text: Surveys
+      - href: links-tab/links-index.qmd
+        text: Useful links     
+    logo: images/logo_tepak.png
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+knitr:
+  opts_chunk:
+    comment: "#>"
+    code-fold: true
+    message: false
+    warning: false
+

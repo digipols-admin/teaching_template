@@ -1,0 +1,66 @@
+---
+title: "Surveys & Content Management"
+---
+
+We will now leverage the tools and workflows introduced in Session 1 with practical applications related to survey creation, data management, and visualization. Here, you will explore how to design effective surveys, integrate real-world data, and create interactive dashboards tailored for research and communication purposes. The examples and tools provided, including Google Forms, Shiny applications, and R workflows, will help you gain hands-on experience in transforming data into insights for diverse audiences.
+
+## Real-World Application: Multi-Country Climate Surveys (DUST Consortium)
+
+This section highlights a real-world example of a multi-country survey conducted under a European Horizon research consortium. The project investigated citizens' attitudes toward participating in policy-making processes, with a particular emphasis on regions potentially impacted by climate change policies. 
+
+Key resources include:
+
+- [Hosting a survey using Google Forms](https://digipols-admin.github.io/teaching_template/surveys-tab/dust_survey_google.html): A guide for designing and distributing surveys online.
+
+- [Survey support webpage](https://fmendez72.github.io/app_dust/){target="_blank"}: An example of an RStudio-based workflow website and dashboard created to support research efforts, showcasing survey data integration and visualization techniques.
+
+
+## Real-World Application: European Research Dashboards (EUT Consortium)
+
+This example focuses on the use of dashboards developed as support for the EUT research consortium. The project demonstrates how data visualization and dashboard technologies can support research initiatives across diverse fields. These dashboards are tailored to present complex datasets in an accessible format for researchers.
+
+Key resource:
+
+- [Example of a dashboard for a research consortium](https://extras.cut.ac.cy/ero/eut-dashboards/){target="_blank"}: A comprehensive dashboard showcasing data visualization and integration techniques used in collaborative research projects. This iframe may not load if using a TEPAK network.  
+
+## Using the Google Ecosystem: Surveys and Dashboards
+
+Google Forms and Google Looker Data Studio are widely used tools in various industries for data collection and visualization. Google Forms simplifies the process of designing and distributing surveys, while Looker Data Studio offers robust visualization capabilities to turn raw survey data into actionable insights. These tools are not only user-friendly but also highly adaptable to diverse research and business needs.
+
+In this example, we will demonstrate the creation of a survey using Google Forms and the visualization of the collected data through Looker Data Studio. The dataset used is derived from the `forcats` package in R, specifically the General Social Survey on TV hours watched. This sample dataset will be used to create questionnaires and generate synthetic datasets for analysis and visualization.
+
+Key resources:
+
+- [Example of a Google survey form](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_google.html): A hands-on demonstration of survey design and implementation.
+- [Example of a Google Looker dashboard](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_looker.html): A visual representation of survey data, highlighting key metrics and trends.
+
+**Additional Resources:**
+
+- [Google Forms Overview](https://support.google.com/docs/answer/6281888): Official Google forms support page.
+- [Getting Started with Google Data Studio](https://www.youtube.com/watch?v=Coe_f79Xc2o): A good introduction to using Data Studio for data visualization.
+
+## Using Shiny for Dynamic Surveys and Reports
+
+Continuing with the General Social Survey (GSS) dataset on TV hours watched, this section demonstrates how Shiny can be used for survey creation and data collection. Using the `shinysurveys` package in R, we will build a fully functional survey and collect responses dynamically. The collected data will then be showcased in both static and interactive reports using Quarto.
+
+Shiny stands out as an excellent option for building enterprise-level web applications due to its flexibility and ability to handle dynamic data inputs. Its seamless integration with R makes it a popular choice for industries needing data-driven solutions, from finance to healthcare. Meanwhile, Quarto is emerging as a vanguard publishing solution, providing powerful tools for creating professional, high-quality documents and interactive reports. Its support for JavaScript Observable -as well as Python and VS Code- enhances interactivity, making it an ideal choice for creating engaging and exploratory data narratives.
+
+Key highlights:
+
+- **Survey Creation**: Learn to design surveys with Shiny and collect real-time data seamlessly.
+- **Static Report**: Present collected survey data in a clear and concise Quarto report, ideal for static dissemination.
+- **Interactive Report**: Create an engaging interactive report using Quarto and JavaScript Observable, allowing users to explore the data dynamically.
+
+**Key Resources:**
+
+- [iFrame example of a Shiny questionnaire hosted on demotec](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_shiny.html): A demonstration of hosting a Shiny survey. **N.B** Since we are still waiting for https certification from the Uni, the iframe in this link is unlikely to work!
+- [Direct link to Shiny questionnaire hosted on demotec](http://demotec.cut.ac.cy/fernando/tvhours/){target="_blank"}: However it is possible to access the Shiny questionnaire directly.
+- [iFrame example of Shiny questionnaire hosted on cohesify](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_shiny_cohesify.html): An alternative hosting solution for the Shiny questionnaire.
+- [Example of a static Quarto report](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_static_report.html)
+- [Example of an interactive Quarto report](https://digipols-admin.github.io/teaching_template/surveys-tab/tvhours_js.html). 
+
+**Additional Resources:**
+
+- [Hadley Wickham's 2nd Edition R for Data Science - Chapter on Quarto](https://r4ds.hadley.nz/quarto): An introductory guide on Quarto and its integration with R by a leading R programmer/statistician.
+- [Quarto Documentation: Static Reports](https://quarto.org/docs/authoring/): Official documentation for creating static reports.
+- [Quarto Documentation: Interactive Reports with JS Observable](https://quarto.org/docs/interactive/): Learn to integrate JavaScript Observable with Quarto for interactive visualizations. **N.B** These examples may not work with an Rstudio server.

@@ -1,0 +1,42 @@
+---
+title: "MSc. Course on 'Data-driven Communication: Content Management & Visualization for Marketing & Communication Sciences'"
+---
+
+
+::: {.grid}
+::: {.g-col-8}
+Welcome to our course platform, designed to guide you through sessions and serve as a comprehensive repository for resources, including reading material, videos and code. 
+
+This course emphasizes practical, hands-on skills for transforming data into compelling dashboards and visual stories tailored for marketing and communication. You will master the full technology stack—from survey creation tools like Google Forms to collaborative version control using GitHub, and R-based analytics with RStudio and Quarto. 
+
+:::
+
+::: {.g-col-4}
+![](images/home3.png){.center width="70%" style="border-radius: 8px;"}
+:::
+:::
+
+## What you'll learn
+
+By the end of the course, you'll have the expertise to host interactive visualizations online, making insights accessible for real-world applications.
+
+
+## Course Outline
+
+The course covers a range of topics, focusing on hands-on techniques for transforming data into visual narratives. More details about the course structure, modules, and learning objectives are available in the [Course Outline](https://digipols-admin.github.io/teaching_template/pages/outline.html).
+
+
+## Instructors
+
+### Dr. Costas Tziouvas
+Dr. Costas Tziouvas is a computer scientist and faculty member at the Cyprus University of Technology. He has extensive experience in data analytics and digital communication. You can reach him at [costas.tziouvas@cut.ac.cy](mailto:costas.tziouvas@cut.ac.cy).
+
+### Dr. Fernando Mendez
+Dr. Fernando Mendez, is a political scientist and researcher at the University of Zurich. His research interests lie at the intersection of data science and political communication. You can reach him at [fernando.mendez@zda.uzh.ch](mailto:fernando.mendez@zda.uzh.ch).
+
+
+
+
+::: {.footer style="text-align: left; padding: 1rem; margin-top: 10rem;"}
+© 2025 Digipols. All rights reserved. | [Privacy Policy](#) | [Terms of Service](#)
+:::

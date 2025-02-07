@@ -1,0 +1,47 @@
+---
+title: "Links"
+---
+
+Here are some useful links to have open during set up: 
+
+**This website's git hub** [https://github.com/digipols-admin/teaching_template](https://github.com/digipols-admin/teaching_template).
+
+**Your website template** [https://github.com/YOUR-USERNAME/class_website_template](https://github.com/YOUR-USERNAME/class_website_template).
+
+**The R server** [http://demotec.cut.ac.cy:8787](http://demotec.cut.ac.cy:8787).
+
+
+## Cloning a github repo with a Quarto website template and pushing to R
+
+To save time in creating websites using R and github we have prepared a short video explainer that covers all the steps. The important aspect is to have a template in your github account that you can re-use at will. 
+
+We have prepared a template, so can avoid the process of creating a template. Although we do encourage you to create your own templates in github. For instance, you may want a template for creating online presentations, or scientific reports. Once you have a template repo in github, it's very simply to push it to R.
+
+These are the basic steps: 
+
+#### Step 1: Clone a repo and make it a template
+
+1. Clone a repo (a template for a Quarto website) from my personal github account: `fmendez72/xdmcoms-website` into your own github account 
+2. In your github account set the cloned repo as a "Template" [so you can re-use it]
+3. Assign the repo you just cloned a "Template" status and use it to create a github repo for a NEW quarto website
+
+#### Step 2: Pull the website into R 
+
+4. Pull the repo as a new R project 
+5. Build the website in R and push it to git 
+
+The video provides a step by step guide on how to do this:
+
+{{< video https://youtu.be/e8Cntd5Vv6E >}}
+
+:::{.callout-note}
+This video provides step by step guide. Remember to have your PAT password (the long one) and that you need to go to the Build tab in R in order to click on the "Render website" button. For changes to be reflected on your online website it is necessary to build the website.  
+:::
+
+**Alternatively, you can access the video directly:** [https://youtu.be/e8Cntd5Vv6E](https://youtu.be/e8Cntd5Vv6E)
+
+## Student links
+
+We can test student pages here:
+
+[Evi google form template](https://digipols-admin.github.io/teaching_template/links-index/evi_survey_google.html).

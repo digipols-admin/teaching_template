@@ -1,0 +1,266 @@
+---
+title: "Survey Data Analysis"
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(forcats) # for data
+library(lubridate) # for dates
+library(conflicted) # for managing namespace conflicts (functions with the same name)
+conflicts_prefer(dplyr::select)
+conflicts_prefer(dplyr::filter)
+library(see)
+library(parameters)
+
+```
+
+
+```{r datatables}
+# Create data tables
+
+# Create Codebook
+codebook <- tibble(
+  variable_name = c("marital", "age", "race", "rincome", "partyid", "relig", "tvhours"),
+  question = c(
+    "What is your marital status?",
+    "What is your age?",
+    "What is your race?",
+    "What is your income range?",
+    "What is your political affiliation?",
+    "What is your religion?",
+    "How many hours per day do you spend watching TV?"
+  )
+)
+
+# Generate a synthetic dataset
+set.seed(123)
+data <- tibble(
+  marital = sample(c("Divorced", "Married", "Never married", "Separated", "Widowed"), 100, replace = TRUE),
+  age = round(rexp(100, rate = 0.05) + 11),  # Skewed age distribution
+  race = sample(c("Black", "Other", "White"), 100, replace = TRUE),
+  rincome = sample(c("$10000 - 14999", "$15000 - 19999", "$20000 - 24999", "$25000 or more", "Less than 10000"), 100, replace = TRUE),
+  partyid = sample(c("Independent", "Not str democrat", "Not str republican", "Strong democrat", "Strong republican"), 100, replace = TRUE),
+  relig = sample(c("Catholic", "None", "Other", "Protestant"), 100, replace = TRUE),
+  tvhours = round((age - 11) / 10 + rpois(100, lambda = 1), 0)  # Skewed tvhours correlated with age
+)
+
+# Download and filter original data
+gss <- forcats::gss_cat
+
+tvhours_data <- gss |> 
+  filter(year==2000) |> 
+  select(-year, -denom) |> 
+  filter(!is.na(tvhours)) |> 
+  filter(tvhours<13) |> 
+  mutate(across(where(is.factor), as.character)) |> 
+  filter(marital %in% c("Never married", "Separated", "Divorced", "Widowed", "Married")) |> 
+  filter(!is.na(age)) |> 
+  filter(race %in% c("Other", "Black", "White")) |> 
+  filter(partyid %in% c("Strong republican", 
+                        "Not str republican", 
+                        "Independent", 
+                        "Not str democrat", "Strong democrat")) |> 
+  mutate(relig = case_when(
+    relig %in% c("Catholic", "Protestant", "None") ~ relig,
+    TRUE ~ "Other")
+  ) |> 
+  mutate(rincome = case_when(
+    rincome %in% c("$25000 or more", "$20000 - 24999", "$15000 - 19999", "$10000 - 14999") ~ rincome,
+    TRUE ~ "Less than 10000")
+  )
+
+# Add a user_id and random timestamp
+# Define the start and end datetime
+start_datetime <- ymd_hms("2000-01-18T17:29:08Z")
+end_datetime <- start_datetime + years(1)
+
+# Calculate the total number of seconds in the one-year interval
+total_seconds <- as.numeric(difftime(end_datetime, start_datetime, units = "secs"))
+
+# Generate random timestamps
+set.seed(123)  # Set seed for reproducibility
+tvhours_data <- tvhours_data %>%
+  rowid_to_column(var = "user_id") |> 
+  mutate(user_id = paste0("id_", user_id)) |> 
+  mutate(timestamp = start_datetime + seconds(runif(n(), min = 0, max = total_seconds))
+         )
+  
+```
+
+
+# Introduction
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Proin lacinia dolor sit amet facilisis mollis. Donec ullamcorper elit non dui hendrerit efficitur.
+
+# Questionnaire
+
+The table below provides a codebook for the survey questionnaire, listing variable names and the corresponding questions:
+
+```{r codebook}
+codebook |>
+  kable(caption = "Survey Questionnaire Codebook") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
+```
+
+# Data Overview
+
+The survey dataset contains responses to questions on demographic and behavioral characteristics. Here is a preview of the first few rows:
+
+```{r data-preview}
+data |> 
+  head() |> 
+  kable(caption = "Survey Data Preview") |> 
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
+```
+
+# Descriptive Statistics
+
+## Age Distribution
+
+```{r age-plot}
+# Age distribution
+age_plot <- ggplot(data, aes(x = age)) +
+  geom_histogram(binwidth = 5, fill = "steelblue", color = "black") +
+  labs(title = "Age Distribution", x = "Age", y = "Frequency") +
+  theme_minimal()
+
+age_plot
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non pretium ex. Sed quis justo libero.
+
+## Race Breakdown
+
+```{r race-table}
+# Race breakdown
+data %>% 
+  count(race) %>% 
+  mutate(percentage = n / sum(n) * 100) %>%
+  kable(caption = "Race Breakdown", digits = 1) %>% 
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis dui a odio posuere pellentesque.
+
+## Hours Watching TV
+
+```{r tvhours-plot}
+# TV hours distribution
+tvhours_plot <- ggplot(data, aes(x = tvhours)) +
+  geom_bar(fill = "darkorange", color = "black") +
+  labs(title = "TV Hours Distribution", x = "Hours per Day", y = "Count") +
+  theme_minimal()
+
+# Display plot
+tvhours_plot
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vestibulum massa eget nunc pulvinar, ac fringilla nulla congue.
+
+## Scatter Plot: Age vs TV Hours (simulated data)
+
+```{r scatter-plot-simulated}
+# Scatter plot with smoothed regression line
+scatter_plot <- ggplot(data, aes(x = age, y = tvhours)) +
+  geom_point(color = "blue", alpha = 0.6) +
+  geom_smooth(method = "lm", se = TRUE, color = "red") +
+  labs(title = "Scatter Plot of Age vs TV Hours", x = "Age", y = "TV Hours") +
+  theme_minimal()
+
+scatter_plot
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.
+
+## Scatter Plot: Age vs TV Hours real data
+
+```{r scatter-plot-real}
+# Scatter plot with smoothed regression line
+scatter_plot <- ggplot(tvhours_data, aes(x = age, y = tvhours)) +
+  geom_point(color = "blue", alpha = 0.6) +
+  geom_smooth(method = "lm", se = TRUE, color = "red") +
+  labs(title = "Scatter Plot of Age vs TV Hours", x = "Age", y = "TV Hours") +
+  theme_minimal()
+
+scatter_plot
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.
+
+# Suggested Analysis
+
+## Exploring TV Hours with Poisson Regression
+
+Given that `tvhours` is a count variable, a Poisson regression can be useful for exploring relationships with predictors such as age, race, or income.
+
+### Synthetic data
+```{r poisson-model}
+# Example Poisson regression
+poisson_model <- glm(tvhours ~ age + race + rincome, family = poisson, data = data)
+#summary(poisson_model)
+
+# Use the parameters package to extract coefficients
+result <- model_parameters(
+  poisson_model,
+  effects = "fixed",
+  component = "conditional",
+  verbose = FALSE
+)
+
+print(result)
+
+# Use the see package to plot results
+plot(result)
+```
+
+
+### Synthetic data (age scaled)
+```{r poisson-model-scaled}
+# Example Poisson regression
+poisson_model <- glm(tvhours ~ scale(age) + race + rincome, family = poisson, data = data)
+#summary(poisson_model)
+
+# Use the parameters package to extract coefficients
+result <- model_parameters(
+  poisson_model,
+  effects = "fixed",
+  component = "conditional",
+  verbose = FALSE
+)
+
+print(result)
+
+# Use the see package to plot results
+plot(result)
+```
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at nisl vitae felis tristique dictum.
+
+### Real data
+```{r poisson-model-real}
+# Example Poisson regression with real data
+
+poisson_model <- glm(tvhours ~ scale(age) + race + rincome + partyid, family = poisson, data = tvhours_data)
+
+#summary(poisson_model)
+
+# Use the parameters package to extract coefficients
+result <- model_parameters(
+  poisson_model,
+  effects = "fixed",
+  component = "conditional",
+  verbose = FALSE
+)
+
+print(result)
+
+# Use the see package to plot results
+plot(result)
+```
+
+
+# Conclusion
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Proin lacinia dolor sit amet facilisis mollis. Donec ullamcorper elit non dui hendrerit efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Proin lacinia dolor sit amet facilisis mollis. Donec ullamcorper elit non dui hendrerit efficitur.
+

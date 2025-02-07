@@ -1,0 +1,175 @@
+---
+title: "Data-driven Communication: Content Management & Visualization for Marketing and Communication Sciences"
+---
+
+## Course Overview
+
+This course emphasizes the practical, hands-on skills required to transform data into engaging digital experiences for marketing and communication contexts. Students will become familiar with the full technology stack—ranging from survey creation tools (Google Forms) and collaborative version control (GitHub) to R-based analytics (RStudio, Quarto) for generating clear and visually compelling dashboards. Rather than delving deeply into research theory, the focus is on equipping students to manage content and swiftly transform raw data into meaningful visual stories. By the end of the course, students will not only understand how to gather and analyze data but will also possess the technical know-how to host interactive visualizations online, making insights readily accessible for a variety of real-world scenarios.
+
+### Prerequisites
+
+To maximize learning outcomes, students are expected to have the following before starting the course:
+
+1. **Very basic R knowledge**  
+   - Familiarity with installing and running R scripts.  
+   - Understanding of fundamental R operations, such as loading libraries and running basic commands.  
+2. **R Setup**  
+   - R and RStudio installed locally.  
+   - While the course will primarily use a cloud-based R environment, local installations are encouraged for additional practice.  
+3. **Google Account**  
+   - A Google account is necessary to access and integrate tools like Google Forms, Google Sheets, and Google Drive via R packages (`googlesheets4`, `googledrive`).  
+4. **GitHub Account**  
+   - A GitHub account will be essential for hosting interactive visualizations online. Students are encouraged to sign up to GitHub in advance, i.e. have a username and password ready.
+
+
+### Timetable
+
+```{r}
+# Create the table as a tribble
+sessions <- tribble(
+  ~Session, ~Description, ~Date, ~Time,
+  "Session 1", "Introduction to Data-Driven Communication", "Saturday 25/1/25", "4:8pm",
+  "Session 2", "Survey Design & Implementation", "Sunday 26/1/25", "9:2pm",
+  "Session 3", "Content management using R", "Friday 31/2/25", "6:8pm",
+  "Session 4", "Visualization and Dashboard Creation", "Friday 7/2/25", "6:8pm",
+  "Session 5", "Advanced Analysis: Framing and Sentiment Insights", "Saturday 15/2/25", "4:8pm",
+  "Session 6", "Integrating and Presenting Final Projects", "Friday 21/2/25", "6:8pm",
+  "Session 6", "Integrating and Presenting Final Projects", "Sunday 23/2/25", "9:2pm"
+)
+
+# Render the table using kableExtra, remove first column heading
+sessions %>%
+  rename(" "=Session) %>% 
+  kbl()
+```
+
+**Note:** Final timetable to be confirmed on first class meeting
+
+
+### Course Content
+
+**Session 1: Introduction to Data-Driven Communication**
+
+- **Key Concepts:**  
+  - Overview of data-driven approaches in marketing and communication.  
+  - Introduction to essential tools: GitHub, Google Workspace, RStudio, Quarto.  
+- **Activities:**  
+  - Set up GitHub repositories and enable GitHub Pages.  
+  - Introduction to Google Forms and Google Sheets as data collection and management tools.  
+- **Takeaways:**  
+  - Understanding how data underpins strategic communication in marketing.  
+  - Basic repository setup and data workflow planning.
+
+**Session 2: Survey Design & Implementation**
+
+- **Key Concepts:**  
+  - Principles of survey design: question types, scaling, sampling considerations.  
+  - Integrating Google Forms with Google Sheets for real-time data collection.  
+- **Activities:**  
+  - Students create a practical survey relevant to a chosen marketing or communication scenario.  
+  - Explore best practices for ensuring reliable and valid data (question wording, format, etc.).  
+- **Takeaways:**  
+  - Ability to design an effective online survey and understand fundamentals of market research.  
+  - Creating and managing data repositories for multiple use cases (consumer behaviour,, brand analysis, etc.).
+
+**Session 3: Content management using R**
+
+- **Key Concepts:**  
+  - Introduction to R programming for marketing analytics (data import, cleaning, wrangling).  
+  - Working with Google Sheets data in R (e.g., `googlesheets4`).  
+- **Activities:**  
+  - Pull real survey response data into R and perform initial descriptive analyses.  
+  - Use the `tidyverse`  framework for cleaning and manipulation.  
+- **Takeaways:**  
+  - Hands-on experience preparing data for visualization and advanced analysis.  
+  - Understanding how R can streamline and automate data workflows.
+
+**Session 4: Visualization and Dashboard Creation**
+
+- **Key Concepts:**  
+  - Introduction to data visualization principles (clarity, aesthetics, storytelling).  
+  - Building interactive dashboards in Quarto or alternative frameworks (Shiny, JS observable).  
+- **Activities:**  
+  - Create interactive charts (bar graphs, line charts, word clouds) to illustrate survey results and findings.  
+  - Embed dashboards within websites hosted on GitHub Pages via iFrames.  
+- **Takeaways:**  
+  - Ability to build compelling visual narratives and dashboards.  
+  - Understanding best practices in data storytelling for marketing and communication contexts.
+
+**Session 5: Advanced Analysis: Framing and Sentiment Insights**
+
+- **Key Concepts:**  
+  - Sentiment analysis of social media data (e.g., X mentions, political campaigns).  
+  - Basic text mining techniques (tokenization, cleaning, sentiment lexicons).  
+- **Activities:**  
+  - Acquire sample tweets or social media data with brand/political keywords.  
+  - Conduct sentiment analysis using R (e.g., `tidytext`).  
+  - Supervised and Unsupervised Classification using LLMs in R  
+- **Takeaways:**  
+  - Insights into audience attitudes and emotional resonance around brands or issues.  
+  - Practical application of text analytics in modern communication strategies.
+
+**Session 6: Integrating and Presenting Final Projects**
+
+- **Key Concepts:**  
+  - Consolidating survey data, sentiment analysis, and dashboards into a cohesive communication strategy.  
+  - Troubleshooting GitHub Pages deployment, finalizing website design, ensuring data updates.  
+- **Activities:**  
+  - Students present their final dashboards and discuss key insights from their analyses.  
+  - Peer feedback and instructor-led critique of project outcomes.  
+- **Takeaways:**  
+  - Fully integrated, web-based project showcasing with multi-faceted analysis (survey \+ social media).  
+  - Final demonstration of data-driven communication skills relevant to marketing contexts.
+
+
+### Learning Outcomes
+
+1. Design Effective Surveys  
+2. Use R and Git to manage content workflows  
+3. Visualize and Communicate Insights  
+4. Develop Transferable Technical Skills  
+5. Enhance Strategic Communication
+
+---
+
+### Teaching Methodology
+
+- Practical Lab Sessions  
+- Discussion & Collaboration  
+- Progressive Project Development
+
+---
+
+### Assessment
+
+1. Class Participation/Presentation (20%)  
+2. Individual Final Project (80%)
+
+
+## Resources
+
+- **Happy Git and GitHub for the useR**. A full course on using git by Jennifer Bryan. Browse chapter *4 Register a GitHub account* section *4.1* on creating a GitHub account.  
+  **Link**: [https://happygitwithr.com](https://happygitwithr.com/\\)
+
+- **Quarto:** The main resource for Quarto publishing framework  
+  **Link:** [https://quarto.org/](https://quarto.org/)
+
+- [Hadley Wickham's 2nd Edition R for Data Science - Chapter on Quarto](https://r4ds.hadley.nz/quarto): An introductory guide on Quarto and its integration with R by a leading R programmer/statistician.
+
+- An online version of (slightly older but still relevant) chapter from Stephen Few on principles of data visualization  
+  **Link**:  [https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/data-visualization-for-human-perception](https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/data-visualization-for-human-perception?cm_mc_sid_50200000=1497196827&cm_mc_uid=13918417820714971968273)
+
+- **Modern Data Visualization with R:** An online version of the book "Modern Data Visualization with R**,** which guides you through creating popular visualizations using R, focusing on the `ggplot2` package.  
+  **Link:** [https://rkabacoff.github.io/datavis/](https://rkabacoff.github.io/datavis/)  
+    
+- R package `ggpubr` A good R library for creating publication ready graphs, with useful examples and simpler syntax than `ggplot2`.   
+  **Link:** [https://rpkgs.datanovia.com/ggpubr/index.html](https://rpkgs.datanovia.com/ggpubr/index.html)  
+    
+- **Silge, J., & Robinson, D. (2017). *Text Mining with R: A Tidy Approach*. O’Reilly Media.** A practical resource for sentiment analysis and text mining, highlighting best practices and code examples.  
+**Link:** [https://www.tidytextmining.com/](https://www.tidytextmining.com)  
+
+- **Google Looker Studio**, A very good introduction on how to use Google Looker Studio, using Google Analytics as a data source example.   
+  **Link**: [https://www.youtube.com/watch?v=Coe\_f79Xc2o](https://www.youtube.com/watch?v=Coe_f79Xc2o)
+
+- **Analytics with Looker Studio**. Another useful video on how to integrate Google Analytics into a Looker Studio dahsboard   
+  Link: [https://www.youtube.com/watch?v=SdDRZFhHS2U](https://www.youtube.com/watch?v=SdDRZFhHS2U)

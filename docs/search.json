@@ -1,0 +1,324 @@
+[
+  {
+    "objectID": "pages/outline.html",
+    "href": "pages/outline.html",
+    "title": "Data-driven Communication: Content Management & Visualization for Marketing and Communication Sciences",
+    "section": "",
+    "text": "This course emphasizes the practical, hands-on skills required to transform data into engaging digital experiences for marketing and communication contexts. Students will become familiar with the full technology stack—ranging from survey creation tools (Google Forms) and collaborative version control (GitHub) to R-based analytics (RStudio, Quarto) for generating clear and visually compelling dashboards. Rather than delving deeply into research theory, the focus is on equipping students to manage content and swiftly transform raw data into meaningful visual stories. By the end of the course, students will not only understand how to gather and analyze data but will also possess the technical know-how to host interactive visualizations online, making insights readily accessible for a variety of real-world scenarios.\n\n\nTo maximize learning outcomes, students are expected to have the following before starting the course:\n\nVery basic R knowledge\n\nFamiliarity with installing and running R scripts.\n\nUnderstanding of fundamental R operations, such as loading libraries and running basic commands.\n\n\nR Setup\n\nR and RStudio installed locally.\n\nWhile the course will primarily use a cloud-based R environment, local installations are encouraged for additional practice.\n\n\nGoogle Account\n\nA Google account is necessary to access and integrate tools like Google Forms, Google Sheets, and Google Drive via R packages (googlesheets4, googledrive).\n\n\nGitHub Account\n\nA GitHub account will be essential for hosting interactive visualizations online. Students are encouraged to sign up to GitHub in advance, i.e. have a username and password ready.\n\n\n\n\n\n\n\nCode\n# Create the table as a tribble\nsessions &lt;- tribble(\n  ~Session, ~Description, ~Date, ~Time,\n  \"Session 1\", \"Introduction to Data-Driven Communication\", \"Saturday 25/1/25\", \"4:8pm\",\n  \"Session 2\", \"Survey Design & Implementation\", \"Sunday 26/1/25\", \"9:2pm\",\n  \"Session 3\", \"Content management using R\", \"Friday 31/2/25\", \"6:8pm\",\n  \"Session 4\", \"Visualization and Dashboard Creation\", \"Friday 7/2/25\", \"6:8pm\",\n  \"Session 5\", \"Advanced Analysis: Framing and Sentiment Insights\", \"Saturday 15/2/25\", \"4:8pm\",\n  \"Session 6\", \"Integrating and Presenting Final Projects\", \"Friday 21/2/25\", \"6:8pm\",\n  \"Session 6\", \"Integrating and Presenting Final Projects\", \"Sunday 23/2/25\", \"9:2pm\"\n)\n\n# Render the table using kableExtra, remove first column heading\nsessions %&gt;%\n  rename(\" \"=Session) %&gt;% \n  kbl()\n\n\n\n\n\n\nDescription\nDate\nTime\n\n\n\n\nSession 1\nIntroduction to Data-Driven Communication\nSaturday 25/1/25\n4:8pm\n\n\nSession 2\nSurvey Design & Implementation\nSunday 26/1/25\n9:2pm\n\n\nSession 3\nContent management using R\nFriday 31/2/25\n6:8pm\n\n\nSession 4\nVisualization and Dashboard Creation\nFriday 7/2/25\n6:8pm\n\n\nSession 5\nAdvanced Analysis: Framing and Sentiment Insights\nSaturday 15/2/25\n4:8pm\n\n\nSession 6\nIntegrating and Presenting Final Projects\nFriday 21/2/25\n6:8pm\n\n\nSession 6\nIntegrating and Presenting Final Projects\nSunday 23/2/25\n9:2pm\n\n\n\n\n\n\n\nNote: Final timetable to be confirmed on first class meeting\n\n\n\nSession 1: Introduction to Data-Driven Communication\n\nKey Concepts:\n\nOverview of data-driven approaches in marketing and communication.\n\nIntroduction to essential tools: GitHub, Google Workspace, RStudio, Quarto.\n\n\nActivities:\n\nSet up GitHub repositories and enable GitHub Pages.\n\nIntroduction to Google Forms and Google Sheets as data collection and management tools.\n\n\nTakeaways:\n\nUnderstanding how data underpins strategic communication in marketing.\n\nBasic repository setup and data workflow planning.\n\n\nSession 2: Survey Design & Implementation\n\nKey Concepts:\n\nPrinciples of survey design: question types, scaling, sampling considerations.\n\nIntegrating Google Forms with Google Sheets for real-time data collection.\n\n\nActivities:\n\nStudents create a practical survey relevant to a chosen marketing or communication scenario.\n\nExplore best practices for ensuring reliable and valid data (question wording, format, etc.).\n\n\nTakeaways:\n\nAbility to design an effective online survey and understand fundamentals of market research.\n\nCreating and managing data repositories for multiple use cases (consumer behaviour,, brand analysis, etc.).\n\n\nSession 3: Content management using R\n\nKey Concepts:\n\nIntroduction to R programming for marketing analytics (data import, cleaning, wrangling).\n\nWorking with Google Sheets data in R (e.g., googlesheets4).\n\n\nActivities:\n\nPull real survey response data into R and perform initial descriptive analyses.\n\nUse the tidyverse framework for cleaning and manipulation.\n\n\nTakeaways:\n\nHands-on experience preparing data for visualization and advanced analysis.\n\nUnderstanding how R can streamline and automate data workflows.\n\n\nSession 4: Visualization and Dashboard Creation\n\nKey Concepts:\n\nIntroduction to data visualization principles (clarity, aesthetics, storytelling).\n\nBuilding interactive dashboards in Quarto or alternative frameworks (Shiny, JS observable).\n\n\nActivities:\n\nCreate interactive charts (bar graphs, line charts, word clouds) to illustrate survey results and findings.\n\nEmbed dashboards within websites hosted on GitHub Pages via iFrames.\n\n\nTakeaways:\n\nAbility to build compelling visual narratives and dashboards.\n\nUnderstanding best practices in data storytelling for marketing and communication contexts.\n\n\nSession 5: Advanced Analysis: Framing and Sentiment Insights\n\nKey Concepts:\n\nSentiment analysis of social media data (e.g., X mentions, political campaigns).\n\nBasic text mining techniques (tokenization, cleaning, sentiment lexicons).\n\n\nActivities:\n\nAcquire sample tweets or social media data with brand/political keywords.\n\nConduct sentiment analysis using R (e.g., tidytext).\n\nSupervised and Unsupervised Classification using LLMs in R\n\n\nTakeaways:\n\nInsights into audience attitudes and emotional resonance around brands or issues.\n\nPractical application of text analytics in modern communication strategies.\n\n\nSession 6: Integrating and Presenting Final Projects\n\nKey Concepts:\n\nConsolidating survey data, sentiment analysis, and dashboards into a cohesive communication strategy.\n\nTroubleshooting GitHub Pages deployment, finalizing website design, ensuring data updates.\n\n\nActivities:\n\nStudents present their final dashboards and discuss key insights from their analyses.\n\nPeer feedback and instructor-led critique of project outcomes.\n\n\nTakeaways:\n\nFully integrated, web-based project showcasing with multi-faceted analysis (survey + social media).\n\nFinal demonstration of data-driven communication skills relevant to marketing contexts.\n\n\n\n\n\n\nDesign Effective Surveys\n\nUse R and Git to manage content workflows\n\nVisualize and Communicate Insights\n\nDevelop Transferable Technical Skills\n\nEnhance Strategic Communication\n\n\n\n\n\n\nPractical Lab Sessions\n\nDiscussion & Collaboration\n\nProgressive Project Development\n\n\n\n\n\n\nClass Participation/Presentation (20%)\n\nIndividual Final Project (80%)"
+  },
+  {
+    "objectID": "pages/outline.html#course-overview",
+    "href": "pages/outline.html#course-overview",
+    "title": "Data-driven Communication: Content Management & Visualization for Marketing and Communication Sciences",
+    "section": "",
+    "text": "This course emphasizes the practical, hands-on skills required to transform data into engaging digital experiences for marketing and communication contexts. Students will become familiar with the full technology stack—ranging from survey creation tools (Google Forms) and collaborative version control (GitHub) to R-based analytics (RStudio, Quarto) for generating clear and visually compelling dashboards. Rather than delving deeply into research theory, the focus is on equipping students to manage content and swiftly transform raw data into meaningful visual stories. By the end of the course, students will not only understand how to gather and analyze data but will also possess the technical know-how to host interactive visualizations online, making insights readily accessible for a variety of real-world scenarios.\n\n\nTo maximize learning outcomes, students are expected to have the following before starting the course:\n\nVery basic R knowledge\n\nFamiliarity with installing and running R scripts.\n\nUnderstanding of fundamental R operations, such as loading libraries and running basic commands.\n\n\nR Setup\n\nR and RStudio installed locally.\n\nWhile the course will primarily use a cloud-based R environment, local installations are encouraged for additional practice.\n\n\nGoogle Account\n\nA Google account is necessary to access and integrate tools like Google Forms, Google Sheets, and Google Drive via R packages (googlesheets4, googledrive).\n\n\nGitHub Account\n\nA GitHub account will be essential for hosting interactive visualizations online. Students are encouraged to sign up to GitHub in advance, i.e. have a username and password ready.\n\n\n\n\n\n\n\nCode\n# Create the table as a tribble\nsessions &lt;- tribble(\n  ~Session, ~Description, ~Date, ~Time,\n  \"Session 1\", \"Introduction to Data-Driven Communication\", \"Saturday 25/1/25\", \"4:8pm\",\n  \"Session 2\", \"Survey Design & Implementation\", \"Sunday 26/1/25\", \"9:2pm\",\n  \"Session 3\", \"Content management using R\", \"Friday 31/2/25\", \"6:8pm\",\n  \"Session 4\", \"Visualization and Dashboard Creation\", \"Friday 7/2/25\", \"6:8pm\",\n  \"Session 5\", \"Advanced Analysis: Framing and Sentiment Insights\", \"Saturday 15/2/25\", \"4:8pm\",\n  \"Session 6\", \"Integrating and Presenting Final Projects\", \"Friday 21/2/25\", \"6:8pm\",\n  \"Session 6\", \"Integrating and Presenting Final Projects\", \"Sunday 23/2/25\", \"9:2pm\"\n)\n\n# Render the table using kableExtra, remove first column heading\nsessions %&gt;%\n  rename(\" \"=Session) %&gt;% \n  kbl()\n\n\n\n\n\n\nDescription\nDate\nTime\n\n\n\n\nSession 1\nIntroduction to Data-Driven Communication\nSaturday 25/1/25\n4:8pm\n\n\nSession 2\nSurvey Design & Implementation\nSunday 26/1/25\n9:2pm\n\n\nSession 3\nContent management using R\nFriday 31/2/25\n6:8pm\n\n\nSession 4\nVisualization and Dashboard Creation\nFriday 7/2/25\n6:8pm\n\n\nSession 5\nAdvanced Analysis: Framing and Sentiment Insights\nSaturday 15/2/25\n4:8pm\n\n\nSession 6\nIntegrating and Presenting Final Projects\nFriday 21/2/25\n6:8pm\n\n\nSession 6\nIntegrating and Presenting Final Projects\nSunday 23/2/25\n9:2pm\n\n\n\n\n\n\n\nNote: Final timetable to be confirmed on first class meeting\n\n\n\nSession 1: Introduction to Data-Driven Communication\n\nKey Concepts:\n\nOverview of data-driven approaches in marketing and communication.\n\nIntroduction to essential tools: GitHub, Google Workspace, RStudio, Quarto.\n\n\nActivities:\n\nSet up GitHub repositories and enable GitHub Pages.\n\nIntroduction to Google Forms and Google Sheets as data collection and management tools.\n\n\nTakeaways:\n\nUnderstanding how data underpins strategic communication in marketing.\n\nBasic repository setup and data workflow planning.\n\n\nSession 2: Survey Design & Implementation\n\nKey Concepts:\n\nPrinciples of survey design: question types, scaling, sampling considerations.\n\nIntegrating Google Forms with Google Sheets for real-time data collection.\n\n\nActivities:\n\nStudents create a practical survey relevant to a chosen marketing or communication scenario.\n\nExplore best practices for ensuring reliable and valid data (question wording, format, etc.).\n\n\nTakeaways:\n\nAbility to design an effective online survey and understand fundamentals of market research.\n\nCreating and managing data repositories for multiple use cases (consumer behaviour,, brand analysis, etc.).\n\n\nSession 3: Content management using R\n\nKey Concepts:\n\nIntroduction to R programming for marketing analytics (data import, cleaning, wrangling).\n\nWorking with Google Sheets data in R (e.g., googlesheets4).\n\n\nActivities:\n\nPull real survey response data into R and perform initial descriptive analyses.\n\nUse the tidyverse framework for cleaning and manipulation.\n\n\nTakeaways:\n\nHands-on experience preparing data for visualization and advanced analysis.\n\nUnderstanding how R can streamline and automate data workflows.\n\n\nSession 4: Visualization and Dashboard Creation\n\nKey Concepts:\n\nIntroduction to data visualization principles (clarity, aesthetics, storytelling).\n\nBuilding interactive dashboards in Quarto or alternative frameworks (Shiny, JS observable).\n\n\nActivities:\n\nCreate interactive charts (bar graphs, line charts, word clouds) to illustrate survey results and findings.\n\nEmbed dashboards within websites hosted on GitHub Pages via iFrames.\n\n\nTakeaways:\n\nAbility to build compelling visual narratives and dashboards.\n\nUnderstanding best practices in data storytelling for marketing and communication contexts.\n\n\nSession 5: Advanced Analysis: Framing and Sentiment Insights\n\nKey Concepts:\n\nSentiment analysis of social media data (e.g., X mentions, political campaigns).\n\nBasic text mining techniques (tokenization, cleaning, sentiment lexicons).\n\n\nActivities:\n\nAcquire sample tweets or social media data with brand/political keywords.\n\nConduct sentiment analysis using R (e.g., tidytext).\n\nSupervised and Unsupervised Classification using LLMs in R\n\n\nTakeaways:\n\nInsights into audience attitudes and emotional resonance around brands or issues.\n\nPractical application of text analytics in modern communication strategies.\n\n\nSession 6: Integrating and Presenting Final Projects\n\nKey Concepts:\n\nConsolidating survey data, sentiment analysis, and dashboards into a cohesive communication strategy.\n\nTroubleshooting GitHub Pages deployment, finalizing website design, ensuring data updates.\n\n\nActivities:\n\nStudents present their final dashboards and discuss key insights from their analyses.\n\nPeer feedback and instructor-led critique of project outcomes.\n\n\nTakeaways:\n\nFully integrated, web-based project showcasing with multi-faceted analysis (survey + social media).\n\nFinal demonstration of data-driven communication skills relevant to marketing contexts.\n\n\n\n\n\n\nDesign Effective Surveys\n\nUse R and Git to manage content workflows\n\nVisualize and Communicate Insights\n\nDevelop Transferable Technical Skills\n\nEnhance Strategic Communication\n\n\n\n\n\n\nPractical Lab Sessions\n\nDiscussion & Collaboration\n\nProgressive Project Development\n\n\n\n\n\n\nClass Participation/Presentation (20%)\n\nIndividual Final Project (80%)"
+  },
+  {
+    "objectID": "pages/outline.html#resources",
+    "href": "pages/outline.html#resources",
+    "title": "Data-driven Communication: Content Management & Visualization for Marketing and Communication Sciences",
+    "section": "Resources",
+    "text": "Resources\n\nHappy Git and GitHub for the useR. A full course on using git by Jennifer Bryan. Browse chapter 4 Register a GitHub account section 4.1 on creating a GitHub account.\nLink: https://happygitwithr.com\nQuarto: The main resource for Quarto publishing framework\nLink: https://quarto.org/\nHadley Wickham’s 2nd Edition R for Data Science - Chapter on Quarto: An introductory guide on Quarto and its integration with R by a leading R programmer/statistician.\nAn online version of (slightly older but still relevant) chapter from Stephen Few on principles of data visualization\nLink: https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/data-visualization-for-human-perception\nModern Data Visualization with R: An online version of the book “Modern Data Visualization with R, which guides you through creating popular visualizations using R, focusing on the ggplot2 package.\nLink: https://rkabacoff.github.io/datavis/\nR package ggpubr A good R library for creating publication ready graphs, with useful examples and simpler syntax than ggplot2.\nLink: https://rpkgs.datanovia.com/ggpubr/index.html\nSilge, J., & Robinson, D. (2017). Text Mining with R: A Tidy Approach. O’Reilly Media. A practical resource for sentiment analysis and text mining, highlighting best practices and code examples.\nLink: https://www.tidytextmining.com/\nGoogle Looker Studio, A very good introduction on how to use Google Looker Studio, using Google Analytics as a data source example.\nLink: https://www.youtube.com/watch?v=Coe_f79Xc2o\nAnalytics with Looker Studio. Another useful video on how to integrate Google Analytics into a Looker Studio dahsboard\nLink: https://www.youtube.com/watch?v=SdDRZFhHS2U"
+  },
+  {
+    "objectID": "surveys-tab/surveys-index.html",
+    "href": "surveys-tab/surveys-index.html",
+    "title": "Surveys & Content Management",
+    "section": "",
+    "text": "We will now leverage the tools and workflows introduced in Session 1 with practical applications related to survey creation, data management, and visualization. Here, you will explore how to design effective surveys, integrate real-world data, and create interactive dashboards tailored for research and communication purposes. The examples and tools provided, including Google Forms, Shiny applications, and R workflows, will help you gain hands-on experience in transforming data into insights for diverse audiences."
+  },
+  {
+    "objectID": "surveys-tab/surveys-index.html#real-world-application-multi-country-climate-surveys-dust-consortium",
+    "href": "surveys-tab/surveys-index.html#real-world-application-multi-country-climate-surveys-dust-consortium",
+    "title": "Surveys & Content Management",
+    "section": "Real-World Application: Multi-Country Climate Surveys (DUST Consortium)",
+    "text": "Real-World Application: Multi-Country Climate Surveys (DUST Consortium)\nThis section highlights a real-world example of a multi-country survey conducted under a European Horizon research consortium. The project investigated citizens’ attitudes toward participating in policy-making processes, with a particular emphasis on regions potentially impacted by climate change policies.\nKey resources include:\n\nHosting a survey using Google Forms: A guide for designing and distributing surveys online.\nSurvey support webpage: An example of an RStudio-based workflow website and dashboard created to support research efforts, showcasing survey data integration and visualization techniques."
+  },
+  {
+    "objectID": "surveys-tab/surveys-index.html#real-world-application-european-research-dashboards-eut-consortium",
+    "href": "surveys-tab/surveys-index.html#real-world-application-european-research-dashboards-eut-consortium",
+    "title": "Surveys & Content Management",
+    "section": "Real-World Application: European Research Dashboards (EUT Consortium)",
+    "text": "Real-World Application: European Research Dashboards (EUT Consortium)\nThis example focuses on the use of dashboards developed as support for the EUT research consortium. The project demonstrates how data visualization and dashboard technologies can support research initiatives across diverse fields. These dashboards are tailored to present complex datasets in an accessible format for researchers.\nKey resource:\n\nExample of a dashboard for a research consortium: A comprehensive dashboard showcasing data visualization and integration techniques used in collaborative research projects. This iframe may not load if using a TEPAK network."
+  },
+  {
+    "objectID": "surveys-tab/surveys-index.html#using-the-google-ecosystem-surveys-and-dashboards",
+    "href": "surveys-tab/surveys-index.html#using-the-google-ecosystem-surveys-and-dashboards",
+    "title": "Surveys & Content Management",
+    "section": "Using the Google Ecosystem: Surveys and Dashboards",
+    "text": "Using the Google Ecosystem: Surveys and Dashboards\nGoogle Forms and Google Looker Data Studio are widely used tools in various industries for data collection and visualization. Google Forms simplifies the process of designing and distributing surveys, while Looker Data Studio offers robust visualization capabilities to turn raw survey data into actionable insights. These tools are not only user-friendly but also highly adaptable to diverse research and business needs.\nIn this example, we will demonstrate the creation of a survey using Google Forms and the visualization of the collected data through Looker Data Studio. The dataset used is derived from the forcats package in R, specifically the General Social Survey on TV hours watched. This sample dataset will be used to create questionnaires and generate synthetic datasets for analysis and visualization.\nKey resources:\n\nExample of a Google survey form: A hands-on demonstration of survey design and implementation.\nExample of a Google Looker dashboard: A visual representation of survey data, highlighting key metrics and trends.\n\nAdditional Resources:\n\nGoogle Forms Overview: Official Google forms support page.\nGetting Started with Google Data Studio: A good introduction to using Data Studio for data visualization."
+  },
+  {
+    "objectID": "surveys-tab/surveys-index.html#using-shiny-for-dynamic-surveys-and-reports",
+    "href": "surveys-tab/surveys-index.html#using-shiny-for-dynamic-surveys-and-reports",
+    "title": "Surveys & Content Management",
+    "section": "Using Shiny for Dynamic Surveys and Reports",
+    "text": "Using Shiny for Dynamic Surveys and Reports\nContinuing with the General Social Survey (GSS) dataset on TV hours watched, this section demonstrates how Shiny can be used for survey creation and data collection. Using the shinysurveys package in R, we will build a fully functional survey and collect responses dynamically. The collected data will then be showcased in both static and interactive reports using Quarto.\nShiny stands out as an excellent option for building enterprise-level web applications due to its flexibility and ability to handle dynamic data inputs. Its seamless integration with R makes it a popular choice for industries needing data-driven solutions, from finance to healthcare. Meanwhile, Quarto is emerging as a vanguard publishing solution, providing powerful tools for creating professional, high-quality documents and interactive reports. Its support for JavaScript Observable -as well as Python and VS Code- enhances interactivity, making it an ideal choice for creating engaging and exploratory data narratives.\nKey highlights:\n\nSurvey Creation: Learn to design surveys with Shiny and collect real-time data seamlessly.\nStatic Report: Present collected survey data in a clear and concise Quarto report, ideal for static dissemination.\nInteractive Report: Create an engaging interactive report using Quarto and JavaScript Observable, allowing users to explore the data dynamically.\n\nKey Resources:\n\niFrame example of a Shiny questionnaire hosted on demotec: A demonstration of hosting a Shiny survey. N.B Since we are still waiting for https certification from the Uni, the iframe in this link is unlikely to work!\nDirect link to Shiny questionnaire hosted on demotec: However it is possible to access the Shiny questionnaire directly.\niFrame example of Shiny questionnaire hosted on cohesify: An alternative hosting solution for the Shiny questionnaire.\nExample of a static Quarto report\nExample of an interactive Quarto report.\n\nAdditional Resources:\n\nHadley Wickham’s 2nd Edition R for Data Science - Chapter on Quarto: An introductory guide on Quarto and its integration with R by a leading R programmer/statistician.\nQuarto Documentation: Static Reports: Official documentation for creating static reports.\nQuarto Documentation: Interactive Reports with JS Observable: Learn to integrate JavaScript Observable with Quarto for interactive visualizations. N.B These examples may not work with an Rstudio server."
+  },
+  {
+    "objectID": "surveys-tab/dust_survey_google.html",
+    "href": "surveys-tab/dust_survey_google.html",
+    "title": "XDMComs",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "surveys-tab/tvhours_js.html",
+    "href": "surveys-tab/tvhours_js.html",
+    "title": "Observable JS in Quarto Document: Extended Use Case",
+    "section": "",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae ex nec ligula tempor pretium. Suspendisse potenti. Integer nec eros nec lacus aliquet cursus id id eros."
+  },
+  {
+    "objectID": "surveys-tab/tvhours_js.html#distribution-of-religion",
+    "href": "surveys-tab/tvhours_js.html#distribution-of-religion",
+    "title": "Observable JS in Quarto Document: Extended Use Case",
+    "section": "Distribution of Religion",
+    "text": "Distribution of Religion\n\n\nCode\nggplot(tvhours_data, aes(x = relig)) +\n  geom_bar(fill = \"steelblue\") +\n  labs(title = \"Distribution of Religion\", x = \"Religion\", y = \"Count\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "surveys-tab/tvhours_js.html#distribution-of-religion-by-party-id-using-ggpubr",
+    "href": "surveys-tab/tvhours_js.html#distribution-of-religion-by-party-id-using-ggpubr",
+    "title": "Observable JS in Quarto Document: Extended Use Case",
+    "section": "Distribution of Religion by party id using ggpubr",
+    "text": "Distribution of Religion by party id using ggpubr\n\n\nCode\ntvhours_data %&gt;% \n  freq_table(relig,partyid2) %&gt;% \n  ggbarplot(\n    x = \"relig\",\n    y = \"prop\",\n    fill = \"partyid2\",\n    #palette = c(\"steelblue\",\"gold\",\"darkred\"),\n    palette = \"jco\",\n    label = TRUE,\n    position = position_dodge(0.9),\n    xlab = \"Religion\",\n    ylab = \"Percent\",\n    title = \"\",\n    legend.title = \"Party id\")"
+  },
+  {
+    "objectID": "surveys-tab/tvhours_js.html#distribution-of-age",
+    "href": "surveys-tab/tvhours_js.html#distribution-of-age",
+    "title": "Observable JS in Quarto Document: Extended Use Case",
+    "section": "Distribution of Age",
+    "text": "Distribution of Age\n\n\nCode\nggplot(tvhours_data, aes(x = age)) +\n  geom_histogram(binwidth = 5, fill = \"steelblue\", color = \"white\") +\n  labs(title = \"Distribution of Age\", x = \"Age\", y = \"Count\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "surveys-tab/tvhours_js.html#a-scatter-plot-of-age-by-tv-hours",
+    "href": "surveys-tab/tvhours_js.html#a-scatter-plot-of-age-by-tv-hours",
+    "title": "Observable JS in Quarto Document: Extended Use Case",
+    "section": "A scatter plot of Age by TV hours",
+    "text": "A scatter plot of Age by TV hours\n\n\nCode\ndata = FileAttachment('tvhours_data_js.csv').csv({ typed: true })\n\nviewof party_filter = Inputs.select(\n  [\"Democrat\", \"Republican\", \"Independent\"],\n  { value: \"Democrat\", label: \"Select Party:\" }\n)\n\nfiltered_data = data.filter(d =&gt; d.partyid2 === party_filter)\n\n\nPlot.dot(filtered_data, {\n  x: \"age\",\n  y: \"tvhours\",\n  stroke: d =&gt; {\n    if (d.partyid2 === \"Democrat\") return \"steelblue\";\n    if (d.partyid2 === \"Republican\") return \"darkred\";\n    return \"gold\"; // Color for Independent\n  },\n  fill: d =&gt; {\n    if (d.partyid2 === \"Democrat\") return \"steelblue\";\n    if (d.partyid2 === \"Republican\") return \"darkred\";\n    return \"gold\"; // Color for Independent\n  },\n  r: 3, // Size of dots\n  title: d =&gt; `Age: ${d.age}, TV Hours: ${d.tvhours}`\n}).plot({\n  style: {\n    \"font-size\": \"14px\", // General font size for ticks and labels\n    \"axis-label-font-size\": \"16px\", // Axis labels size\n    \"axis-tick-font-size\": \"14px\" // Axis ticks size\n  }\n})"
+  },
+  {
+    "objectID": "surveys-tab/tvhours_js.html#age-by-party-id",
+    "href": "surveys-tab/tvhours_js.html#age-by-party-id",
+    "title": "Observable JS in Quarto Document: Extended Use Case",
+    "section": "Age by Party ID",
+    "text": "Age by Party ID\n\n\nCode\nviewof party_filter_age = Inputs.select(\n  [\"Democrat\", \"Republican\", \"Independent\"],\n  { value: \"Democrat\", label: \"Select Party:\" }\n)\n\nfiltered_age = data.filter(d =&gt; d.partyid2 === party_filter_age)\n\nPlot.rectY(\n  filtered_age, \n  Plot.binX(\n    {y: \"count\"}, \n    {x: \"age\", thresholds: 10, fill: d =&gt; {\n      if (d.partyid2 === \"Democrat\") return \"steelblue\";\n      if (d.partyid2 === \"Republican\") return \"darkred\";\n      return \"gold\"; // Color for Independent\n    }}\n  )\n).plot({\n  style: {\n    \"font-size\": \"14px\", // General font size for ticks and labels\n    \"axis-label-font-size\": \"16px\", // Axis labels size\n    \"axis-tick-font-size\": \"14px\" // Axis ticks size\n  }\n})"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MSc. Course on ‘Data-driven Communication: Content Management & Visualization for Marketing & Communication Sciences’",
+    "section": "",
+    "text": "Welcome to our course platform, designed to guide you through sessions and serve as a comprehensive repository for resources, including reading material, videos and code.\nThis course emphasizes practical, hands-on skills for transforming data into compelling dashboards and visual stories tailored for marketing and communication. You will master the full technology stack—from survey creation tools like Google Forms to collaborative version control using GitHub, and R-based analytics with RStudio and Quarto."
+  },
+  {
+    "objectID": "index.html#what-youll-learn",
+    "href": "index.html#what-youll-learn",
+    "title": "MSc. Course on ‘Data-driven Communication: Content Management & Visualization for Marketing & Communication Sciences’",
+    "section": "What you’ll learn",
+    "text": "What you’ll learn\nBy the end of the course, you’ll have the expertise to host interactive visualizations online, making insights accessible for real-world applications."
+  },
+  {
+    "objectID": "index.html#course-outline",
+    "href": "index.html#course-outline",
+    "title": "MSc. Course on ‘Data-driven Communication: Content Management & Visualization for Marketing & Communication Sciences’",
+    "section": "Course Outline",
+    "text": "Course Outline\nThe course covers a range of topics, focusing on hands-on techniques for transforming data into visual narratives. More details about the course structure, modules, and learning objectives are available in the Course Outline."
+  },
+  {
+    "objectID": "index.html#instructors",
+    "href": "index.html#instructors",
+    "title": "MSc. Course on ‘Data-driven Communication: Content Management & Visualization for Marketing & Communication Sciences’",
+    "section": "Instructors",
+    "text": "Instructors\n\nDr. Costas Tziouvas\nDr. Costas Tziouvas is a computer scientist and faculty member at the Cyprus University of Technology. He has extensive experience in data analytics and digital communication. You can reach him at costas.tziouvas@cut.ac.cy.\n\n\nDr. Fernando Mendez\nDr. Fernando Mendez, is a political scientist and researcher at the University of Zurich. His research interests lie at the intersection of data science and political communication. You can reach him at fernando.mendez@zda.uzh.ch.\n\n© 2025 Digipols. All rights reserved. | Privacy Policy | Terms of Service"
+  },
+  {
+    "objectID": "sessions-tab/session_1.html",
+    "href": "sessions-tab/session_1.html",
+    "title": "Session 1",
+    "section": "",
+    "text": "Introduction to Data-Driven Communication\n\nKey Concepts:\n\nOverview of data-driven approaches in marketing and communication.\nIntroduction to essential tools: GitHub, Google Workspace, RStudio, Quarto.\n\nActivities:\n\nSet up GitHub repositories and enable GitHub Pages.\n\nIntroduction to Google Forms and Google Sheets as data collection and management tools.\n\nTakeaways:\n\nUnderstanding how data underpins strategic communication in marketing.\n\nBasic repository setup and data workflow planning.\n\n\nLinks:\n\nSet up a Quarto website"
+  },
+  {
+    "objectID": "links-tab/links-index.html",
+    "href": "links-tab/links-index.html",
+    "title": "Links",
+    "section": "",
+    "text": "Here are some useful links to have open during set up:\nThis website’s git hub https://github.com/digipols-admin/teaching_template.\nYour website template https://github.com/YOUR-USERNAME/class_website_template.\nThe R server http://demotec.cut.ac.cy:8787."
+  },
+  {
+    "objectID": "links-tab/links-index.html#cloning-a-github-repo-with-a-quarto-website-template-and-pushing-to-r",
+    "href": "links-tab/links-index.html#cloning-a-github-repo-with-a-quarto-website-template-and-pushing-to-r",
+    "title": "Links",
+    "section": "Cloning a github repo with a Quarto website template and pushing to R",
+    "text": "Cloning a github repo with a Quarto website template and pushing to R\nTo save time in creating websites using R and github we have prepared a short video explainer that covers all the steps. The important aspect is to have a template in your github account that you can re-use at will.\nWe have prepared a template, so can avoid the process of creating a template. Although we do encourage you to create your own templates in github. For instance, you may want a template for creating online presentations, or scientific reports. Once you have a template repo in github, it’s very simply to push it to R.\nThese are the basic steps:\n\nStep 1: Clone a repo and make it a template\n\nClone a repo (a template for a Quarto website) from my personal github account: fmendez72/xdmcoms-website into your own github account\nIn your github account set the cloned repo as a “Template” [so you can re-use it]\nAssign the repo you just cloned a “Template” status and use it to create a github repo for a NEW quarto website\n\n\n\nStep 2: Pull the website into R\n\nPull the repo as a new R project\nBuild the website in R and push it to git\n\nThe video provides a step by step guide on how to do this:\n\n\n\n\n\n\n\nNote\n\n\n\nThis video provides step by step guide. Remember to have your PAT password (the long one) and that you need to go to the Build tab in R in order to click on the “Render website” button. For changes to be reflected on your online website it is necessary to build the website.\n\n\nAlternatively, you can access the video directly: https://youtu.be/e8Cntd5Vv6E"
+  },
+  {
+    "objectID": "links-tab/links-index.html#student-links",
+    "href": "links-tab/links-index.html#student-links",
+    "title": "Links",
+    "section": "Student links",
+    "text": "Student links\nWe can test student pages here:\nEvi google form template."
+  },
+  {
+    "objectID": "links-tab/evi_survey_google.html",
+    "href": "links-tab/evi_survey_google.html",
+    "title": "XDMComs",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "sessions-tab/sessions-index.html",
+    "href": "sessions-tab/sessions-index.html",
+    "title": "Course sessions",
+    "section": "",
+    "text": "Each session in this course builds upon the previous, providing a learning approach that takes you from foundational concepts to advanced techniques. Sessions 1, 2, and 3 are designed to be explored together, offering an introduction to the key tools and methods required for transforming data into visual insights.\nFurther information on the course sessions will be added to the platform on a weekly basis."
+  },
+  {
+    "objectID": "sessions-tab/sessions-index.html#sessions-13-overview",
+    "href": "sessions-tab/sessions-index.html#sessions-13-overview",
+    "title": "Course sessions",
+    "section": "Sessions 1–3 Overview",
+    "text": "Sessions 1–3 Overview\nSessions 1 to 3 provide the foundation for transforming data into visual experiences. In these three sessions, you will:\n\nUnderstand the basics of data-driven communication and learn about the tools and workflows essential for effective content management.\nExplore survey creation using Google Forms and collaborative version control with GitHub to manage and streamline projects.\nGain hands-on experience with RStudio and Quarto, mastering analytics and creating dashboards that communicate clear insights.\n\nTogether, these sessions set the stage for developing the practical skills needed to turn raw data into visual stories for marketing and communication purposes.\n\nSetting Up GitHub, R, and Quarto (Session 1)\nAs part of Session 1, you will set up the foundational tools needed for the course:\n\nGitHub: Learn the basics of version control, including creating repositories, committing changes, and collaborating on projects.\nR and RStudio: Configure R and RStudio, the primary tools for data analysis and visualization.\nQuarto: Set up Quarto to create dynamic and visually appealing reports and dashboards.\n\nFor detailed instructions, refer to the Session 1 Setup Guide.\n\n\nSurveys and Content Management (Sessions 2 & 3)\nSessions 2 and 3 are combined to provide an introduction to survey creation, data management, and basic dashboard design. Key topics include:\n\nReal-World Dashboard Examples: Explore real-world examples of dashboards that demonstrate diverse applications, some extending beyond survey data, to understand their practical impact.\nSurvey Design and Implementation: Learn how to create and implement surveys using tools like Google Forms, focusing on effective question design and data collection.\nContent Management with R: Use R programming to import, clean, and wrangle data. This includes working with tools like googlesheets4 to integrate and manipulate Google Sheets data efficiently.\nIntroduction to Dashboards: Gain foundational knowledge and hands-on experience in creating basic dashboards, setting the stage for more advanced visualization techniques.\n\nFor additional resources and examples, visit the Surveys tab."
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html",
+    "href": "sessions-tab/git_quarto_template.html",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "",
+    "text": "This document describes how to create a Quarto website template in Git hub and R"
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-1-set-up-a-github-repository-repo",
+    "href": "sessions-tab/git_quarto_template.html#step-1-set-up-a-github-repository-repo",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 1: Set Up a GitHub Repository (repo)",
+    "text": "Step 1: Set Up a GitHub Repository (repo)\n\nThis step is performed via the GitHub website and not in R.\nChoose a name for your repo, the website project. Consider first making the repo a template, so that it can be easily reused to create more websites.\nOnce you’ve create a repo (whether as a template or as a working repo) stay on the repo page, we will use some of the “Quick set up” code later in the R Terminal."
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-2-develop-the-quarto-website-locally",
+    "href": "sessions-tab/git_quarto_template.html#step-2-develop-the-quarto-website-locally",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 2: Develop the Quarto Website Locally",
+    "text": "Step 2: Develop the Quarto Website Locally\n\nGo into RStudio server and create a new Quarto website. For now we will begin with a Quarto website, later you might want to create a Quarto project.\nOpen a Terminal in RStudio (you can also do these from the Tools tab). In Terminal, paste the code from your github repo page (there is a copy/paste icon you can click) \"…or push an existing repository from the command line\"\nYou will be prompted for your github username and PAT (the long password). Once complated this would have opened a connection with your github account and add a README file in your R directory."
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-3-restart-the-r-session-and-develop-the-quarto-website",
+    "href": "sessions-tab/git_quarto_template.html#step-3-restart-the-r-session-and-develop-the-quarto-website",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 3: Restart the R session and develop the Quarto website",
+    "text": "Step 3: Restart the R session and develop the Quarto website\n\nWe want to restart R now, so that the git options are available. An easy way to this is to switch R project. You can click on the upper right of RStudio and choose a different project, then switch back to the project your had created. This will enable the git option in RStudio.\nIn your Rstudio project, the root directory, create an empty “docs” and an empty “images” folder. These will be needed for compiling the website and adding images&gt;\nAdjust the YML header so that the project .yml file specifies output to docs, like this:\n\nproject:\n  type: website\n  output-dir: docs\n\nWhen the website template is ready find the “Build” tab, and press Render website. It is important to always Render website before pushing to git (that’s the only way your final changes will be reflected on your website)"
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-4-in-r-commit-and-push-to-github",
+    "href": "sessions-tab/git_quarto_template.html#step-4-in-r-commit-and-push-to-github",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 4: In R, Commit and Push to GitHub",
+    "text": "Step 4: In R, Commit and Push to GitHub\n\nThere is a Git tab next to the Build tab. Click on the Commit button, which will open a dialog box. Here you should make sure all the files are checked. You can do this with CONTROL A (or by highlighting all the files) and then press the Space bar on your keyboard. You then need to write a short commit message and press Commit.\nHaving commited the various file you now need to press the Push option in the same dialog box. You will probably be prompted for your username and PAT password."
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-5-activate-set-up-github-pages-to-render-website",
+    "href": "sessions-tab/git_quarto_template.html#step-5-activate-set-up-github-pages-to-render-website",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 5: Activate, Set Up GitHub Pages to render website",
+    "text": "Step 5: Activate, Set Up GitHub Pages to render website\n\nNow go to your github repo and you should see the files from your RStudio project. In the git hub website make sure you are in the relevant repo and go to Settings, then choose Pages from left panel.\nUnder Branch, change setting from ‘None’ to ‘Main’, then change ‘/root’ to ’docs. Save changes. In few minutes the website should be running"
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-6-make-the-repository-a-template-optional",
+    "href": "sessions-tab/git_quarto_template.html#step-6-make-the-repository-a-template-optional",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 6: Make the Repository a Template (Optional)",
+    "text": "Step 6: Make the Repository a Template (Optional)\n\nMark the repository as a template in the GitHub repo Settings. This way you can reuse the template for creating websites. Note that in this case you should follow the step below for using a Template to create a new project"
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-1-create-new-projects-using-the-template",
+    "href": "sessions-tab/git_quarto_template.html#step-1-create-new-projects-using-the-template",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 1: Create New Projects Using the Template",
+    "text": "Step 1: Create New Projects Using the Template\n\nIn GitHub go to the repo that is the Template. Click on ‘Use this template’ and create a new repo. Or go to create “New” repository.\nGive the repo a new name and short description, then press Create repository.\nThe new repo will appear with all the relevant files. Click on the button &lt;&gt; Code and copy paste the HTTPS link that appears"
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-2-clone-repo-to-r",
+    "href": "sessions-tab/git_quarto_template.html#step-2-clone-repo-to-r",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 2: Clone repo to R",
+    "text": "Step 2: Clone repo to R\n\nGo into Rstudio and click on New project. Select Version Control, then select Git\nPaste the link you copied from your github repo into the Repository box, the default one. It will fill automatically in the Project directory name. The press Create Project."
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-3-work-on-your-project-website-in-r-and-push-changes-back-to-github",
+    "href": "sessions-tab/git_quarto_template.html#step-3-work-on-your-project-website-in-r-and-push-changes-back-to-github",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 3: Work on your project (website) in R and push changes back to github",
+    "text": "Step 3: Work on your project (website) in R and push changes back to github\n\nWork on your website\nRemember to “Build” website in R before commiting changes to GitHub\nRegularly commit and push changes to GitHub."
+  },
+  {
+    "objectID": "sessions-tab/git_quarto_template.html#step-4-for-websites-configure-settings-in-github-pages",
+    "href": "sessions-tab/git_quarto_template.html#step-4-for-websites-configure-settings-in-github-pages",
+    "title": "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages",
+    "section": "Step 4: For websites, configure settings in GitHub pages",
+    "text": "Step 4: For websites, configure settings in GitHub pages\n\nIf you are working on a website, it is likely you will need to activate Git Hub pages. This means repeating the step above: “Step 5: Activate, Set Up GitHub Pages to render website”"
+  },
+  {
+    "objectID": "surveys-tab/tvhours_google.html",
+    "href": "surveys-tab/tvhours_google.html",
+    "title": "XDMComs",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "surveys-tab/template_page.html",
+    "href": "surveys-tab/template_page.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n\nCode\n1 + 1\n\n\n#&gt; [1] 2\n\n\nThis is a simple demonstration of generating a plot in an HTML document using Quarto (.qmd) and R.\n\nGenerating a Plot\nWe will create a simple ggplot graph using R’s built-in mtcars dataset.\n\n\nCode\n# Load necessary libraries\nlibrary(ggplot2)\n\n# Create the plot\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point() +\n  theme_minimal() +\n  ggtitle(\"Scatter Plot of MPG vs. Weight\") +\n  xlab(\"Weight (1000 lbs)\") +\n  ylab(\"Miles/(US) gallon\")"
+  },
+  {
+    "objectID": "surveys-tab/tvhours_static_report.html",
+    "href": "surveys-tab/tvhours_static_report.html",
+    "title": "Survey Data Analysis",
+    "section": "",
+    "text": "Code\n# Create data tables\n\n# Create Codebook\ncodebook &lt;- tibble(\n  variable_name = c(\"marital\", \"age\", \"race\", \"rincome\", \"partyid\", \"relig\", \"tvhours\"),\n  question = c(\n    \"What is your marital status?\",\n    \"What is your age?\",\n    \"What is your race?\",\n    \"What is your income range?\",\n    \"What is your political affiliation?\",\n    \"What is your religion?\",\n    \"How many hours per day do you spend watching TV?\"\n  )\n)\n\n# Generate a synthetic dataset\nset.seed(123)\ndata &lt;- tibble(\n  marital = sample(c(\"Divorced\", \"Married\", \"Never married\", \"Separated\", \"Widowed\"), 100, replace = TRUE),\n  age = round(rexp(100, rate = 0.05) + 11),  # Skewed age distribution\n  race = sample(c(\"Black\", \"Other\", \"White\"), 100, replace = TRUE),\n  rincome = sample(c(\"$10000 - 14999\", \"$15000 - 19999\", \"$20000 - 24999\", \"$25000 or more\", \"Less than 10000\"), 100, replace = TRUE),\n  partyid = sample(c(\"Independent\", \"Not str democrat\", \"Not str republican\", \"Strong democrat\", \"Strong republican\"), 100, replace = TRUE),\n  relig = sample(c(\"Catholic\", \"None\", \"Other\", \"Protestant\"), 100, replace = TRUE),\n  tvhours = round((age - 11) / 10 + rpois(100, lambda = 1), 0)  # Skewed tvhours correlated with age\n)\n\n# Download and filter original data\ngss &lt;- forcats::gss_cat\n\ntvhours_data &lt;- gss |&gt; \n  filter(year==2000) |&gt; \n  select(-year, -denom) |&gt; \n  filter(!is.na(tvhours)) |&gt; \n  filter(tvhours&lt;13) |&gt; \n  mutate(across(where(is.factor), as.character)) |&gt; \n  filter(marital %in% c(\"Never married\", \"Separated\", \"Divorced\", \"Widowed\", \"Married\")) |&gt; \n  filter(!is.na(age)) |&gt; \n  filter(race %in% c(\"Other\", \"Black\", \"White\")) |&gt; \n  filter(partyid %in% c(\"Strong republican\", \n                        \"Not str republican\", \n                        \"Independent\", \n                        \"Not str democrat\", \"Strong democrat\")) |&gt; \n  mutate(relig = case_when(\n    relig %in% c(\"Catholic\", \"Protestant\", \"None\") ~ relig,\n    TRUE ~ \"Other\")\n  ) |&gt; \n  mutate(rincome = case_when(\n    rincome %in% c(\"$25000 or more\", \"$20000 - 24999\", \"$15000 - 19999\", \"$10000 - 14999\") ~ rincome,\n    TRUE ~ \"Less than 10000\")\n  )\n\n# Add a user_id and random timestamp\n# Define the start and end datetime\nstart_datetime &lt;- ymd_hms(\"2000-01-18T17:29:08Z\")\nend_datetime &lt;- start_datetime + years(1)\n\n# Calculate the total number of seconds in the one-year interval\ntotal_seconds &lt;- as.numeric(difftime(end_datetime, start_datetime, units = \"secs\"))\n\n# Generate random timestamps\nset.seed(123)  # Set seed for reproducibility\ntvhours_data &lt;- tvhours_data %&gt;%\n  rowid_to_column(var = \"user_id\") |&gt; \n  mutate(user_id = paste0(\"id_\", user_id)) |&gt; \n  mutate(timestamp = start_datetime + seconds(runif(n(), min = 0, max = total_seconds))\n         )"
+  },
+  {
+    "objectID": "surveys-tab/tvhours_static_report.html#age-distribution",
+    "href": "surveys-tab/tvhours_static_report.html#age-distribution",
+    "title": "Survey Data Analysis",
+    "section": "Age Distribution",
+    "text": "Age Distribution\n\n\nCode\n# Age distribution\nage_plot &lt;- ggplot(data, aes(x = age)) +\n  geom_histogram(binwidth = 5, fill = \"steelblue\", color = \"black\") +\n  labs(title = \"Age Distribution\", x = \"Age\", y = \"Frequency\") +\n  theme_minimal()\n\nage_plot\n\n\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non pretium ex. Sed quis justo libero."
+  },
+  {
+    "objectID": "surveys-tab/tvhours_static_report.html#race-breakdown",
+    "href": "surveys-tab/tvhours_static_report.html#race-breakdown",
+    "title": "Survey Data Analysis",
+    "section": "Race Breakdown",
+    "text": "Race Breakdown\n\n\nCode\n# Race breakdown\ndata %&gt;% \n  count(race) %&gt;% \n  mutate(percentage = n / sum(n) * 100) %&gt;%\n  kable(caption = \"Race Breakdown\", digits = 1) %&gt;% \n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nRace Breakdown\n\n\nrace\nn\npercentage\n\n\n\n\nBlack\n35\n35\n\n\nOther\n32\n32\n\n\nWhite\n33\n33\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis dui a odio posuere pellentesque."
+  },
+  {
+    "objectID": "surveys-tab/tvhours_static_report.html#hours-watching-tv",
+    "href": "surveys-tab/tvhours_static_report.html#hours-watching-tv",
+    "title": "Survey Data Analysis",
+    "section": "Hours Watching TV",
+    "text": "Hours Watching TV\n\n\nCode\n# TV hours distribution\ntvhours_plot &lt;- ggplot(data, aes(x = tvhours)) +\n  geom_bar(fill = \"darkorange\", color = \"black\") +\n  labs(title = \"TV Hours Distribution\", x = \"Hours per Day\", y = \"Count\") +\n  theme_minimal()\n\n# Display plot\ntvhours_plot\n\n\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vestibulum massa eget nunc pulvinar, ac fringilla nulla congue."
+  },
+  {
+    "objectID": "surveys-tab/tvhours_static_report.html#scatter-plot-age-vs-tv-hours-simulated-data",
+    "href": "surveys-tab/tvhours_static_report.html#scatter-plot-age-vs-tv-hours-simulated-data",
+    "title": "Survey Data Analysis",
+    "section": "Scatter Plot: Age vs TV Hours (simulated data)",
+    "text": "Scatter Plot: Age vs TV Hours (simulated data)\n\n\nCode\n# Scatter plot with smoothed regression line\nscatter_plot &lt;- ggplot(data, aes(x = age, y = tvhours)) +\n  geom_point(color = \"blue\", alpha = 0.6) +\n  geom_smooth(method = \"lm\", se = TRUE, color = \"red\") +\n  labs(title = \"Scatter Plot of Age vs TV Hours\", x = \"Age\", y = \"TV Hours\") +\n  theme_minimal()\n\nscatter_plot\n\n\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae."
+  },
+  {
+    "objectID": "surveys-tab/tvhours_static_report.html#scatter-plot-age-vs-tv-hours-real-data",
+    "href": "surveys-tab/tvhours_static_report.html#scatter-plot-age-vs-tv-hours-real-data",
+    "title": "Survey Data Analysis",
+    "section": "Scatter Plot: Age vs TV Hours real data",
+    "text": "Scatter Plot: Age vs TV Hours real data\n\n\nCode\n# Scatter plot with smoothed regression line\nscatter_plot &lt;- ggplot(tvhours_data, aes(x = age, y = tvhours)) +\n  geom_point(color = \"blue\", alpha = 0.6) +\n  geom_smooth(method = \"lm\", se = TRUE, color = \"red\") +\n  labs(title = \"Scatter Plot of Age vs TV Hours\", x = \"Age\", y = \"TV Hours\") +\n  theme_minimal()\n\nscatter_plot\n\n\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae."
+  },
+  {
+    "objectID": "surveys-tab/tvhours_static_report.html#exploring-tv-hours-with-poisson-regression",
+    "href": "surveys-tab/tvhours_static_report.html#exploring-tv-hours-with-poisson-regression",
+    "title": "Survey Data Analysis",
+    "section": "Exploring TV Hours with Poisson Regression",
+    "text": "Exploring TV Hours with Poisson Regression\nGiven that tvhours is a count variable, a Poisson regression can be useful for exploring relationships with predictors such as age, race, or income.\n\nSynthetic data\n\n\nCode\n# Example Poisson regression\npoisson_model &lt;- glm(tvhours ~ age + race + rincome, family = poisson, data = data)\n#summary(poisson_model)\n\n# Use the parameters package to extract coefficients\nresult &lt;- model_parameters(\n  poisson_model,\n  effects = \"fixed\",\n  component = \"conditional\",\n  verbose = FALSE\n)\n\nprint(result)\n\n\n#&gt; Parameter                 |  Log-Mean |       SE |        95% CI |         z |      p\n#&gt; -------------------------------------------------------------------------------------\n#&gt; (Intercept)               |      0.18 |     0.20 | [-0.21, 0.56] |      0.93 | 0.352 \n#&gt; age                       |      0.03 | 2.57e-03 | [ 0.02, 0.03] |      9.81 | &lt; .001\n#&gt; race [Other]              |      0.01 |     0.15 | [-0.28, 0.31] |      0.10 | 0.923 \n#&gt; race [White]              | -1.11e-03 |     0.15 | [-0.30, 0.29] | -7.37e-03 | 0.994 \n#&gt; rincome [$15000 - 19999]  |      0.06 |     0.19 | [-0.32, 0.44] |      0.29 | 0.774 \n#&gt; rincome [$20000 - 24999]  |     -0.09 |     0.18 | [-0.44, 0.27] |     -0.47 | 0.636 \n#&gt; rincome [$25000 or more]  |      0.03 |     0.18 | [-0.32, 0.38] |      0.15 | 0.882 \n#&gt; rincome [Less than 10000] |     -0.11 |     0.24 | [-0.59, 0.35] |     -0.47 | 0.637\n\n\nCode\n# Use the see package to plot results\nplot(result)\n\n\n\n\n\n\n\n\n\n\n\nSynthetic data (age scaled)\n\n\nCode\n# Example Poisson regression\npoisson_model &lt;- glm(tvhours ~ scale(age) + race + rincome, family = poisson, data = data)\n#summary(poisson_model)\n\n# Use the parameters package to extract coefficients\nresult &lt;- model_parameters(\n  poisson_model,\n  effects = \"fixed\",\n  component = \"conditional\",\n  verbose = FALSE\n)\n\nprint(result)\n\n\n#&gt; Parameter                 |  Log-Mean |   SE |        95% CI |         z |      p\n#&gt; ---------------------------------------------------------------------------------\n#&gt; (Intercept)               |      0.96 | 0.15 | [ 0.65, 1.25] |      6.21 | &lt; .001\n#&gt; age                       |      0.45 | 0.05 | [ 0.36, 0.54] |      9.81 | &lt; .001\n#&gt; race [Other]              |      0.01 | 0.15 | [-0.28, 0.31] |      0.10 | 0.923 \n#&gt; race [White]              | -1.11e-03 | 0.15 | [-0.30, 0.29] | -7.37e-03 | 0.994 \n#&gt; rincome [$15000 - 19999]  |      0.06 | 0.19 | [-0.32, 0.44] |      0.29 | 0.774 \n#&gt; rincome [$20000 - 24999]  |     -0.09 | 0.18 | [-0.44, 0.27] |     -0.47 | 0.636 \n#&gt; rincome [$25000 or more]  |      0.03 | 0.18 | [-0.32, 0.38] |      0.15 | 0.882 \n#&gt; rincome [Less than 10000] |     -0.11 | 0.24 | [-0.59, 0.35] |     -0.47 | 0.637\n\n\nCode\n# Use the see package to plot results\nplot(result)\n\n\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at nisl vitae felis tristique dictum.\n\n\nReal data\n\n\nCode\n# Example Poisson regression with real data\n\npoisson_model &lt;- glm(tvhours ~ scale(age) + race + rincome + partyid, family = poisson, data = tvhours_data)\n\n#summary(poisson_model)\n\n# Use the parameters package to extract coefficients\nresult &lt;- model_parameters(\n  poisson_model,\n  effects = \"fixed\",\n  component = \"conditional\",\n  verbose = FALSE\n)\n\nprint(result)\n\n\n#&gt; Parameter                    | Log-Mean |   SE |         95% CI |     z |      p\n#&gt; --------------------------------------------------------------------------------\n#&gt; (Intercept)                  |     1.14 | 0.08 | [ 0.99,  1.29] | 15.15 | &lt; .001\n#&gt; age                          |     0.09 | 0.02 | [ 0.06,  0.12] |  5.44 | &lt; .001\n#&gt; race [Other]                 |    -0.41 | 0.08 | [-0.57, -0.25] | -5.09 | &lt; .001\n#&gt; race [White]                 |    -0.31 | 0.04 | [-0.39, -0.23] | -7.74 | &lt; .001\n#&gt; rincome [$15000 - 19999]     |     0.11 | 0.09 | [-0.07,  0.29] |  1.18 | 0.238 \n#&gt; rincome [$20000 - 24999]     |     0.11 | 0.09 | [-0.06,  0.29] |  1.25 | 0.211 \n#&gt; rincome [$25000 or more]     |    -0.01 | 0.07 | [-0.15,  0.13] | -0.19 | 0.852 \n#&gt; rincome [Less than 10000]    |     0.28 | 0.07 | [ 0.15,  0.42] |  4.07 | &lt; .001\n#&gt; partyid [Not str democrat]   |     0.03 | 0.04 | [-0.06,  0.12] |  0.65 | 0.513 \n#&gt; partyid [Not str republican] | 4.76e-03 | 0.05 | [-0.10,  0.10] |  0.09 | 0.925 \n#&gt; partyid [Strong democrat]    |     0.09 | 0.05 | [ 0.00,  0.19] |  1.98 | 0.047 \n#&gt; partyid [Strong republican]  |    -0.11 | 0.06 | [-0.23,  0.00] | -1.96 | 0.050\n\n\nCode\n# Use the see package to plot results\nplot(result)"
+  }
+]

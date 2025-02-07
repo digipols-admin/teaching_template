@@ -1,0 +1,24 @@
+---
+title: "Session 1"
+---
+
+**Introduction to Data-Driven Communication**
+
+- **Key Concepts:**  
+  - Overview of data-driven approaches in marketing and communication.
+  - Introduction to essential tools: GitHub, Google Workspace, RStudio, Quarto.  
+
+- **Activities:**  
+  - Set up GitHub repositories and enable GitHub Pages.  
+  - Introduction to Google Forms and Google Sheets as data collection and management tools.  
+
+- **Takeaways:**  
+  - Understanding how data underpins strategic communication in marketing.  
+  - Basic repository setup and data workflow planning.
+
+
+Links:
+
+- [Set up a Quarto website](https://digipols-admin.github.io/teaching_template/sessions-tab/git_quarto_template.html) 
+
+

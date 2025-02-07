@@ -1,0 +1,152 @@
+---
+title: 'Observable JS in Quarto Document: Extended Use Case'
+format: html
+---
+
+# Introduction
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae ex nec ligula tempor pretium. Suspendisse potenti. Integer nec eros nec lacus aliquet cursus id id eros.
+
+# Data
+
+The following analysis is based on a synthetic dataset created in R. The dataset includes variables such as marital status, age, race, income, party affiliation, religion, and television hours.
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(ggpubr) # for nice graphs
+library(rstatix) # for summaries
+# library(here)
+
+tvhours_data <- tibble(
+  marital = sample(c("Divorced", "Married", "Never married", "Separated", "Widowed"), 100, replace = TRUE),
+  age = round(rexp(100, rate = 0.05) + 11),  # Skewed age distribution
+  race = sample(c("Black", "Other", "White"), 100, replace = TRUE),
+  rincome = sample(c("$10000 - 14999", "$15000 - 19999", "$20000 - 24999", "$25000 or more", "Less than 10000"), 100, replace = TRUE),
+  partyid = sample(c("Independent", "Not str democrat", "Not str republican", "Strong democrat", "Strong republican"), 100, replace = TRUE),
+  relig = sample(c("Catholic", "None", "Other", "Protestant"), 100, replace = TRUE),
+  tvhours = round((age - 11) / 10 + rpois(100, lambda = 1), 0)
+)
+
+tvhours_data <- tvhours_data %>% 
+  mutate(partyid2 = case_when(
+    partyid %in% c("Strong democrat", "Not str democrat") ~ "Democrat",
+    partyid %in% c("Strong republican", "Not str republican") ~ "Republican",
+    TRUE ~ "Independent"
+  ))
+
+# write_csv(tvhours_data, file = here('tvhours_data_js.csv'))
+```
+
+# Findings
+
+## Distribution of Religion
+
+```{r}
+ggplot(tvhours_data, aes(x = relig)) +
+  geom_bar(fill = "steelblue") +
+  labs(title = "Distribution of Religion", x = "Religion", y = "Count") +
+  theme_minimal()
+```
+
+## Distribution of Religion by party id using ggpubr
+```{r}
+tvhours_data %>% 
+  freq_table(relig,partyid2) %>% 
+  ggbarplot(
+    x = "relig",
+    y = "prop",
+    fill = "partyid2",
+    #palette = c("steelblue","gold","darkred"),
+    palette = "jco",
+    label = TRUE,
+    position = position_dodge(0.9),
+    xlab = "Religion",
+    ylab = "Percent",
+    title = "",
+    legend.title = "Party id")
+```
+
+
+
+## Distribution of Age
+
+```{r}
+ggplot(tvhours_data, aes(x = age)) +
+  geom_histogram(binwidth = 5, fill = "steelblue", color = "white") +
+  labs(title = "Distribution of Age", x = "Age", y = "Count") +
+  theme_minimal()
+```
+
+# Interactive Visualization
+
+## A scatter plot of Age by TV hours
+
+```{ojs}
+//| code-fold: true
+data = FileAttachment('tvhours_data_js.csv').csv({ typed: true })
+
+viewof party_filter = Inputs.select(
+  ["Democrat", "Republican", "Independent"],
+  { value: "Democrat", label: "Select Party:" }
+)
+
+filtered_data = data.filter(d => d.partyid2 === party_filter)
+
+
+Plot.dot(filtered_data, {
+  x: "age",
+  y: "tvhours",
+  stroke: d => {
+    if (d.partyid2 === "Democrat") return "steelblue";
+    if (d.partyid2 === "Republican") return "darkred";
+    return "gold"; // Color for Independent
+  },
+  fill: d => {
+    if (d.partyid2 === "Democrat") return "steelblue";
+    if (d.partyid2 === "Republican") return "darkred";
+    return "gold"; // Color for Independent
+  },
+  r: 3, // Size of dots
+  title: d => `Age: ${d.age}, TV Hours: ${d.tvhours}`
+}).plot({
+  style: {
+    "font-size": "14px", // General font size for ticks and labels
+    "axis-label-font-size": "16px", // Axis labels size
+    "axis-tick-font-size": "14px" // Axis ticks size
+  }
+})
+
+```
+
+
+## Age by Party ID
+
+```{ojs}
+//| code-fold: true
+viewof party_filter_age = Inputs.select(
+  ["Democrat", "Republican", "Independent"],
+  { value: "Democrat", label: "Select Party:" }
+)
+
+filtered_age = data.filter(d => d.partyid2 === party_filter_age)
+
+Plot.rectY(
+  filtered_age, 
+  Plot.binX(
+    {y: "count"}, 
+    {x: "age", thresholds: 10, fill: d => {
+      if (d.partyid2 === "Democrat") return "steelblue";
+      if (d.partyid2 === "Republican") return "darkred";
+      return "gold"; // Color for Independent
+    }}
+  )
+).plot({
+  style: {
+    "font-size": "14px", // General font size for ticks and labels
+    "axis-label-font-size": "16px", // Axis labels size
+    "axis-tick-font-size": "14px" // Axis ticks size
+  }
+})
+
+```

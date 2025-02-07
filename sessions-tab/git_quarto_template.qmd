@@ -1,0 +1,68 @@
+---
+title: "Workflow for Building a Quarto Website in R and Hosting it on GitHub Pages"
+---
+
+# Overview
+This document describes how to create a Quarto website template in Git hub and R
+
+# 1) Create a website template
+
+## Step 1: Set Up a GitHub Repository (repo)
+- This step is performed via the GitHub website and not in R.
+- Choose a name for your repo, the website project. Consider first making the repo a template, so that it can be easily reused to create more websites.
+- Once you've create a repo (whether as a template or as a working repo) stay on the repo page, we will use some of the "Quick set up" code later in the R Terminal.
+
+## Step 2: Develop the Quarto Website Locally
+- Go into RStudio server and create a new `Quarto website`. For now we will begin with a Quarto website, later you might want to create a `Quarto project`.
+- Open a Terminal in RStudio (you can also do these from the Tools tab). In Terminal, paste the code from your github repo page (there is a copy/paste icon you can click) 
+`"…or push an existing repository from the command line"`
+- You will be prompted for your github username and PAT (the long password). Once complated this would have opened a  connection with your github account and add a README file in your R directory.
+
+## Step 3: Restart the R session and develop the Quarto website
+- We want to restart R now, so that the git options are available. An easy way to this is to switch R project. You can click on the upper right of RStudio and choose a different project, then switch back to the project your had created. This will enable the git option in RStudio.
+- In your Rstudio project, the root directory, create an empty "docs" and an empty "images" folder. These will be needed for compiling the website and adding images>
+- Adjust the YML header so that the project .yml file specifies output to docs, like this:
+
+```
+project:
+  type: website
+  output-dir: docs
+```
+- When the website template is ready find the "Build" tab, and press `Render website`. It is important to always `Render website` before pushing to git (that's the only way your final changes will be reflected on your website)
+
+## Step 4: In R, Commit and Push to GitHub
+- There is a Git tab next to the Build tab. Click on the  `Commit` button, which will open a dialog box. Here you should make sure all the files are checked. You can do this with CONTROL A (or by highlighting all the files) and then press the Space bar on your keyboard. You then need to write a short commit message and press Commit.
+- Having commited the various file you now need to press the `Push` option in the same dialog box. You will probably be prompted for your username and PAT password.
+
+## Step 5: Activate, Set Up GitHub Pages to render website
+- Now go to your github repo and you should see the files from your RStudio project. In the git hub website make sure you are in the relevant repo and go to Settings, then choose Pages from left panel.
+- Under Branch, change setting from 'None' to 'Main', then change '/root' to 'docs. Save changes. In few minutes the website should be running
+
+## Step 6: Make the Repository a Template (Optional)
+- Mark the repository as a template in the GitHub repo `Settings`. This way you can reuse the template for creating websites. Note that in this case you should follow the step below for using a Template to create a new project 
+
+
+# 2) Use a GitHub template
+
+## Step 1: Create New Projects Using the Template
+- In GitHub go to the repo that is the Template. Click on 'Use this template' and create a new repo. Or go to create "New" repository.
+- Give the repo a new name and short description, then press `Create repository`.
+- The new repo will appear with all the relevant files. Click on the button `<> Code` and copy paste the HTTPS link that appears
+
+## Step 2: Clone repo to R
+- Go into Rstudio and click on `New project`. Select `Version Control`, then select `Git`
+- Paste the link you copied from your github repo into the Repository box, the default one. It will fill automatically in the Project directory name. The press `Create Project`.
+
+## Step 3: Work on your project (website) in R and push changes back to github 
+- Work on your website
+- Remember to "Build" website in R before commiting changes to GitHub 
+- Regularly commit and push changes to GitHub.
+
+## Step 4: For websites, configure settings in GitHub pages
+- If you are working on a website, it is likely you will need to activate Git Hub pages. This means repeating the step above: "Step 5: Activate, Set Up GitHub Pages to render website"
+
+
+# Notes
+If you do not want to use a template, simply follow steps 1 to 5 above and do not make the Repo a template. 
+
+Although the focus of this document was a website, the same logic can be applied to any type of resource, e.g. a template for a report, or for a book.

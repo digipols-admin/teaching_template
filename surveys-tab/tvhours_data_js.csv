@@ -1,0 +1,101 @@
+marital,age,race,rincome,partyid,relig,tvhours,partyid2
+Divorced,19,White,$15000 - 19999,Not str republican,Other,2,Republican
+Never married,29,Black,$20000 - 24999,Strong democrat,Other,3,Democrat
+Widowed,19,White,$10000 - 14999,Not str democrat,Other,2,Democrat
+Widowed,13,Black,$10000 - 14999,Not str republican,Other,2,Republican
+Widowed,20,Other,$25000 or more,Strong democrat,Protestant,3,Democrat
+Never married,12,Other,$25000 or more,Not str democrat,Catholic,0,Democrat
+Never married,20,Other,$10000 - 14999,Strong democrat,Catholic,1,Democrat
+Widowed,14,White,$25000 or more,Not str republican,None,1,Republican
+Divorced,33,White,$25000 or more,Not str democrat,Other,3,Democrat
+Widowed,44,White,$25000 or more,Strong republican,Catholic,6,Republican
+Never married,20,Other,$25000 or more,Strong democrat,Other,4,Democrat
+Married,27,White,$25000 or more,Independent,Other,3,Independent
+Never married,32,Other,Less than 10000,Strong republican,None,3,Republican
+Divorced,12,Black,Less than 10000,Not str republican,Other,2,Republican
+Never married,89,Other,$10000 - 14999,Not str democrat,None,9,Democrat
+Married,31,Other,$20000 - 24999,Independent,Protestant,3,Independent
+Never married,23,Black,$10000 - 14999,Strong democrat,None,3,Democrat
+Never married,17,Other,$20000 - 24999,Not str democrat,None,2,Democrat
+Never married,22,White,$10000 - 14999,Strong republican,None,4,Republican
+Divorced,21,Other,$25000 or more,Strong democrat,Other,2,Democrat
+Separated,41,White,$15000 - 19999,Strong republican,Other,4,Republican
+Married,68,Black,Less than 10000,Not str republican,Protestant,7,Republican
+Never married,44,White,$20000 - 24999,Strong republican,Protestant,3,Republican
+Widowed,39,Black,$10000 - 14999,Not str republican,None,3,Republican
+Widowed,20,Black,$15000 - 19999,Strong republican,Catholic,1,Republican
+Divorced,35,Black,Less than 10000,Not str democrat,Catholic,2,Democrat
+Separated,23,Other,$25000 or more,Not str democrat,Protestant,4,Democrat
+Married,31,Other,$15000 - 19999,Independent,None,4,Independent
+Widowed,32,Black,$25000 or more,Not str republican,Other,4,Republican
+Divorced,26,White,$15000 - 19999,Strong republican,Catholic,4,Republican
+Separated,14,Other,$15000 - 19999,Strong democrat,Other,2,Democrat
+Separated,13,Other,$25000 or more,Not str republican,Protestant,2,Republican
+Divorced,48,White,Less than 10000,Independent,Other,4,Independent
+Married,47,Other,$10000 - 14999,Not str republican,Protestant,4,Republican
+Divorced,13,White,$25000 or more,Independent,None,1,Independent
+Married,67,Other,Less than 10000,Not str republican,Catholic,6,Republican
+Widowed,11,Black,Less than 10000,Independent,Catholic,0,Independent
+Never married,21,Other,$15000 - 19999,Strong democrat,Catholic,2,Democrat
+Never married,43,White,$25000 or more,Independent,None,3,Independent
+Married,18,Black,$25000 or more,Independent,None,1,Independent
+Separated,23,White,$20000 - 24999,Not str republican,None,1,Republican
+Married,14,Black,$15000 - 19999,Not str democrat,None,1,Democrat
+Widowed,26,Black,Less than 10000,Strong democrat,Catholic,4,Democrat
+Separated,74,White,$10000 - 14999,Strong democrat,Other,9,Democrat
+Widowed,46,White,$10000 - 14999,Not str republican,Protestant,4,Republican
+Never married,18,White,$15000 - 19999,Not str republican,Catholic,2,Republican
+Never married,64,Other,$10000 - 14999,Not str democrat,None,6,Democrat
+Never married,21,Black,$25000 or more,Not str republican,Other,1,Republican
+Divorced,50,Other,Less than 10000,Not str republican,Other,4,Republican
+Never married,21,Other,Less than 10000,Strong republican,Catholic,2,Republican
+Never married,12,Other,$10000 - 14999,Not str democrat,None,0,Democrat
+Divorced,18,Other,$15000 - 19999,Strong democrat,None,3,Democrat
+Never married,36,Other,$25000 or more,Not str republican,None,2,Republican
+Married,24,Other,$10000 - 14999,Strong republican,Other,2,Republican
+Widowed,30,Black,$20000 - 24999,Not str republican,Protestant,3,Republican
+Married,36,White,Less than 10000,Independent,None,2,Independent
+Separated,47,Other,$10000 - 14999,Not str democrat,None,5,Democrat
+Separated,38,Black,Less than 10000,Independent,Other,3,Independent
+Married,23,Other,$20000 - 24999,Not str republican,None,2,Republican
+Separated,54,White,$20000 - 24999,Not str democrat,None,4,Democrat
+Widowed,29,White,$15000 - 19999,Independent,Catholic,3,Independent
+Widowed,17,Black,$20000 - 24999,Strong republican,Other,2,Republican
+Separated,26,White,$25000 or more,Strong democrat,None,2,Democrat
+Married,30,Black,$20000 - 24999,Independent,Catholic,3,Independent
+Separated,13,White,$20000 - 24999,Strong democrat,None,0,Democrat
+Separated,19,Black,Less than 10000,Not str republican,Protestant,2,Republican
+Widowed,19,Other,$20000 - 24999,Not str republican,Protestant,2,Republican
+Married,12,Other,$15000 - 19999,Not str democrat,None,2,Democrat
+Divorced,17,Other,$10000 - 14999,Not str democrat,Other,2,Democrat
+Never married,48,White,$10000 - 14999,Strong republican,Other,6,Republican
+Separated,24,Black,$20000 - 24999,Strong democrat,Protestant,2,Democrat
+Widowed,18,Other,$15000 - 19999,Strong democrat,Protestant,2,Democrat
+Married,25,Black,$10000 - 14999,Strong democrat,Other,1,Democrat
+Never married,43,Black,$25000 or more,Independent,Other,4,Independent
+Separated,18,Black,$20000 - 24999,Not str republican,Other,2,Republican
+Separated,44,Other,$10000 - 14999,Strong republican,Catholic,3,Republican
+Separated,53,Black,Less than 10000,Strong democrat,Protestant,6,Democrat
+Widowed,18,Black,$20000 - 24999,Strong democrat,Catholic,1,Democrat
+Widowed,33,Other,$20000 - 24999,Strong republican,Other,4,Republican
+Never married,20,Black,$25000 or more,Not str democrat,Catholic,4,Democrat
+Never married,14,Black,$15000 - 19999,Not str republican,Other,2,Republican
+Married,12,Black,$10000 - 14999,Not str democrat,Catholic,1,Democrat
+Widowed,15,Other,$20000 - 24999,Strong republican,Catholic,0,Republican
+Widowed,21,White,Less than 10000,Not str democrat,Protestant,2,Democrat
+Married,71,White,$20000 - 24999,Strong democrat,Protestant,6,Democrat
+Never married,13,Black,$15000 - 19999,Independent,Catholic,0,Independent
+Married,16,White,$20000 - 24999,Strong republican,Catholic,2,Republican
+Never married,18,Black,$25000 or more,Strong republican,Protestant,2,Republican
+Never married,22,Black,Less than 10000,Not str republican,None,2,Republican
+Separated,26,Other,$10000 - 14999,Independent,Other,2,Independent
+Widowed,25,Other,$10000 - 14999,Strong democrat,Catholic,1,Democrat
+Widowed,16,Black,$10000 - 14999,Strong republican,Protestant,0,Republican
+Widowed,25,Other,$20000 - 24999,Strong republican,Protestant,2,Republican
+Never married,13,Other,$25000 or more,Strong democrat,Protestant,0,Democrat
+Widowed,17,Other,$15000 - 19999,Not str democrat,Catholic,2,Democrat
+Married,21,White,$10000 - 14999,Strong democrat,Catholic,2,Democrat
+Divorced,41,White,$10000 - 14999,Independent,None,4,Independent
+Divorced,43,Other,$10000 - 14999,Independent,None,3,Independent
+Widowed,19,Black,$25000 or more,Not str democrat,Catholic,1,Democrat
+Divorced,27,White,$20000 - 24999,Strong democrat,Protestant,5,Democrat
