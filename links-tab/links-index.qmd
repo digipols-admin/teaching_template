@@ -44,4 +44,4 @@ This video provides step by step guide. Remember to have your PAT password (the 
 
 We can test student pages here:
 
-[Testing Evi's google form template](https://digipols-admin.github.io/teaching_template/links-index/evi_survey_google.html).
+[Testing Evi's google form template](https://digipols-admin.github.io/teaching_template/links-tab/links-index/evi_survey_google.html).
