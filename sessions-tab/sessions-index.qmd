@@ -63,7 +63,7 @@ By completing the final project, students will:
 #### Project Scope
 Students will work independently to develop a project website based on a selected topic in marketing or communication. The project should incorporate the following elements:
 
-1. **Data Processing & Analysis:**
+1. **Content Management & Analysis:**
    - Import data into R or create synthetic datasets.
    - Perform basic cleaning and transformation (e.g. using the `tidyverse` package).
    - Conduct descriptive and (optionally) sentiment analysis, depending on the project theme.
@@ -87,6 +87,8 @@ Students will work independently to develop a project website based on a selecte
 #### Evaluation Criteria
 Projects will be assessed based on the following criteria:
 ```{r}
+#| code-fold: false
+#| echo: false
 library(tidyverse)
 library(kableExtra)
 tibble::tribble(
@@ -97,7 +99,7 @@ tibble::tribble(
   "Communication & Presentation",                                                  "Structure, coherence, and engagement of the final project",           "25%"
   ) %>% 
   kbl() %>% 
-  kable_styling(bootstrap_options = "striped", full_width = F)
+  kable_styling(full_width = F)
 
 ```
 
