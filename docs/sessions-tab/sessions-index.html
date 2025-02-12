@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -66,6 +100,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -128,6 +164,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#setting-up-github-r-and-quarto-session-1" id="toc-setting-up-github-r-and-quarto-session-1" class="nav-link" data-scroll-target="#setting-up-github-r-and-quarto-session-1">Setting Up GitHub, R, and Quarto (Session 1)</a></li>
   <li><a href="#surveys-and-content-management-sessions-2-3" id="toc-surveys-and-content-management-sessions-2-3" class="nav-link" data-scroll-target="#surveys-and-content-management-sessions-2-3">Surveys and Content Management (Sessions 2 &amp; 3)</a></li>
   </ul></li>
+  <li><a href="#sessions-4-to-56-overview" id="toc-sessions-4-to-56-overview" class="nav-link" data-scroll-target="#sessions-4-to-56-overview">Sessions 4 to 5/6 Overview</a>
+  <ul class="collapse">
+  <li><a href="#advanced-analysis" id="toc-advanced-analysis" class="nav-link" data-scroll-target="#advanced-analysis">Advanced Analysis</a></li>
+  <li><a href="#final-project-guidelines" id="toc-final-project-guidelines" class="nav-link" data-scroll-target="#final-project-guidelines">Final Project Guidelines</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -184,8 +225,120 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Introduction to Dashboards</strong>: Gain foundational knowledge and hands-on experience in creating basic dashboards, setting the stage for more advanced visualization techniques.</li>
 </ul>
 <p>For additional resources and examples, visit the <a href="https://digipols-admin.github.io/teaching_template/surveys-tab/surveys-index.html">Surveys</a> tab.</p>
+</section>
+</section>
+<section id="sessions-4-to-56-overview" class="level2">
+<h2 class="anchored" data-anchor-id="sessions-4-to-56-overview">Sessions 4 to 5/6 Overview</h2>
+<p>The final part of the course is dedicated to an Advanced Analysis session and presentations of Final Projects</p>
+<section id="advanced-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="advanced-analysis">Advanced Analysis</h3>
+<p>Building on earlier meetings, the <strong>Advanced Analysis</strong> session will showcase some data analytics techniques, with a focus on sentiment analysis and text mining techniques for political and social media data. We will use real-world datasets to extract sentiment insights, apply classification techniques using large language models (LLMs) in R.</p>
+</section>
+<section id="final-project-guidelines" class="level3">
+<h3 class="anchored" data-anchor-id="final-project-guidelines">Final Project Guidelines</h3>
+<p>The final project constitutes a major part of the course assessment and is designed to allow students to integrate and apply the skills acquired throughout the course. The final project should focus on creating a compelling and insightful digital communication product in the form of a website.</p>
+<section id="project-objectives" class="level4">
+<h4 class="anchored" data-anchor-id="project-objectives">Project Objectives</h4>
+<p>By completing the final project, students will:</p>
+<ul>
+<li><p>Use R and Quarto for content management and presention of data.</p></li>
+<li><p>Use the github version control and github Pages for website hosting</p></li>
+<li><p>Develop an interactive and visually engaging data-driven communication project.</p></li>
+<li><p>Effectively communicate insights through a structured presentation.</p></li>
+</ul>
+</section>
+<section id="project-scope" class="level4">
+<h4 class="anchored" data-anchor-id="project-scope">Project Scope</h4>
+<p>Students will work independently to develop a project website based on a selected topic in marketing or communication. The project should incorporate the following elements:</p>
+<ol type="1">
+<li><strong>Data Processing &amp; Analysis:</strong>
+<ul>
+<li>Import data into R or create synthetic datasets.</li>
+<li>Perform basic cleaning and transformation (e.g.&nbsp;using the <code>tidyverse</code> package).</li>
+<li>Conduct descriptive and (optionally) sentiment analysis, depending on the project theme.</li>
+</ul></li>
+<li><strong>Visualization:</strong>
+<ul>
+<li>Create some key visualizations to support the narrative.</li>
+<li>Consider using <code>ggplot2</code>, <code>ggpubr</code>, or interactive visualization libraries to enhance engagement.</li>
+<li>Ensure clarity, aesthetics, and effective communication of insights.</li>
+</ul></li>
+<li><strong>Final Presentation &amp; Hosting:</strong>
+<ul>
+<li>Develop a Quarto-based project website, integrating narrative text and visuals.</li>
+<li>Deploy the project using <strong>GitHub Pages</strong>.</li>
+</ul></li>
+</ol>
+</section>
+<section id="project-submission-requirements" class="level4">
+<h4 class="anchored" data-anchor-id="project-submission-requirements">Project Submission Requirements</h4>
+<ul>
+<li>A <strong>GitHub repository</strong> containing:
+<ul>
+<li>All R scripts used for data processing and visualization.</li>
+<li>The Quarto project files.</li>
+</ul></li>
+<li>A <strong>live GitHub Pages link</strong> to the final project.</li>
+<li>A <strong>short presentation (approx 10 minutes)</strong> explaining key insights and design choices.</li>
+</ul>
+</section>
+<section id="evaluation-criteria" class="level4">
+<h4 class="anchored" data-anchor-id="evaluation-criteria">Evaluation Criteria</h4>
+<p>Projects will be assessed based on the following criteria:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                       <span class="sc">~</span>Criteria,                                                                                                 <span class="sc">~</span>Description, <span class="sc">~</span><span class="st">`</span><span class="at">Weight</span><span class="st">`</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Content management"</span>, <span class="st">"Data processing and analysis involving the use of R for cleaning, transformation, and descriptive analysis"</span>,           <span class="st">"25%"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">"Visualization Quality"</span>,                                      <span class="st">"Effectiveness, clarity, and creativity in presenting visual narrative"</span>,           <span class="st">"25%"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Technical Implementation"</span>,                                          <span class="st">"Proper use of GitHub, Quarto, and deployment of the final project"</span>,           <span class="st">"25%"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Communication &amp; Presentation"</span>,                                                  <span class="st">"Structure, coherence, and engagement of the final project"</span>,           <span class="st">"25%"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">"striped"</span>, <span class="at">full_width =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-striped caption-top table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Criteria</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Description</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Content management</td>
+<td style="text-align: left;">Data processing and analysis involving the use of R for cleaning, transformation, and descriptive analysis</td>
+<td style="text-align: left;">25%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Visualization Quality</td>
+<td style="text-align: left;">Effectiveness, clarity, and creativity in presenting visual narrative</td>
+<td style="text-align: left;">25%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Technical Implementation</td>
+<td style="text-align: left;">Proper use of GitHub, Quarto, and deployment of the final project</td>
+<td style="text-align: left;">25%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Communication &amp; Presentation</td>
+<td style="text-align: left;">Structure, coherence, and engagement of the final project</td>
+<td style="text-align: left;">25%</td>
+</tr>
+</tbody>
+</table>
 
 
+</div>
+</div>
+
+
+</section>
 </section>
 </section>
 

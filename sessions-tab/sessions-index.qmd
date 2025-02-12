@@ -37,3 +37,67 @@ Sessions 2 and 3 are combined to provide an introduction to survey creation, dat
 
 For additional resources and examples, visit the [Surveys](https://digipols-admin.github.io/teaching_template/surveys-tab/surveys-index.html) tab.
 
+## Sessions 4 to 5/6 Overview
+
+The final part of the course is dedicated to an Advanced Analysis session and presentations of Final Projects
+
+### Advanced Analysis
+
+Building on earlier meetings, the **Advanced Analysis** session will showcase some data analytics techniques, with a focus on sentiment analysis and text mining techniques for political and social media data. We will use real-world datasets to extract sentiment insights, apply classification techniques using large language models (LLMs) in R. 
+
+### Final Project Guidelines
+
+The final project constitutes a major part of the course assessment and is designed to allow students to integrate and apply the skills acquired throughout the course. The final project should focus on creating a compelling and insightful digital communication product in the form of a website. 
+
+#### Project Objectives
+By completing the final project, students will:  
+
+- Use R and Quarto for content management and presention of data.
+
+- Use the github version control and github Pages for website hosting  
+
+- Develop an interactive and visually engaging data-driven communication project.
+
+- Effectively communicate insights through a structured presentation.
+
+#### Project Scope
+Students will work independently to develop a project website based on a selected topic in marketing or communication. The project should incorporate the following elements:
+
+1. **Data Processing & Analysis:**
+   - Import data into R or create synthetic datasets.
+   - Perform basic cleaning and transformation (e.g. using the `tidyverse` package).
+   - Conduct descriptive and (optionally) sentiment analysis, depending on the project theme.
+
+2. **Visualization:**
+   - Create some key visualizations to support the narrative.
+   - Consider using `ggplot2`, `ggpubr`, or interactive visualization libraries to enhance engagement.
+   - Ensure clarity, aesthetics, and effective communication of insights.
+
+3. **Final Presentation & Hosting:**
+   - Develop a Quarto-based project website, integrating narrative text and visuals.
+   - Deploy the project using **GitHub Pages**.
+   
+#### Project Submission Requirements
+- A **GitHub repository** containing:
+  - All R scripts used for data processing and visualization.
+  - The Quarto project files.
+- A **live GitHub Pages link** to the final project.
+- A **short presentation (approx 10 minutes)** explaining key insights and design choices.
+
+#### Evaluation Criteria
+Projects will be assessed based on the following criteria:
+```{r}
+library(tidyverse)
+library(kableExtra)
+tibble::tribble(
+                       ~Criteria,                                                                                                 ~Description, ~`Weight`,
+            "Content management", "Data processing and analysis involving the use of R for cleaning, transformation, and descriptive analysis",           "25%",
+         "Visualization Quality",                                      "Effectiveness, clarity, and creativity in presenting visual narrative",           "25%",
+      "Technical Implementation",                                          "Proper use of GitHub, Quarto, and deployment of the final project",           "25%",
+  "Communication & Presentation",                                                  "Structure, coherence, and engagement of the final project",           "25%"
+  ) %>% 
+  kbl() %>% 
+  kable_styling(bootstrap_options = "striped", full_width = F)
+
+```
+
