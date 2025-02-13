@@ -20,11 +20,15 @@ This section demonstrates how to perform sentiment analysis on Twitter data abou
 
 We use R, Quarto, and the tidytext framework to score the sentiment of tweets with the AFINN lexicon. Then we explore the results with descriptive tables and basic charts.
 
-The dataset covers tweets posted by a range of social actors (citizens, politicians, government agencies, etc.) and includes information such as:
+The dataset covers tweets posted by a range of social actors (citizens, politicians, government agencies, etc.) and includes various grouping variable such as:
 
-account_value: Whether the Twitter account is run by an Individual or an Organisation.
-actor_value: The social actor type (e.g., Citizen, Administration, Media, etc.).
-frame_value: How the tweet frames participatory budgeting (e.g., Democracy, Justice, Resources, Problems, etc.).
+`account_value`: Whether the Twitter account is run by an Individual or an Organisation.
+
+`actor_value`: The social actor type (e.g., Citizen, Administration, Media, etc.).
+
+`frame_value`: How the tweet frames participatory budgeting (e.g. in terms of Democracy, Justice, Resources or Problems).
+
+A short codebook with more details on the data structure is in the Annex of this webpage. 
 
 ## R Script
 All the steps for reading and cleaning the data, tokenizing text, and computing sentiment scores with the AFINN lexicon are included in an R script stored in the R folder of this project. You can run all those steps in your own project or with your own data (filename is afinn_sentiment_analysis.R). 
@@ -36,29 +40,31 @@ After running the script, a CSV file named `tw_sentiment_afinn.csv` should appea
 - sentiment_score: The numeric AFINN sentiment score per tweet (sum of word-level scores).
 - sentiment_category: A label of "Positive", "Negative", or "Neutral" based on sentiment_score.
 
+The R script can also be accessed in the Annex of this document.
 
-```{r load-libraries}
+## Loading libraries and Examining the Data
+
+First, let's load libraries and the preprocessed dataset that contains sentiment scores:
+
+```{r load-data}
 library(tidyverse)
 library(kableExtra) # for tables
 library(reactable) # for interactive tables
 library(ggpubr) # for graphs
 library(here) # for directory paths
 library(rstatix)
-```
 
-## Loading and Examining the Data
-
-First, let's load our preprocessed dataset that contains sentiment scores:
-
-```{r load-data}
 # Read the final sentiment-scored data
 df_tw <- read_csv(here("data/tw_sentiment_afinn.csv"))
 
-# Check the first few rows
-head(df_tw, 5)
+# Check the first few rows, and render as an html table
+head(df_tw, 5) %>% 
+  kbl()
 ```
 
 ## Data Exploration
+
+Below we provide some very basic descriptives of the sentiment annotated Tweet dataset.
 
 ### Sentiment Overall
 
@@ -204,7 +210,7 @@ ggbarplot(
   x = "Frame Type",
   y = "Proportion",
   fill = "Sentiment",
-  palette = c("red", "gold", "darkgreen"),  # Specify custom colors
+  palette = c("#FF9999", "#BDBDBD", "#90C695"), # Specify custom colors
   title = "Sentiment Distribution by Frame Type",
   xlab = "Sentiment",
   ylab = "Proportion") +
