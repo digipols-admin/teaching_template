@@ -254,60 +254,7 @@ reactable(
 
 # Annexes
 
-## More information on the Tweet data
-
-The dataset can be found in the project repo, or in the folder that was shared with your google drive at the start of the course.
-
-This codebook describes the variables in the dataset
-
-### What type of Twitter user account? 
-[variable = `account_value`]
-This question asks coders to consider whether the Twitter account belongs to an "Individual" or to an "Organisation". Although Twitter accounts are created by individuals, many accounts can belong to an organisation.
-
-- Individual
-
-- Organisation
-
-### What type of social actor created the tweet? 
-[variable = `actor_value`]
-This question asks coders to consider the type of social actor that created the tweet. To help choose the most appropriate category, it is advised to visit the author's Twitter account.
-
-- Citizen
-- Political (Politician; Political Party)
-- Administration (Official; Local authority / Government agency)
-- Media (Journalist/Blogger; News Organisation)
-- Civil Society (Interest group / NGO; Campaign group)
-- Education (Academic; School)
-- Other
-- Not applicable
-
-### Which "frame" best describes the tweet? 
-[variable = `frame_value`]
-People who tweet about "participatory budgeting" (PB) present it in many different ways. They do this by emphasising (or neglecting to emphasise) particular aspects of PB. The way in which PB is "presented" and the impression it leaves on the reader of the tweet is referred to  as "framing". This question asks coders to consider how the topic of PB is "framed" in the tweet.
-
-A tweet may contain an explicit frame. For instance, it may refer to PB in a positive way by emphasising citizen participation or by suggesting it is a fairer way to distribute a city budget. A tweet might also present PB in a negative way by explicitly pointing out that it is an inefficient way to allocate public funds or that it is subject to corruption.
-
-A tweet may contain a frame even if that frame is not explicitly stated. Perhaps a tweet never explicitly states that, "PB is a fair way to distribute public goods" but if the tweet focuses on how PB funds are allocated then this is the kind of message transmitted to the reader. 
-
-Below we list the 7 of the most common frames we have identified related to PB. Each frame includes a short description and some examples of tweeets. We also include two extra answer options: "No frame", where the tweet does not contain any identifiable frame, and "Other frame" for cases where the tweet’s frame does not fit any of the 7 predetermined categories.
-
-1. Democratic solution
-2. Political Empowerment
-3. Improving accountability / transparency
-4. Promote social justice
-5. Resources / spending priorities
-6. PB implementation problems
-7. Negative aspects of PB
-Other frame
-No Frame
-
-In practice, the various frames were grouped together into simpler categories in the dataset
-`Democracy` (frames 1, 2, and 3)
-`Justice` (frame 4)
-`Resources` (frame 5)
-`Problems` (frames 6 and 7)
-
-## R scripts
+## Annex 1: R scripts
 
 The following R scripts can also be found in the project Repo, in the R folder.
 
@@ -457,4 +404,58 @@ tw_classification_llama %>%
     write_csv("data/tw_classification_llama.csv")
 
 ```
+
+
+## Annex: 2 More information on the Tweet data
+
+The dataset can be found in the project repo, or in the folder that was shared with your google drive at the start of the course.
+
+This codebook describes the variables in the dataset
+
+### What type of Twitter user account? 
+[variable = `account_value`]
+This question asks coders to consider whether the Twitter account belongs to an "Individual" or to an "Organisation". Although Twitter accounts are created by individuals, many accounts can belong to an organisation.
+
+- Individual
+
+- Organisation
+
+### What type of social actor created the tweet? 
+[variable = `actor_value`]
+This question asks coders to consider the type of social actor that created the tweet. To help choose the most appropriate category, it is advised to visit the author's Twitter account.
+
+- Citizen
+- Political (Politician; Political Party)
+- Administration (Official; Local authority / Government agency)
+- Media (Journalist/Blogger; News Organisation)
+- Civil Society (Interest group / NGO; Campaign group)
+- Education (Academic; School)
+- Other
+- Not applicable
+
+### Which "frame" best describes the tweet? 
+[variable = `frame_value`]
+People who tweet about "participatory budgeting" (PB) present it in many different ways. They do this by emphasising (or neglecting to emphasise) particular aspects of PB. The way in which PB is "presented" and the impression it leaves on the reader of the tweet is referred to  as "framing". This question asks coders to consider how the topic of PB is "framed" in the tweet.
+
+A tweet may contain an explicit frame. For instance, it may refer to PB in a positive way by emphasising citizen participation or by suggesting it is a fairer way to distribute a city budget. A tweet might also present PB in a negative way by explicitly pointing out that it is an inefficient way to allocate public funds or that it is subject to corruption.
+
+A tweet may contain a frame even if that frame is not explicitly stated. Perhaps a tweet never explicitly states that, "PB is a fair way to distribute public goods" but if the tweet focuses on how PB funds are allocated then this is the kind of message transmitted to the reader. 
+
+Below we list the 7 of the most common frames we have identified related to PB. Each frame includes a short description and some examples of tweeets. We also include two extra answer options: "No frame", where the tweet does not contain any identifiable frame, and "Other frame" for cases where the tweet’s frame does not fit any of the 7 predetermined categories.
+
+1. Democratic solution
+2. Political Empowerment
+3. Improving accountability / transparency
+4. Promote social justice
+5. Resources / spending priorities
+6. PB implementation problems
+7. Negative aspects of PB
+Other frame
+No Frame
+
+In practice, the various frames were grouped together into simpler categories in the dataset
+`Democracy` (frames 1, 2, and 3)
+`Justice` (frame 4)
+`Resources` (frame 5)
+`Problems` (frames 6 and 7)
 
