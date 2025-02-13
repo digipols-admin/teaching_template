@@ -258,6 +258,70 @@ reactable(
 ```
 
 
+## Comparison with an LLM approach to sentiment annotation
+
+Here we include the results of an LLM approach to annotating the tweets related to PB. The Meta open-source model, LLaMA 3.1, model was used to classify the tweets for their sentiment. The code can be seen in the R scripts.
+
+```{r}
+# Load dataframes
+
+tw <- read_csv(here("data/tw.csv"))
+tw_sentiment_afinn <- read_csv(here("data/tw_sentiment_afinn.csv"))
+tw_sentiment_llama <- read_csv(here("data/tw_sentiment_llama.csv"))  
+
+# Harmonise categories
+tw_sentiment_llama$llama_sentiment <- str_to_title(tw_sentiment_llama$llama_sentiment)
+
+
+# First, let's join both sentiment variables to the base dataframe
+tw_combined <- tw %>%
+  left_join(
+    tw_sentiment_llama %>% select(id, llama_sentiment),
+    by = "id"
+  ) %>%
+  left_join(
+    tw_sentiment_afinn %>% select(id, sentiment_category),
+    by = "id"
+  )
+
+# Create binary variable comparing the two sentiment analyses
+tw_combined <- tw_combined %>%
+  mutate(
+    sentiment_match = case_when(
+      llama_sentiment == sentiment_category ~ "Match",
+      llama_sentiment != sentiment_category ~ "Mismatch",
+      is.na(llama_sentiment) | is.na(sentiment_category) ~ "Missing",
+      TRUE ~ "Other"
+    )
+  )
+
+```
+
+The tables below compare the results of the 2 different approaches to sentiment analysis (AFINN vs LLaMA).
+
+### Comparison tables
+```{r}
+# Check the results
+tw_combined %>%
+  count(sentiment_match) %>%
+  kbl(caption="Mismatches Overall (count)")
+
+tw_combined %>%
+  freq_table(frame_value,sentiment_match) %>%
+  select(-prop) %>% 
+  spread(sentiment_match,n) %>% 
+  kbl(caption="Mismatches by Frame (count)")
+  
+tw_combined %>%
+  freq_table(frame_value,sentiment_match) %>%
+  select(-n) %>% 
+  spread(sentiment_match,prop) %>% 
+  kbl(caption="Mismatches by Frame (percentaes)")
+
+```
+
+
+
 # Annexes
 
 ## Annex 1: R scripts
