@@ -12,6 +12,8 @@ website:
         text: Sessions
       - href: surveys-tab/surveys-index.qmd
         text: Surveys
+      - href: classification-tab/sentiment-index.qmd
+        text: Text analysis
       - href: links-tab/links-index.qmd
         text: Useful links     
     logo: images/logo_tepak.png

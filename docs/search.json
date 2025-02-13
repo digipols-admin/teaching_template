@@ -21,172 +21,67 @@
     "text": "Resources\n\nHappy Git and GitHub for the useR. A full course on using git by Jennifer Bryan. Browse chapter 4 Register a GitHub account section 4.1 on creating a GitHub account.\nLink: https://happygitwithr.com\nQuarto: The main resource for Quarto publishing framework\nLink: https://quarto.org/\nHadley Wickham’s 2nd Edition R for Data Science - Chapter on Quarto: An introductory guide on Quarto and its integration with R by a leading R programmer/statistician.\nAn online version of (slightly older but still relevant) chapter from Stephen Few on principles of data visualization\nLink: https://www.interaction-design.org/literature/book/the-encyclopedia-of-human-computer-interaction-2nd-ed/data-visualization-for-human-perception\nModern Data Visualization with R: An online version of the book “Modern Data Visualization with R, which guides you through creating popular visualizations using R, focusing on the ggplot2 package.\nLink: https://rkabacoff.github.io/datavis/\nR package ggpubr A good R library for creating publication ready graphs, with useful examples and simpler syntax than ggplot2.\nLink: https://rpkgs.datanovia.com/ggpubr/index.html\nSilge, J., & Robinson, D. (2017). Text Mining with R: A Tidy Approach. O’Reilly Media. A practical resource for sentiment analysis and text mining, highlighting best practices and code examples.\nLink: https://www.tidytextmining.com/\nGoogle Looker Studio, A very good introduction on how to use Google Looker Studio, using Google Analytics as a data source example.\nLink: https://www.youtube.com/watch?v=Coe_f79Xc2o\nAnalytics with Looker Studio. Another useful video on how to integrate Google Analytics into a Looker Studio dahsboard\nLink: https://www.youtube.com/watch?v=SdDRZFhHS2U"
   },
   {
-    "objectID": "surveys-tab/surveys-index.html",
-    "href": "surveys-tab/surveys-index.html",
-    "title": "Surveys & Content Management",
+    "objectID": "surveys-tab/tvhours_static_report.html",
+    "href": "surveys-tab/tvhours_static_report.html",
+    "title": "Survey Data Analysis",
     "section": "",
-    "text": "We will now leverage the tools and workflows introduced in Session 1 with practical applications related to survey creation, data management, and visualization. Here, you will explore how to design effective surveys, integrate real-world data, and create interactive dashboards tailored for research and communication purposes. The examples and tools provided, including Google Forms, Shiny applications, and R workflows, will help you gain hands-on experience in transforming data into insights for diverse audiences."
+    "text": "Code\n# Create data tables\n\n# Create Codebook\ncodebook &lt;- tibble(\n  variable_name = c(\"marital\", \"age\", \"race\", \"rincome\", \"partyid\", \"relig\", \"tvhours\"),\n  question = c(\n    \"What is your marital status?\",\n    \"What is your age?\",\n    \"What is your race?\",\n    \"What is your income range?\",\n    \"What is your political affiliation?\",\n    \"What is your religion?\",\n    \"How many hours per day do you spend watching TV?\"\n  )\n)\n\n# Generate a synthetic dataset\nset.seed(123)\ndata &lt;- tibble(\n  marital = sample(c(\"Divorced\", \"Married\", \"Never married\", \"Separated\", \"Widowed\"), 100, replace = TRUE),\n  age = round(rexp(100, rate = 0.05) + 11),  # Skewed age distribution\n  race = sample(c(\"Black\", \"Other\", \"White\"), 100, replace = TRUE),\n  rincome = sample(c(\"$10000 - 14999\", \"$15000 - 19999\", \"$20000 - 24999\", \"$25000 or more\", \"Less than 10000\"), 100, replace = TRUE),\n  partyid = sample(c(\"Independent\", \"Not str democrat\", \"Not str republican\", \"Strong democrat\", \"Strong republican\"), 100, replace = TRUE),\n  relig = sample(c(\"Catholic\", \"None\", \"Other\", \"Protestant\"), 100, replace = TRUE),\n  tvhours = round((age - 11) / 10 + rpois(100, lambda = 1), 0)  # Skewed tvhours correlated with age\n)\n\n# Download and filter original data\ngss &lt;- forcats::gss_cat\n\ntvhours_data &lt;- gss |&gt; \n  filter(year==2000) |&gt; \n  select(-year, -denom) |&gt; \n  filter(!is.na(tvhours)) |&gt; \n  filter(tvhours&lt;13) |&gt; \n  mutate(across(where(is.factor), as.character)) |&gt; \n  filter(marital %in% c(\"Never married\", \"Separated\", \"Divorced\", \"Widowed\", \"Married\")) |&gt; \n  filter(!is.na(age)) |&gt; \n  filter(race %in% c(\"Other\", \"Black\", \"White\")) |&gt; \n  filter(partyid %in% c(\"Strong republican\", \n                        \"Not str republican\", \n                        \"Independent\", \n                        \"Not str democrat\", \"Strong democrat\")) |&gt; \n  mutate(relig = case_when(\n    relig %in% c(\"Catholic\", \"Protestant\", \"None\") ~ relig,\n    TRUE ~ \"Other\")\n  ) |&gt; \n  mutate(rincome = case_when(\n    rincome %in% c(\"$25000 or more\", \"$20000 - 24999\", \"$15000 - 19999\", \"$10000 - 14999\") ~ rincome,\n    TRUE ~ \"Less than 10000\")\n  )\n\n# Add a user_id and random timestamp\n# Define the start and end datetime\nstart_datetime &lt;- ymd_hms(\"2000-01-18T17:29:08Z\")\nend_datetime &lt;- start_datetime + years(1)\n\n# Calculate the total number of seconds in the one-year interval\ntotal_seconds &lt;- as.numeric(difftime(end_datetime, start_datetime, units = \"secs\"))\n\n# Generate random timestamps\nset.seed(123)  # Set seed for reproducibility\ntvhours_data &lt;- tvhours_data %&gt;%\n  rowid_to_column(var = \"user_id\") |&gt; \n  mutate(user_id = paste0(\"id_\", user_id)) |&gt; \n  mutate(timestamp = start_datetime + seconds(runif(n(), min = 0, max = total_seconds))\n         )"
   },
   {
-    "objectID": "surveys-tab/surveys-index.html#real-world-application-multi-country-climate-surveys-dust-consortium",
-    "href": "surveys-tab/surveys-index.html#real-world-application-multi-country-climate-surveys-dust-consortium",
-    "title": "Surveys & Content Management",
-    "section": "Real-World Application: Multi-Country Climate Surveys (DUST Consortium)",
-    "text": "Real-World Application: Multi-Country Climate Surveys (DUST Consortium)\nThis section highlights a real-world example of a multi-country survey conducted under a European Horizon research consortium. The project investigated citizens’ attitudes toward participating in policy-making processes, with a particular emphasis on regions potentially impacted by climate change policies.\nKey resources include:\n\nHosting a survey using Google Forms: A guide for designing and distributing surveys online.\nSurvey support webpage: An example of an RStudio-based workflow website and dashboard created to support research efforts, showcasing survey data integration and visualization techniques."
+    "objectID": "surveys-tab/tvhours_static_report.html#age-distribution",
+    "href": "surveys-tab/tvhours_static_report.html#age-distribution",
+    "title": "Survey Data Analysis",
+    "section": "Age Distribution",
+    "text": "Age Distribution\n\n\nCode\n# Age distribution\nage_plot &lt;- ggplot(data, aes(x = age)) +\n  geom_histogram(binwidth = 5, fill = \"steelblue\", color = \"black\") +\n  labs(title = \"Age Distribution\", x = \"Age\", y = \"Frequency\") +\n  theme_minimal()\n\nage_plot\n\n\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non pretium ex. Sed quis justo libero."
   },
   {
-    "objectID": "surveys-tab/surveys-index.html#real-world-application-european-research-dashboards-eut-consortium",
-    "href": "surveys-tab/surveys-index.html#real-world-application-european-research-dashboards-eut-consortium",
-    "title": "Surveys & Content Management",
-    "section": "Real-World Application: European Research Dashboards (EUT Consortium)",
-    "text": "Real-World Application: European Research Dashboards (EUT Consortium)\nThis example focuses on the use of dashboards developed as support for the EUT research consortium. The project demonstrates how data visualization and dashboard technologies can support research initiatives across diverse fields. These dashboards are tailored to present complex datasets in an accessible format for researchers.\nKey resource:\n\nExample of a dashboard for a research consortium: A comprehensive dashboard showcasing data visualization and integration techniques used in collaborative research projects. This iframe may not load if using a TEPAK network."
+    "objectID": "surveys-tab/tvhours_static_report.html#race-breakdown",
+    "href": "surveys-tab/tvhours_static_report.html#race-breakdown",
+    "title": "Survey Data Analysis",
+    "section": "Race Breakdown",
+    "text": "Race Breakdown\n\n\nCode\n# Race breakdown\ndata %&gt;% \n  count(race) %&gt;% \n  mutate(percentage = n / sum(n) * 100) %&gt;%\n  kable(caption = \"Race Breakdown\", digits = 1) %&gt;% \n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nRace Breakdown\n\n\nrace\nn\npercentage\n\n\n\n\nBlack\n35\n35\n\n\nOther\n32\n32\n\n\nWhite\n33\n33\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis dui a odio posuere pellentesque."
   },
   {
-    "objectID": "surveys-tab/surveys-index.html#using-the-google-ecosystem-surveys-and-dashboards",
-    "href": "surveys-tab/surveys-index.html#using-the-google-ecosystem-surveys-and-dashboards",
-    "title": "Surveys & Content Management",
-    "section": "Using the Google Ecosystem: Surveys and Dashboards",
-    "text": "Using the Google Ecosystem: Surveys and Dashboards\nGoogle Forms and Google Looker Data Studio are widely used tools in various industries for data collection and visualization. Google Forms simplifies the process of designing and distributing surveys, while Looker Data Studio offers robust visualization capabilities to turn raw survey data into actionable insights. These tools are not only user-friendly but also highly adaptable to diverse research and business needs.\nIn this example, we will demonstrate the creation of a survey using Google Forms and the visualization of the collected data through Looker Data Studio. The dataset used is derived from the forcats package in R, specifically the General Social Survey on TV hours watched. This sample dataset will be used to create questionnaires and generate synthetic datasets for analysis and visualization.\nKey resources:\n\nExample of a Google survey form: A hands-on demonstration of survey design and implementation.\nExample of a Google Looker dashboard: A visual representation of survey data, highlighting key metrics and trends.\n\nAdditional Resources:\n\nGoogle Forms Overview: Official Google forms support page.\nGetting Started with Google Data Studio: A good introduction to using Data Studio for data visualization."
+    "objectID": "surveys-tab/tvhours_static_report.html#hours-watching-tv",
+    "href": "surveys-tab/tvhours_static_report.html#hours-watching-tv",
+    "title": "Survey Data Analysis",
+    "section": "Hours Watching TV",
+    "text": "Hours Watching TV\n\n\nCode\n# TV hours distribution\ntvhours_plot &lt;- ggplot(data, aes(x = tvhours)) +\n  geom_bar(fill = \"darkorange\", color = \"black\") +\n  labs(title = \"TV Hours Distribution\", x = \"Hours per Day\", y = \"Count\") +\n  theme_minimal()\n\n# Display plot\ntvhours_plot\n\n\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vestibulum massa eget nunc pulvinar, ac fringilla nulla congue."
   },
   {
-    "objectID": "surveys-tab/surveys-index.html#using-shiny-for-dynamic-surveys-and-reports",
-    "href": "surveys-tab/surveys-index.html#using-shiny-for-dynamic-surveys-and-reports",
-    "title": "Surveys & Content Management",
-    "section": "Using Shiny for Dynamic Surveys and Reports",
-    "text": "Using Shiny for Dynamic Surveys and Reports\nContinuing with the General Social Survey (GSS) dataset on TV hours watched, this section demonstrates how Shiny can be used for survey creation and data collection. Using the shinysurveys package in R, we will build a fully functional survey and collect responses dynamically. The collected data will then be showcased in both static and interactive reports using Quarto.\nShiny stands out as an excellent option for building enterprise-level web applications due to its flexibility and ability to handle dynamic data inputs. Its seamless integration with R makes it a popular choice for industries needing data-driven solutions, from finance to healthcare. Meanwhile, Quarto is emerging as a vanguard publishing solution, providing powerful tools for creating professional, high-quality documents and interactive reports. Its support for JavaScript Observable -as well as Python and VS Code- enhances interactivity, making it an ideal choice for creating engaging and exploratory data narratives.\nKey highlights:\n\nSurvey Creation: Learn to design surveys with Shiny and collect real-time data seamlessly.\nStatic Report: Present collected survey data in a clear and concise Quarto report, ideal for static dissemination.\nInteractive Report: Create an engaging interactive report using Quarto and JavaScript Observable, allowing users to explore the data dynamically.\n\nKey Resources:\n\niFrame example of a Shiny questionnaire hosted on demotec: A demonstration of hosting a Shiny survey. N.B Since we are still waiting for https certification from the Uni, the iframe in this link is unlikely to work!\nDirect link to Shiny questionnaire hosted on demotec: However it is possible to access the Shiny questionnaire directly.\niFrame example of Shiny questionnaire hosted on cohesify: An alternative hosting solution for the Shiny questionnaire.\nExample of a static Quarto report\nExample of an interactive Quarto report.\n\nAdditional Resources:\n\nHadley Wickham’s 2nd Edition R for Data Science - Chapter on Quarto: An introductory guide on Quarto and its integration with R by a leading R programmer/statistician.\nQuarto Documentation: Static Reports: Official documentation for creating static reports.\nQuarto Documentation: Interactive Reports with JS Observable: Learn to integrate JavaScript Observable with Quarto for interactive visualizations. N.B These examples may not work with an Rstudio server."
+    "objectID": "surveys-tab/tvhours_static_report.html#scatter-plot-age-vs-tv-hours-simulated-data",
+    "href": "surveys-tab/tvhours_static_report.html#scatter-plot-age-vs-tv-hours-simulated-data",
+    "title": "Survey Data Analysis",
+    "section": "Scatter Plot: Age vs TV Hours (simulated data)",
+    "text": "Scatter Plot: Age vs TV Hours (simulated data)\n\n\nCode\n# Scatter plot with smoothed regression line\nscatter_plot &lt;- ggplot(data, aes(x = age, y = tvhours)) +\n  geom_point(color = \"blue\", alpha = 0.6) +\n  geom_smooth(method = \"lm\", se = TRUE, color = \"red\") +\n  labs(title = \"Scatter Plot of Age vs TV Hours\", x = \"Age\", y = \"TV Hours\") +\n  theme_minimal()\n\nscatter_plot\n\n\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae."
   },
   {
-    "objectID": "surveys-tab/dust_survey_google.html",
-    "href": "surveys-tab/dust_survey_google.html",
+    "objectID": "surveys-tab/tvhours_static_report.html#scatter-plot-age-vs-tv-hours-real-data",
+    "href": "surveys-tab/tvhours_static_report.html#scatter-plot-age-vs-tv-hours-real-data",
+    "title": "Survey Data Analysis",
+    "section": "Scatter Plot: Age vs TV Hours real data",
+    "text": "Scatter Plot: Age vs TV Hours real data\n\n\nCode\n# Scatter plot with smoothed regression line\nscatter_plot &lt;- ggplot(tvhours_data, aes(x = age, y = tvhours)) +\n  geom_point(color = \"blue\", alpha = 0.6) +\n  geom_smooth(method = \"lm\", se = TRUE, color = \"red\") +\n  labs(title = \"Scatter Plot of Age vs TV Hours\", x = \"Age\", y = \"TV Hours\") +\n  theme_minimal()\n\nscatter_plot\n\n\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae."
+  },
+  {
+    "objectID": "surveys-tab/tvhours_static_report.html#exploring-tv-hours-with-poisson-regression",
+    "href": "surveys-tab/tvhours_static_report.html#exploring-tv-hours-with-poisson-regression",
+    "title": "Survey Data Analysis",
+    "section": "Exploring TV Hours with Poisson Regression",
+    "text": "Exploring TV Hours with Poisson Regression\nGiven that tvhours is a count variable, a Poisson regression can be useful for exploring relationships with predictors such as age, race, or income.\n\nSynthetic data\n\n\nCode\n# Example Poisson regression\npoisson_model &lt;- glm(tvhours ~ age + race + rincome, family = poisson, data = data)\n#summary(poisson_model)\n\n# Use the parameters package to extract coefficients\nresult &lt;- model_parameters(\n  poisson_model,\n  effects = \"fixed\",\n  component = \"conditional\",\n  verbose = FALSE\n)\n\nprint(result)\n\n\n#&gt; Parameter                 |  Log-Mean |       SE |        95% CI |         z |      p\n#&gt; -------------------------------------------------------------------------------------\n#&gt; (Intercept)               |      0.18 |     0.20 | [-0.21, 0.56] |      0.93 | 0.352 \n#&gt; age                       |      0.03 | 2.57e-03 | [ 0.02, 0.03] |      9.81 | &lt; .001\n#&gt; race [Other]              |      0.01 |     0.15 | [-0.28, 0.31] |      0.10 | 0.923 \n#&gt; race [White]              | -1.11e-03 |     0.15 | [-0.30, 0.29] | -7.37e-03 | 0.994 \n#&gt; rincome [$15000 - 19999]  |      0.06 |     0.19 | [-0.32, 0.44] |      0.29 | 0.774 \n#&gt; rincome [$20000 - 24999]  |     -0.09 |     0.18 | [-0.44, 0.27] |     -0.47 | 0.636 \n#&gt; rincome [$25000 or more]  |      0.03 |     0.18 | [-0.32, 0.38] |      0.15 | 0.882 \n#&gt; rincome [Less than 10000] |     -0.11 |     0.24 | [-0.59, 0.35] |     -0.47 | 0.637\n\n\nCode\n# Use the see package to plot results\nplot(result)\n\n\n\n\n\n\n\n\n\n\n\nSynthetic data (age scaled)\n\n\nCode\n# Example Poisson regression\npoisson_model &lt;- glm(tvhours ~ scale(age) + race + rincome, family = poisson, data = data)\n#summary(poisson_model)\n\n# Use the parameters package to extract coefficients\nresult &lt;- model_parameters(\n  poisson_model,\n  effects = \"fixed\",\n  component = \"conditional\",\n  verbose = FALSE\n)\n\nprint(result)\n\n\n#&gt; Parameter                 |  Log-Mean |   SE |        95% CI |         z |      p\n#&gt; ---------------------------------------------------------------------------------\n#&gt; (Intercept)               |      0.96 | 0.15 | [ 0.65, 1.25] |      6.21 | &lt; .001\n#&gt; age                       |      0.45 | 0.05 | [ 0.36, 0.54] |      9.81 | &lt; .001\n#&gt; race [Other]              |      0.01 | 0.15 | [-0.28, 0.31] |      0.10 | 0.923 \n#&gt; race [White]              | -1.11e-03 | 0.15 | [-0.30, 0.29] | -7.37e-03 | 0.994 \n#&gt; rincome [$15000 - 19999]  |      0.06 | 0.19 | [-0.32, 0.44] |      0.29 | 0.774 \n#&gt; rincome [$20000 - 24999]  |     -0.09 | 0.18 | [-0.44, 0.27] |     -0.47 | 0.636 \n#&gt; rincome [$25000 or more]  |      0.03 | 0.18 | [-0.32, 0.38] |      0.15 | 0.882 \n#&gt; rincome [Less than 10000] |     -0.11 | 0.24 | [-0.59, 0.35] |     -0.47 | 0.637\n\n\nCode\n# Use the see package to plot results\nplot(result)\n\n\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at nisl vitae felis tristique dictum.\n\n\nReal data\n\n\nCode\n# Example Poisson regression with real data\n\npoisson_model &lt;- glm(tvhours ~ scale(age) + race + rincome + partyid, family = poisson, data = tvhours_data)\n\n#summary(poisson_model)\n\n# Use the parameters package to extract coefficients\nresult &lt;- model_parameters(\n  poisson_model,\n  effects = \"fixed\",\n  component = \"conditional\",\n  verbose = FALSE\n)\n\nprint(result)\n\n\n#&gt; Parameter                    | Log-Mean |   SE |         95% CI |     z |      p\n#&gt; --------------------------------------------------------------------------------\n#&gt; (Intercept)                  |     1.14 | 0.08 | [ 0.99,  1.29] | 15.15 | &lt; .001\n#&gt; age                          |     0.09 | 0.02 | [ 0.06,  0.12] |  5.44 | &lt; .001\n#&gt; race [Other]                 |    -0.41 | 0.08 | [-0.57, -0.25] | -5.09 | &lt; .001\n#&gt; race [White]                 |    -0.31 | 0.04 | [-0.39, -0.23] | -7.74 | &lt; .001\n#&gt; rincome [$15000 - 19999]     |     0.11 | 0.09 | [-0.07,  0.29] |  1.18 | 0.238 \n#&gt; rincome [$20000 - 24999]     |     0.11 | 0.09 | [-0.06,  0.29] |  1.25 | 0.211 \n#&gt; rincome [$25000 or more]     |    -0.01 | 0.07 | [-0.15,  0.13] | -0.19 | 0.852 \n#&gt; rincome [Less than 10000]    |     0.28 | 0.07 | [ 0.15,  0.42] |  4.07 | &lt; .001\n#&gt; partyid [Not str democrat]   |     0.03 | 0.04 | [-0.06,  0.12] |  0.65 | 0.513 \n#&gt; partyid [Not str republican] | 4.76e-03 | 0.05 | [-0.10,  0.10] |  0.09 | 0.925 \n#&gt; partyid [Strong democrat]    |     0.09 | 0.05 | [ 0.00,  0.19] |  1.98 | 0.047 \n#&gt; partyid [Strong republican]  |    -0.11 | 0.06 | [-0.23,  0.00] | -1.96 | 0.050\n\n\nCode\n# Use the see package to plot results\nplot(result)"
+  },
+  {
+    "objectID": "surveys-tab/template_page.html",
+    "href": "surveys-tab/template_page.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n\nCode\n1 + 1\n\n\n#&gt; [1] 2\n\n\nThis is a simple demonstration of generating a plot in an HTML document using Quarto (.qmd) and R.\n\nGenerating a Plot\nWe will create a simple ggplot graph using R’s built-in mtcars dataset.\n\n\nCode\n# Load necessary libraries\nlibrary(ggplot2)\n\n# Create the plot\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point() +\n  theme_minimal() +\n  ggtitle(\"Scatter Plot of MPG vs. Weight\") +\n  xlab(\"Weight (1000 lbs)\") +\n  ylab(\"Miles/(US) gallon\")"
+  },
+  {
+    "objectID": "surveys-tab/tvhours_google.html",
+    "href": "surveys-tab/tvhours_google.html",
     "title": "XDMComs",
     "section": "",
     "text": "Loading…"
-  },
-  {
-    "objectID": "surveys-tab/tvhours_js.html",
-    "href": "surveys-tab/tvhours_js.html",
-    "title": "Observable JS in Quarto Document: Extended Use Case",
-    "section": "",
-    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae ex nec ligula tempor pretium. Suspendisse potenti. Integer nec eros nec lacus aliquet cursus id id eros."
-  },
-  {
-    "objectID": "surveys-tab/tvhours_js.html#distribution-of-religion",
-    "href": "surveys-tab/tvhours_js.html#distribution-of-religion",
-    "title": "Observable JS in Quarto Document: Extended Use Case",
-    "section": "Distribution of Religion",
-    "text": "Distribution of Religion\n\n\nCode\nggplot(tvhours_data, aes(x = relig)) +\n  geom_bar(fill = \"steelblue\") +\n  labs(title = \"Distribution of Religion\", x = \"Religion\", y = \"Count\") +\n  theme_minimal()"
-  },
-  {
-    "objectID": "surveys-tab/tvhours_js.html#distribution-of-religion-by-party-id-using-ggpubr",
-    "href": "surveys-tab/tvhours_js.html#distribution-of-religion-by-party-id-using-ggpubr",
-    "title": "Observable JS in Quarto Document: Extended Use Case",
-    "section": "Distribution of Religion by party id using ggpubr",
-    "text": "Distribution of Religion by party id using ggpubr\n\n\nCode\ntvhours_data %&gt;% \n  freq_table(relig,partyid2) %&gt;% \n  ggbarplot(\n    x = \"relig\",\n    y = \"prop\",\n    fill = \"partyid2\",\n    #palette = c(\"steelblue\",\"gold\",\"darkred\"),\n    palette = \"jco\",\n    label = TRUE,\n    position = position_dodge(0.9),\n    xlab = \"Religion\",\n    ylab = \"Percent\",\n    title = \"\",\n    legend.title = \"Party id\")"
-  },
-  {
-    "objectID": "surveys-tab/tvhours_js.html#distribution-of-age",
-    "href": "surveys-tab/tvhours_js.html#distribution-of-age",
-    "title": "Observable JS in Quarto Document: Extended Use Case",
-    "section": "Distribution of Age",
-    "text": "Distribution of Age\n\n\nCode\nggplot(tvhours_data, aes(x = age)) +\n  geom_histogram(binwidth = 5, fill = \"steelblue\", color = \"white\") +\n  labs(title = \"Distribution of Age\", x = \"Age\", y = \"Count\") +\n  theme_minimal()"
-  },
-  {
-    "objectID": "surveys-tab/tvhours_js.html#a-scatter-plot-of-age-by-tv-hours",
-    "href": "surveys-tab/tvhours_js.html#a-scatter-plot-of-age-by-tv-hours",
-    "title": "Observable JS in Quarto Document: Extended Use Case",
-    "section": "A scatter plot of Age by TV hours",
-    "text": "A scatter plot of Age by TV hours\n\n\nCode\ndata = FileAttachment('tvhours_data_js.csv').csv({ typed: true })\n\nviewof party_filter = Inputs.select(\n  [\"Democrat\", \"Republican\", \"Independent\"],\n  { value: \"Democrat\", label: \"Select Party:\" }\n)\n\nfiltered_data = data.filter(d =&gt; d.partyid2 === party_filter)\n\n\nPlot.dot(filtered_data, {\n  x: \"age\",\n  y: \"tvhours\",\n  stroke: d =&gt; {\n    if (d.partyid2 === \"Democrat\") return \"steelblue\";\n    if (d.partyid2 === \"Republican\") return \"darkred\";\n    return \"gold\"; // Color for Independent\n  },\n  fill: d =&gt; {\n    if (d.partyid2 === \"Democrat\") return \"steelblue\";\n    if (d.partyid2 === \"Republican\") return \"darkred\";\n    return \"gold\"; // Color for Independent\n  },\n  r: 3, // Size of dots\n  title: d =&gt; `Age: ${d.age}, TV Hours: ${d.tvhours}`\n}).plot({\n  style: {\n    \"font-size\": \"14px\", // General font size for ticks and labels\n    \"axis-label-font-size\": \"16px\", // Axis labels size\n    \"axis-tick-font-size\": \"14px\" // Axis ticks size\n  }\n})"
-  },
-  {
-    "objectID": "surveys-tab/tvhours_js.html#age-by-party-id",
-    "href": "surveys-tab/tvhours_js.html#age-by-party-id",
-    "title": "Observable JS in Quarto Document: Extended Use Case",
-    "section": "Age by Party ID",
-    "text": "Age by Party ID\n\n\nCode\nviewof party_filter_age = Inputs.select(\n  [\"Democrat\", \"Republican\", \"Independent\"],\n  { value: \"Democrat\", label: \"Select Party:\" }\n)\n\nfiltered_age = data.filter(d =&gt; d.partyid2 === party_filter_age)\n\nPlot.rectY(\n  filtered_age, \n  Plot.binX(\n    {y: \"count\"}, \n    {x: \"age\", thresholds: 10, fill: d =&gt; {\n      if (d.partyid2 === \"Democrat\") return \"steelblue\";\n      if (d.partyid2 === \"Republican\") return \"darkred\";\n      return \"gold\"; // Color for Independent\n    }}\n  )\n).plot({\n  style: {\n    \"font-size\": \"14px\", // General font size for ticks and labels\n    \"axis-label-font-size\": \"16px\", // Axis labels size\n    \"axis-tick-font-size\": \"14px\" // Axis ticks size\n  }\n})"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "MSc. Course on ‘Data-driven Communication: Content Management & Visualization for Marketing & Communication Sciences’",
-    "section": "",
-    "text": "Welcome to our course platform, designed to guide you through sessions and serve as a comprehensive repository for resources, including reading material, videos and code.\nThis course emphasizes practical, hands-on skills for transforming data into compelling dashboards and visual stories tailored for marketing and communication. You will master the full technology stack—from survey creation tools like Google Forms to collaborative version control using GitHub, and R-based analytics with RStudio and Quarto."
-  },
-  {
-    "objectID": "index.html#what-youll-learn",
-    "href": "index.html#what-youll-learn",
-    "title": "MSc. Course on ‘Data-driven Communication: Content Management & Visualization for Marketing & Communication Sciences’",
-    "section": "What you’ll learn",
-    "text": "What you’ll learn\nBy the end of the course, you’ll have the expertise to host interactive visualizations online, making insights accessible for real-world applications."
-  },
-  {
-    "objectID": "index.html#course-outline",
-    "href": "index.html#course-outline",
-    "title": "MSc. Course on ‘Data-driven Communication: Content Management & Visualization for Marketing & Communication Sciences’",
-    "section": "Course Outline",
-    "text": "Course Outline\nThe course covers a range of topics, focusing on hands-on techniques for transforming data into visual narratives. More details about the course structure, modules, and learning objectives are available in the Course Outline."
-  },
-  {
-    "objectID": "index.html#instructors",
-    "href": "index.html#instructors",
-    "title": "MSc. Course on ‘Data-driven Communication: Content Management & Visualization for Marketing & Communication Sciences’",
-    "section": "Instructors",
-    "text": "Instructors\n\nDr. Costas Tziouvas\nDr. Costas Tziouvas is a computer scientist and faculty member at the Cyprus University of Technology. He has extensive experience in data analytics and digital communication. You can reach him at costas.tziouvas@cut.ac.cy.\n\n\nDr. Fernando Mendez\nDr. Fernando Mendez, is a political scientist and researcher at the University of Zurich. His research interests lie at the intersection of data science and political communication. You can reach him at fernando.mendez@zda.uzh.ch.\n\n© 2025 Digipols. All rights reserved. | Privacy Policy | Terms of Service"
-  },
-  {
-    "objectID": "sessions-tab/session_1.html",
-    "href": "sessions-tab/session_1.html",
-    "title": "Session 1",
-    "section": "",
-    "text": "Introduction to Data-Driven Communication\n\nKey Concepts:\n\nOverview of data-driven approaches in marketing and communication.\nIntroduction to essential tools: GitHub, Google Workspace, RStudio, Quarto.\n\nActivities:\n\nSet up GitHub repositories and enable GitHub Pages.\n\nIntroduction to Google Forms and Google Sheets as data collection and management tools.\n\nTakeaways:\n\nUnderstanding how data underpins strategic communication in marketing.\n\nBasic repository setup and data workflow planning.\n\n\nLinks:\n\nSet up a Quarto website"
-  },
-  {
-    "objectID": "links-tab/links-index.html",
-    "href": "links-tab/links-index.html",
-    "title": "Links",
-    "section": "",
-    "text": "Here are some useful links to have open during set up:\nThis website’s git hub https://github.com/digipols-admin/teaching_template.\nYour website template https://github.com/YOUR-USERNAME/class_website_template.\nThe R server http://demotec.cut.ac.cy:8787."
-  },
-  {
-    "objectID": "links-tab/links-index.html#cloning-a-github-repo-with-a-quarto-website-template-and-pushing-to-r",
-    "href": "links-tab/links-index.html#cloning-a-github-repo-with-a-quarto-website-template-and-pushing-to-r",
-    "title": "Links",
-    "section": "Cloning a github repo with a Quarto website template and pushing to R",
-    "text": "Cloning a github repo with a Quarto website template and pushing to R\nTo save time in creating websites using R and github we have prepared a short video explainer that covers all the steps. The important aspect is to have a template in your github account that you can re-use at will.\nWe have prepared a template, so can avoid the process of creating a template. Although we do encourage you to create your own templates in github. For instance, you may want a template for creating online presentations, or scientific reports. Once you have a template repo in github, it’s very simply to push it to R.\nThese are the basic steps:\n\nStep 1: Clone a repo and make it a template\n\nClone a repo (a template for a Quarto website) from my personal github account: fmendez72/xdmcoms-website into your own github account\nIn your github account set the cloned repo as a “Template” [so you can re-use it]\nAssign the repo you just cloned a “Template” status and use it to create a github repo for a NEW quarto website\n\n\n\nStep 2: Pull the website into R\n\nPull the repo as a new R project\nBuild the website in R and push it to git\n\nThe video provides a step by step guide on how to do this:\n\n\n\n\n\n\n\nNote\n\n\n\nThis video provides step by step guide. Remember to have your PAT password (the long one) and that you need to go to the Build tab in R in order to click on the “Render website” button. For changes to be reflected on your online website it is necessary to build the website.\n\n\nAlternatively, you can access the video directly: https://youtu.be/e8Cntd5Vv6E"
-  },
-  {
-    "objectID": "links-tab/links-index.html#student-links",
-    "href": "links-tab/links-index.html#student-links",
-    "title": "Links",
-    "section": "Student links",
-    "text": "Student links\nWe can test student pages here:\nTesting Evi’s google form template."
-  },
-  {
-    "objectID": "links-tab/evi_survey_google.html",
-    "href": "links-tab/evi_survey_google.html",
-    "title": "XDMComs",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "sessions-tab/sessions-index.html",
-    "href": "sessions-tab/sessions-index.html",
-    "title": "Course sessions",
-    "section": "",
-    "text": "Each session in this course builds upon the previous, providing a learning approach that takes you from foundational concepts to advanced techniques. Sessions 1, 2, and 3 are designed to be explored together, offering an introduction to the key tools and methods required for transforming data into visual insights.\nFurther information on the course sessions will be added to the platform on a weekly basis."
-  },
-  {
-    "objectID": "sessions-tab/sessions-index.html#sessions-13-overview",
-    "href": "sessions-tab/sessions-index.html#sessions-13-overview",
-    "title": "Course sessions",
-    "section": "Sessions 1–3 Overview",
-    "text": "Sessions 1–3 Overview\nSessions 1 to 3 provide the foundation for transforming data into visual experiences. In these three sessions, you will:\n\nUnderstand the basics of data-driven communication and learn about the tools and workflows essential for effective content management.\nExplore survey creation using Google Forms and collaborative version control with GitHub to manage and streamline projects.\nGain hands-on experience with RStudio and Quarto, mastering analytics and creating dashboards that communicate clear insights.\n\nTogether, these sessions set the stage for developing the practical skills needed to turn raw data into visual stories for marketing and communication purposes.\n\nSetting Up GitHub, R, and Quarto (Session 1)\nAs part of Session 1, you will set up the foundational tools needed for the course:\n\nGitHub: Learn the basics of version control, including creating repositories, committing changes, and collaborating on projects.\nR and RStudio: Configure R and RStudio, the primary tools for data analysis and visualization.\nQuarto: Set up Quarto to create dynamic and visually appealing reports and dashboards.\n\nFor detailed instructions, refer to the Session 1 Setup Guide.\n\n\nSurveys and Content Management (Sessions 2 & 3)\nSessions 2 and 3 are combined to provide an introduction to survey creation, data management, and basic dashboard design. Key topics include:\n\nReal-World Dashboard Examples: Explore real-world examples of dashboards that demonstrate diverse applications, some extending beyond survey data, to understand their practical impact.\nSurvey Design and Implementation: Learn how to create and implement surveys using tools like Google Forms, focusing on effective question design and data collection.\nContent Management with R: Use R programming to import, clean, and wrangle data. This includes working with tools like googlesheets4 to integrate and manipulate Google Sheets data efficiently.\nIntroduction to Dashboards: Gain foundational knowledge and hands-on experience in creating basic dashboards, setting the stage for more advanced visualization techniques.\n\nFor additional resources and examples, visit the Surveys tab."
-  },
-  {
-    "objectID": "sessions-tab/sessions-index.html#sessions-4-to-56-overview",
-    "href": "sessions-tab/sessions-index.html#sessions-4-to-56-overview",
-    "title": "Course sessions",
-    "section": "Sessions 4 to 5/6 Overview",
-    "text": "Sessions 4 to 5/6 Overview\nThe final part of the course is dedicated to an Advanced Analysis session and presentations of Final Projects\n\nAdvanced Analysis\nBuilding on earlier meetings, the Advanced Analysis session will showcase some data analytics techniques, with a focus on sentiment analysis and text mining techniques for political and social media data. We will use real-world datasets to extract sentiment insights, apply classification techniques using large language models (LLMs) in R.\n\n\nFinal Project Guidelines\nThe final project constitutes a major part of the course assessment and is designed to allow students to integrate and apply the skills acquired throughout the course. The final project should focus on creating a compelling and insightful digital communication product in the form of a website.\n\nProject Objectives\nBy completing the final project, students will:\n\nUse R and Quarto for content management and presention of data.\nUse the github version control and github Pages for website hosting\nDevelop an interactive and visually engaging data-driven communication project.\nEffectively communicate insights through a structured presentation.\n\n\n\nProject Scope\nStudents will work independently to develop a project website based on a selected topic in marketing or communication. The project should incorporate the following elements:\n\nContent Management & Analysis:\n\nImport data into R or create synthetic datasets.\nPerform basic cleaning and transformation (e.g. using the tidyverse package).\nConduct descriptive and (optionally) sentiment analysis, depending on the project theme.\n\nVisualization:\n\nCreate some key visualizations to support the narrative.\nConsider using ggplot2, ggpubr, or interactive visualization libraries to enhance engagement.\nEnsure clarity, aesthetics, and effective communication of insights.\n\nFinal Presentation & Hosting:\n\nDevelop a Quarto-based project website, integrating narrative text and visuals.\nDeploy the project using GitHub Pages.\n\n\n\n\nProject Submission Requirements\n\nA GitHub repository containing:\n\nAll R scripts used for data processing and visualization.\nThe Quarto project files.\n\nA live GitHub Pages link to the final project.\nA short presentation (approx 10 minutes) explaining key insights and design choices.\n\n\n\nEvaluation Criteria\nProjects will be assessed based on the following criteria:\n\n\n\n\n\nCriteria\nDescription\nWeight\n\n\n\n\nContent management\nData processing and analysis involving the use of R for cleaning, transformation, and descriptive analysis\n25%\n\n\nVisualization Quality\nEffectiveness, clarity, and creativity in presenting visual narrative\n25%\n\n\nTechnical Implementation\nProper use of GitHub, Quarto, and deployment of the final project\n25%\n\n\nCommunication & Presentation\nStructure, coherence, and engagement of the final project\n25%"
   },
   {
     "objectID": "sessions-tab/git_quarto_template.html",
@@ -266,66 +161,213 @@
     "text": "Step 4: For websites, configure settings in GitHub pages\n\nIf you are working on a website, it is likely you will need to activate Git Hub pages. This means repeating the step above: “Step 5: Activate, Set Up GitHub Pages to render website”"
   },
   {
-    "objectID": "surveys-tab/tvhours_google.html",
-    "href": "surveys-tab/tvhours_google.html",
+    "objectID": "sessions-tab/sessions-index.html",
+    "href": "sessions-tab/sessions-index.html",
+    "title": "Course sessions",
+    "section": "",
+    "text": "Each session in this course builds upon the previous, providing a learning approach that takes you from foundational concepts to advanced techniques. Sessions 1, 2, and 3 are designed to be explored together, offering an introduction to the key tools and methods required for transforming data into visual insights.\nFurther information on the course sessions will be added to the platform on a weekly basis."
+  },
+  {
+    "objectID": "sessions-tab/sessions-index.html#sessions-13-overview",
+    "href": "sessions-tab/sessions-index.html#sessions-13-overview",
+    "title": "Course sessions",
+    "section": "Sessions 1–3 Overview",
+    "text": "Sessions 1–3 Overview\nSessions 1 to 3 provide the foundation for transforming data into visual experiences. In these three sessions, you will:\n\nUnderstand the basics of data-driven communication and learn about the tools and workflows essential for effective content management.\nExplore survey creation using Google Forms and collaborative version control with GitHub to manage and streamline projects.\nGain hands-on experience with RStudio and Quarto, mastering analytics and creating dashboards that communicate clear insights.\n\nTogether, these sessions set the stage for developing the practical skills needed to turn raw data into visual stories for marketing and communication purposes.\n\nSetting Up GitHub, R, and Quarto (Session 1)\nAs part of Session 1, you will set up the foundational tools needed for the course:\n\nGitHub: Learn the basics of version control, including creating repositories, committing changes, and collaborating on projects.\nR and RStudio: Configure R and RStudio, the primary tools for data analysis and visualization.\nQuarto: Set up Quarto to create dynamic and visually appealing reports and dashboards.\n\nFor detailed instructions, refer to the Session 1 Setup Guide.\n\n\nSurveys and Content Management (Sessions 2 & 3)\nSessions 2 and 3 are combined to provide an introduction to survey creation, data management, and basic dashboard design. Key topics include:\n\nReal-World Dashboard Examples: Explore real-world examples of dashboards that demonstrate diverse applications, some extending beyond survey data, to understand their practical impact.\nSurvey Design and Implementation: Learn how to create and implement surveys using tools like Google Forms, focusing on effective question design and data collection.\nContent Management with R: Use R programming to import, clean, and wrangle data. This includes working with tools like googlesheets4 to integrate and manipulate Google Sheets data efficiently.\nIntroduction to Dashboards: Gain foundational knowledge and hands-on experience in creating basic dashboards, setting the stage for more advanced visualization techniques.\n\nFor additional resources and examples, visit the Surveys tab."
+  },
+  {
+    "objectID": "sessions-tab/sessions-index.html#sessions-4-to-56-overview",
+    "href": "sessions-tab/sessions-index.html#sessions-4-to-56-overview",
+    "title": "Course sessions",
+    "section": "Sessions 4 to 5/6 Overview",
+    "text": "Sessions 4 to 5/6 Overview\nThe final part of the course is dedicated to an Advanced Analysis session and presentations of Final Projects\n\nAdvanced Analysis\nBuilding on earlier meetings, the Advanced Analysis session will showcase some data analytics techniques, with a focus on sentiment analysis and text mining techniques for political and social media data. We will use real-world datasets to extract sentiment insights, apply classification techniques using large language models (LLMs) in R.\n\n\nFinal Project Guidelines\nThe final project constitutes a major part of the course assessment and is designed to allow students to integrate and apply the skills acquired throughout the course. The final project should focus on creating a compelling and insightful digital communication product in the form of a website.\n\nProject Objectives\nBy completing the final project, students will:\n\nUse R and Quarto for content management and presention of data.\nUse the github version control and github Pages for website hosting\nDevelop an interactive and visually engaging data-driven communication project.\nEffectively communicate insights through a structured presentation.\n\n\n\nProject Scope\nStudents will work independently to develop a project website based on a selected topic in marketing or communication. The project should incorporate the following elements:\n\nContent Management & Analysis:\n\nImport data into R or create synthetic datasets.\nPerform basic cleaning and transformation (e.g. using the tidyverse package).\nConduct descriptive and (optionally) sentiment analysis, depending on the project theme.\n\nVisualization:\n\nCreate some key visualizations to support the narrative.\nConsider using ggplot2, ggpubr, or interactive visualization libraries to enhance engagement.\nEnsure clarity, aesthetics, and effective communication of insights.\n\nFinal Presentation & Hosting:\n\nDevelop a Quarto-based project website, integrating narrative text and visuals.\nDeploy the project using GitHub Pages.\n\n\n\n\nProject Submission Requirements\n\nA GitHub repository containing:\n\nAll R scripts used for data processing and visualization.\nThe Quarto project files.\n\nA live GitHub Pages link to the final project.\nA short presentation (approx 10 minutes) explaining key insights and design choices.\n\n\n\nEvaluation Criteria\nProjects will be assessed based on the following criteria:\n\n\n\n\n\nCriteria\nDescription\nWeight\n\n\n\n\nContent management\nData processing and analysis using of R for cleaning, transformation, and descriptive analysis\n25%\n\n\nVisualization Quality\nEffectiveness, clarity, and creativity in presenting visual narrative\n25%\n\n\nTechnical Implementation\nProper use of GitHub, Quarto, and deployment of the final project\n25%\n\n\nCommunication & Presentation\nCoherence and engagement of the class presentation of final project\n25%"
+  },
+  {
+    "objectID": "links-tab/evi_survey_google.html",
+    "href": "links-tab/evi_survey_google.html",
     "title": "XDMComs",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "surveys-tab/template_page.html",
-    "href": "surveys-tab/template_page.html",
-    "title": "About",
+    "objectID": "links-tab/links-index.html",
+    "href": "links-tab/links-index.html",
+    "title": "Links",
     "section": "",
-    "text": "About this site\n\n\nCode\n1 + 1\n\n\n#&gt; [1] 2\n\n\nThis is a simple demonstration of generating a plot in an HTML document using Quarto (.qmd) and R.\n\nGenerating a Plot\nWe will create a simple ggplot graph using R’s built-in mtcars dataset.\n\n\nCode\n# Load necessary libraries\nlibrary(ggplot2)\n\n# Create the plot\nggplot(mtcars, aes(x=wt, y=mpg)) +\n  geom_point() +\n  theme_minimal() +\n  ggtitle(\"Scatter Plot of MPG vs. Weight\") +\n  xlab(\"Weight (1000 lbs)\") +\n  ylab(\"Miles/(US) gallon\")"
+    "text": "Here are some useful links to have open during set up:\nThis website’s git hub https://github.com/digipols-admin/teaching_template.\nYour website template https://github.com/YOUR-USERNAME/class_website_template.\nThe R server http://demotec.cut.ac.cy:8787."
   },
   {
-    "objectID": "surveys-tab/tvhours_static_report.html",
-    "href": "surveys-tab/tvhours_static_report.html",
-    "title": "Survey Data Analysis",
+    "objectID": "links-tab/links-index.html#cloning-a-github-repo-with-a-quarto-website-template-and-pushing-to-r",
+    "href": "links-tab/links-index.html#cloning-a-github-repo-with-a-quarto-website-template-and-pushing-to-r",
+    "title": "Links",
+    "section": "Cloning a github repo with a Quarto website template and pushing to R",
+    "text": "Cloning a github repo with a Quarto website template and pushing to R\nTo save time in creating websites using R and github we have prepared a short video explainer that covers all the steps. The important aspect is to have a template in your github account that you can re-use at will.\nWe have prepared a template, so can avoid the process of creating a template. Although we do encourage you to create your own templates in github. For instance, you may want a template for creating online presentations, or scientific reports. Once you have a template repo in github, it’s very simply to push it to R.\nThese are the basic steps:\n\nStep 1: Clone a repo and make it a template\n\nClone a repo (a template for a Quarto website) from my personal github account: fmendez72/xdmcoms-website into your own github account\nIn your github account set the cloned repo as a “Template” [so you can re-use it]\nAssign the repo you just cloned a “Template” status and use it to create a github repo for a NEW quarto website\n\n\n\nStep 2: Pull the website into R\n\nPull the repo as a new R project\nBuild the website in R and push it to git\n\nThe video provides a step by step guide on how to do this:\n\n\n\n\n\n\n\nNote\n\n\n\nThis video provides step by step guide. Remember to have your PAT password (the long one) and that you need to go to the Build tab in R in order to click on the “Render website” button. For changes to be reflected on your online website it is necessary to build the website.\n\n\nAlternatively, you can access the video directly: https://youtu.be/e8Cntd5Vv6E"
+  },
+  {
+    "objectID": "sessions-tab/session_1.html",
+    "href": "sessions-tab/session_1.html",
+    "title": "Session 1",
     "section": "",
-    "text": "Code\n# Create data tables\n\n# Create Codebook\ncodebook &lt;- tibble(\n  variable_name = c(\"marital\", \"age\", \"race\", \"rincome\", \"partyid\", \"relig\", \"tvhours\"),\n  question = c(\n    \"What is your marital status?\",\n    \"What is your age?\",\n    \"What is your race?\",\n    \"What is your income range?\",\n    \"What is your political affiliation?\",\n    \"What is your religion?\",\n    \"How many hours per day do you spend watching TV?\"\n  )\n)\n\n# Generate a synthetic dataset\nset.seed(123)\ndata &lt;- tibble(\n  marital = sample(c(\"Divorced\", \"Married\", \"Never married\", \"Separated\", \"Widowed\"), 100, replace = TRUE),\n  age = round(rexp(100, rate = 0.05) + 11),  # Skewed age distribution\n  race = sample(c(\"Black\", \"Other\", \"White\"), 100, replace = TRUE),\n  rincome = sample(c(\"$10000 - 14999\", \"$15000 - 19999\", \"$20000 - 24999\", \"$25000 or more\", \"Less than 10000\"), 100, replace = TRUE),\n  partyid = sample(c(\"Independent\", \"Not str democrat\", \"Not str republican\", \"Strong democrat\", \"Strong republican\"), 100, replace = TRUE),\n  relig = sample(c(\"Catholic\", \"None\", \"Other\", \"Protestant\"), 100, replace = TRUE),\n  tvhours = round((age - 11) / 10 + rpois(100, lambda = 1), 0)  # Skewed tvhours correlated with age\n)\n\n# Download and filter original data\ngss &lt;- forcats::gss_cat\n\ntvhours_data &lt;- gss |&gt; \n  filter(year==2000) |&gt; \n  select(-year, -denom) |&gt; \n  filter(!is.na(tvhours)) |&gt; \n  filter(tvhours&lt;13) |&gt; \n  mutate(across(where(is.factor), as.character)) |&gt; \n  filter(marital %in% c(\"Never married\", \"Separated\", \"Divorced\", \"Widowed\", \"Married\")) |&gt; \n  filter(!is.na(age)) |&gt; \n  filter(race %in% c(\"Other\", \"Black\", \"White\")) |&gt; \n  filter(partyid %in% c(\"Strong republican\", \n                        \"Not str republican\", \n                        \"Independent\", \n                        \"Not str democrat\", \"Strong democrat\")) |&gt; \n  mutate(relig = case_when(\n    relig %in% c(\"Catholic\", \"Protestant\", \"None\") ~ relig,\n    TRUE ~ \"Other\")\n  ) |&gt; \n  mutate(rincome = case_when(\n    rincome %in% c(\"$25000 or more\", \"$20000 - 24999\", \"$15000 - 19999\", \"$10000 - 14999\") ~ rincome,\n    TRUE ~ \"Less than 10000\")\n  )\n\n# Add a user_id and random timestamp\n# Define the start and end datetime\nstart_datetime &lt;- ymd_hms(\"2000-01-18T17:29:08Z\")\nend_datetime &lt;- start_datetime + years(1)\n\n# Calculate the total number of seconds in the one-year interval\ntotal_seconds &lt;- as.numeric(difftime(end_datetime, start_datetime, units = \"secs\"))\n\n# Generate random timestamps\nset.seed(123)  # Set seed for reproducibility\ntvhours_data &lt;- tvhours_data %&gt;%\n  rowid_to_column(var = \"user_id\") |&gt; \n  mutate(user_id = paste0(\"id_\", user_id)) |&gt; \n  mutate(timestamp = start_datetime + seconds(runif(n(), min = 0, max = total_seconds))\n         )"
+    "text": "Introduction to Data-Driven Communication\n\nKey Concepts:\n\nOverview of data-driven approaches in marketing and communication.\nIntroduction to essential tools: GitHub, Google Workspace, RStudio, Quarto.\n\nActivities:\n\nSet up GitHub repositories and enable GitHub Pages.\n\nIntroduction to Google Forms and Google Sheets as data collection and management tools.\n\nTakeaways:\n\nUnderstanding how data underpins strategic communication in marketing.\n\nBasic repository setup and data workflow planning.\n\n\nLinks:\n\nSet up a Quarto website"
   },
   {
-    "objectID": "surveys-tab/tvhours_static_report.html#age-distribution",
-    "href": "surveys-tab/tvhours_static_report.html#age-distribution",
-    "title": "Survey Data Analysis",
-    "section": "Age Distribution",
-    "text": "Age Distribution\n\n\nCode\n# Age distribution\nage_plot &lt;- ggplot(data, aes(x = age)) +\n  geom_histogram(binwidth = 5, fill = \"steelblue\", color = \"black\") +\n  labs(title = \"Age Distribution\", x = \"Age\", y = \"Frequency\") +\n  theme_minimal()\n\nage_plot\n\n\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non pretium ex. Sed quis justo libero."
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MSc. Course on ‘Data-driven Communication: Content Management & Visualization for Marketing & Communication Sciences’",
+    "section": "",
+    "text": "Welcome to our course platform, designed to guide you through sessions and serve as a comprehensive repository for resources, including reading material, videos and code.\nThis course emphasizes practical, hands-on skills for transforming data into compelling dashboards and visual stories tailored for marketing and communication. You will master the full technology stack—from survey creation tools like Google Forms to collaborative version control using GitHub, and R-based analytics with RStudio and Quarto."
   },
   {
-    "objectID": "surveys-tab/tvhours_static_report.html#race-breakdown",
-    "href": "surveys-tab/tvhours_static_report.html#race-breakdown",
-    "title": "Survey Data Analysis",
-    "section": "Race Breakdown",
-    "text": "Race Breakdown\n\n\nCode\n# Race breakdown\ndata %&gt;% \n  count(race) %&gt;% \n  mutate(percentage = n / sum(n) * 100) %&gt;%\n  kable(caption = \"Race Breakdown\", digits = 1) %&gt;% \n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE)\n\n\n\nRace Breakdown\n\n\nrace\nn\npercentage\n\n\n\n\nBlack\n35\n35\n\n\nOther\n32\n32\n\n\nWhite\n33\n33\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis dui a odio posuere pellentesque."
+    "objectID": "index.html#what-youll-learn",
+    "href": "index.html#what-youll-learn",
+    "title": "MSc. Course on ‘Data-driven Communication: Content Management & Visualization for Marketing & Communication Sciences’",
+    "section": "What you’ll learn",
+    "text": "What you’ll learn\nBy the end of the course, you’ll have the expertise to host interactive visualizations online, making insights accessible for real-world applications."
   },
   {
-    "objectID": "surveys-tab/tvhours_static_report.html#hours-watching-tv",
-    "href": "surveys-tab/tvhours_static_report.html#hours-watching-tv",
-    "title": "Survey Data Analysis",
-    "section": "Hours Watching TV",
-    "text": "Hours Watching TV\n\n\nCode\n# TV hours distribution\ntvhours_plot &lt;- ggplot(data, aes(x = tvhours)) +\n  geom_bar(fill = \"darkorange\", color = \"black\") +\n  labs(title = \"TV Hours Distribution\", x = \"Hours per Day\", y = \"Count\") +\n  theme_minimal()\n\n# Display plot\ntvhours_plot\n\n\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vestibulum massa eget nunc pulvinar, ac fringilla nulla congue."
+    "objectID": "index.html#course-outline",
+    "href": "index.html#course-outline",
+    "title": "MSc. Course on ‘Data-driven Communication: Content Management & Visualization for Marketing & Communication Sciences’",
+    "section": "Course Outline",
+    "text": "Course Outline\nThe course covers a range of topics, focusing on hands-on techniques for transforming data into visual narratives. More details about the course structure, modules, and learning objectives are available in the Course Outline."
   },
   {
-    "objectID": "surveys-tab/tvhours_static_report.html#scatter-plot-age-vs-tv-hours-simulated-data",
-    "href": "surveys-tab/tvhours_static_report.html#scatter-plot-age-vs-tv-hours-simulated-data",
-    "title": "Survey Data Analysis",
-    "section": "Scatter Plot: Age vs TV Hours (simulated data)",
-    "text": "Scatter Plot: Age vs TV Hours (simulated data)\n\n\nCode\n# Scatter plot with smoothed regression line\nscatter_plot &lt;- ggplot(data, aes(x = age, y = tvhours)) +\n  geom_point(color = \"blue\", alpha = 0.6) +\n  geom_smooth(method = \"lm\", se = TRUE, color = \"red\") +\n  labs(title = \"Scatter Plot of Age vs TV Hours\", x = \"Age\", y = \"TV Hours\") +\n  theme_minimal()\n\nscatter_plot\n\n\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae."
+    "objectID": "index.html#instructors",
+    "href": "index.html#instructors",
+    "title": "MSc. Course on ‘Data-driven Communication: Content Management & Visualization for Marketing & Communication Sciences’",
+    "section": "Instructors",
+    "text": "Instructors\n\nDr. Costas Tziouvas\nDr. Costas Tziouvas is a computer scientist and faculty member at the Cyprus University of Technology. He has extensive experience in data analytics and digital communication. You can reach him at costas.tziouvas@cut.ac.cy.\n\n\nDr. Fernando Mendez\nDr. Fernando Mendez, is a political scientist and researcher at the University of Zurich. His research interests lie at the intersection of data science and political communication. You can reach him at fernando.mendez@zda.uzh.ch.\n\n© 2025 Digipols. All rights reserved. | Privacy Policy | Terms of Service"
   },
   {
-    "objectID": "surveys-tab/tvhours_static_report.html#scatter-plot-age-vs-tv-hours-real-data",
-    "href": "surveys-tab/tvhours_static_report.html#scatter-plot-age-vs-tv-hours-real-data",
-    "title": "Survey Data Analysis",
-    "section": "Scatter Plot: Age vs TV Hours real data",
-    "text": "Scatter Plot: Age vs TV Hours real data\n\n\nCode\n# Scatter plot with smoothed regression line\nscatter_plot &lt;- ggplot(tvhours_data, aes(x = age, y = tvhours)) +\n  geom_point(color = \"blue\", alpha = 0.6) +\n  geom_smooth(method = \"lm\", se = TRUE, color = \"red\") +\n  labs(title = \"Scatter Plot of Age vs TV Hours\", x = \"Age\", y = \"TV Hours\") +\n  theme_minimal()\n\nscatter_plot\n\n\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae."
+    "objectID": "surveys-tab/tvhours_js.html",
+    "href": "surveys-tab/tvhours_js.html",
+    "title": "Observable JS in Quarto Document: Extended Use Case",
+    "section": "",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae ex nec ligula tempor pretium. Suspendisse potenti. Integer nec eros nec lacus aliquet cursus id id eros."
   },
   {
-    "objectID": "surveys-tab/tvhours_static_report.html#exploring-tv-hours-with-poisson-regression",
-    "href": "surveys-tab/tvhours_static_report.html#exploring-tv-hours-with-poisson-regression",
-    "title": "Survey Data Analysis",
-    "section": "Exploring TV Hours with Poisson Regression",
-    "text": "Exploring TV Hours with Poisson Regression\nGiven that tvhours is a count variable, a Poisson regression can be useful for exploring relationships with predictors such as age, race, or income.\n\nSynthetic data\n\n\nCode\n# Example Poisson regression\npoisson_model &lt;- glm(tvhours ~ age + race + rincome, family = poisson, data = data)\n#summary(poisson_model)\n\n# Use the parameters package to extract coefficients\nresult &lt;- model_parameters(\n  poisson_model,\n  effects = \"fixed\",\n  component = \"conditional\",\n  verbose = FALSE\n)\n\nprint(result)\n\n\n#&gt; Parameter                 |  Log-Mean |       SE |        95% CI |         z |      p\n#&gt; -------------------------------------------------------------------------------------\n#&gt; (Intercept)               |      0.18 |     0.20 | [-0.21, 0.56] |      0.93 | 0.352 \n#&gt; age                       |      0.03 | 2.57e-03 | [ 0.02, 0.03] |      9.81 | &lt; .001\n#&gt; race [Other]              |      0.01 |     0.15 | [-0.28, 0.31] |      0.10 | 0.923 \n#&gt; race [White]              | -1.11e-03 |     0.15 | [-0.30, 0.29] | -7.37e-03 | 0.994 \n#&gt; rincome [$15000 - 19999]  |      0.06 |     0.19 | [-0.32, 0.44] |      0.29 | 0.774 \n#&gt; rincome [$20000 - 24999]  |     -0.09 |     0.18 | [-0.44, 0.27] |     -0.47 | 0.636 \n#&gt; rincome [$25000 or more]  |      0.03 |     0.18 | [-0.32, 0.38] |      0.15 | 0.882 \n#&gt; rincome [Less than 10000] |     -0.11 |     0.24 | [-0.59, 0.35] |     -0.47 | 0.637\n\n\nCode\n# Use the see package to plot results\nplot(result)\n\n\n\n\n\n\n\n\n\n\n\nSynthetic data (age scaled)\n\n\nCode\n# Example Poisson regression\npoisson_model &lt;- glm(tvhours ~ scale(age) + race + rincome, family = poisson, data = data)\n#summary(poisson_model)\n\n# Use the parameters package to extract coefficients\nresult &lt;- model_parameters(\n  poisson_model,\n  effects = \"fixed\",\n  component = \"conditional\",\n  verbose = FALSE\n)\n\nprint(result)\n\n\n#&gt; Parameter                 |  Log-Mean |   SE |        95% CI |         z |      p\n#&gt; ---------------------------------------------------------------------------------\n#&gt; (Intercept)               |      0.96 | 0.15 | [ 0.65, 1.25] |      6.21 | &lt; .001\n#&gt; age                       |      0.45 | 0.05 | [ 0.36, 0.54] |      9.81 | &lt; .001\n#&gt; race [Other]              |      0.01 | 0.15 | [-0.28, 0.31] |      0.10 | 0.923 \n#&gt; race [White]              | -1.11e-03 | 0.15 | [-0.30, 0.29] | -7.37e-03 | 0.994 \n#&gt; rincome [$15000 - 19999]  |      0.06 | 0.19 | [-0.32, 0.44] |      0.29 | 0.774 \n#&gt; rincome [$20000 - 24999]  |     -0.09 | 0.18 | [-0.44, 0.27] |     -0.47 | 0.636 \n#&gt; rincome [$25000 or more]  |      0.03 | 0.18 | [-0.32, 0.38] |      0.15 | 0.882 \n#&gt; rincome [Less than 10000] |     -0.11 | 0.24 | [-0.59, 0.35] |     -0.47 | 0.637\n\n\nCode\n# Use the see package to plot results\nplot(result)\n\n\n\n\n\n\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at nisl vitae felis tristique dictum.\n\n\nReal data\n\n\nCode\n# Example Poisson regression with real data\n\npoisson_model &lt;- glm(tvhours ~ scale(age) + race + rincome + partyid, family = poisson, data = tvhours_data)\n\n#summary(poisson_model)\n\n# Use the parameters package to extract coefficients\nresult &lt;- model_parameters(\n  poisson_model,\n  effects = \"fixed\",\n  component = \"conditional\",\n  verbose = FALSE\n)\n\nprint(result)\n\n\n#&gt; Parameter                    | Log-Mean |   SE |         95% CI |     z |      p\n#&gt; --------------------------------------------------------------------------------\n#&gt; (Intercept)                  |     1.14 | 0.08 | [ 0.99,  1.29] | 15.15 | &lt; .001\n#&gt; age                          |     0.09 | 0.02 | [ 0.06,  0.12] |  5.44 | &lt; .001\n#&gt; race [Other]                 |    -0.41 | 0.08 | [-0.57, -0.25] | -5.09 | &lt; .001\n#&gt; race [White]                 |    -0.31 | 0.04 | [-0.39, -0.23] | -7.74 | &lt; .001\n#&gt; rincome [$15000 - 19999]     |     0.11 | 0.09 | [-0.07,  0.29] |  1.18 | 0.238 \n#&gt; rincome [$20000 - 24999]     |     0.11 | 0.09 | [-0.06,  0.29] |  1.25 | 0.211 \n#&gt; rincome [$25000 or more]     |    -0.01 | 0.07 | [-0.15,  0.13] | -0.19 | 0.852 \n#&gt; rincome [Less than 10000]    |     0.28 | 0.07 | [ 0.15,  0.42] |  4.07 | &lt; .001\n#&gt; partyid [Not str democrat]   |     0.03 | 0.04 | [-0.06,  0.12] |  0.65 | 0.513 \n#&gt; partyid [Not str republican] | 4.76e-03 | 0.05 | [-0.10,  0.10] |  0.09 | 0.925 \n#&gt; partyid [Strong democrat]    |     0.09 | 0.05 | [ 0.00,  0.19] |  1.98 | 0.047 \n#&gt; partyid [Strong republican]  |    -0.11 | 0.06 | [-0.23,  0.00] | -1.96 | 0.050\n\n\nCode\n# Use the see package to plot results\nplot(result)"
+    "objectID": "surveys-tab/tvhours_js.html#distribution-of-religion",
+    "href": "surveys-tab/tvhours_js.html#distribution-of-religion",
+    "title": "Observable JS in Quarto Document: Extended Use Case",
+    "section": "Distribution of Religion",
+    "text": "Distribution of Religion\n\n\nCode\nggplot(tvhours_data, aes(x = relig)) +\n  geom_bar(fill = \"steelblue\") +\n  labs(title = \"Distribution of Religion\", x = \"Religion\", y = \"Count\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "surveys-tab/tvhours_js.html#distribution-of-religion-by-party-id-using-ggpubr",
+    "href": "surveys-tab/tvhours_js.html#distribution-of-religion-by-party-id-using-ggpubr",
+    "title": "Observable JS in Quarto Document: Extended Use Case",
+    "section": "Distribution of Religion by party id using ggpubr",
+    "text": "Distribution of Religion by party id using ggpubr\n\n\nCode\ntvhours_data %&gt;% \n  freq_table(relig,partyid2) %&gt;% \n  ggbarplot(\n    x = \"relig\",\n    y = \"prop\",\n    fill = \"partyid2\",\n    #palette = c(\"steelblue\",\"gold\",\"darkred\"),\n    palette = \"jco\",\n    label = TRUE,\n    position = position_dodge(0.9),\n    xlab = \"Religion\",\n    ylab = \"Percent\",\n    title = \"\",\n    legend.title = \"Party id\")"
+  },
+  {
+    "objectID": "surveys-tab/tvhours_js.html#distribution-of-age",
+    "href": "surveys-tab/tvhours_js.html#distribution-of-age",
+    "title": "Observable JS in Quarto Document: Extended Use Case",
+    "section": "Distribution of Age",
+    "text": "Distribution of Age\n\n\nCode\nggplot(tvhours_data, aes(x = age)) +\n  geom_histogram(binwidth = 5, fill = \"steelblue\", color = \"white\") +\n  labs(title = \"Distribution of Age\", x = \"Age\", y = \"Count\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "surveys-tab/tvhours_js.html#a-scatter-plot-of-age-by-tv-hours",
+    "href": "surveys-tab/tvhours_js.html#a-scatter-plot-of-age-by-tv-hours",
+    "title": "Observable JS in Quarto Document: Extended Use Case",
+    "section": "A scatter plot of Age by TV hours",
+    "text": "A scatter plot of Age by TV hours\n\n\nCode\ndata = FileAttachment('tvhours_data_js.csv').csv({ typed: true })\n\nviewof party_filter = Inputs.select(\n  [\"Democrat\", \"Republican\", \"Independent\"],\n  { value: \"Democrat\", label: \"Select Party:\" }\n)\n\nfiltered_data = data.filter(d =&gt; d.partyid2 === party_filter)\n\n\nPlot.dot(filtered_data, {\n  x: \"age\",\n  y: \"tvhours\",\n  stroke: d =&gt; {\n    if (d.partyid2 === \"Democrat\") return \"steelblue\";\n    if (d.partyid2 === \"Republican\") return \"darkred\";\n    return \"gold\"; // Color for Independent\n  },\n  fill: d =&gt; {\n    if (d.partyid2 === \"Democrat\") return \"steelblue\";\n    if (d.partyid2 === \"Republican\") return \"darkred\";\n    return \"gold\"; // Color for Independent\n  },\n  r: 3, // Size of dots\n  title: d =&gt; `Age: ${d.age}, TV Hours: ${d.tvhours}`\n}).plot({\n  style: {\n    \"font-size\": \"14px\", // General font size for ticks and labels\n    \"axis-label-font-size\": \"16px\", // Axis labels size\n    \"axis-tick-font-size\": \"14px\" // Axis ticks size\n  }\n})"
+  },
+  {
+    "objectID": "surveys-tab/tvhours_js.html#age-by-party-id",
+    "href": "surveys-tab/tvhours_js.html#age-by-party-id",
+    "title": "Observable JS in Quarto Document: Extended Use Case",
+    "section": "Age by Party ID",
+    "text": "Age by Party ID\n\n\nCode\nviewof party_filter_age = Inputs.select(\n  [\"Democrat\", \"Republican\", \"Independent\"],\n  { value: \"Democrat\", label: \"Select Party:\" }\n)\n\nfiltered_age = data.filter(d =&gt; d.partyid2 === party_filter_age)\n\nPlot.rectY(\n  filtered_age, \n  Plot.binX(\n    {y: \"count\"}, \n    {x: \"age\", thresholds: 10, fill: d =&gt; {\n      if (d.partyid2 === \"Democrat\") return \"steelblue\";\n      if (d.partyid2 === \"Republican\") return \"darkred\";\n      return \"gold\"; // Color for Independent\n    }}\n  )\n).plot({\n  style: {\n    \"font-size\": \"14px\", // General font size for ticks and labels\n    \"axis-label-font-size\": \"16px\", // Axis labels size\n    \"axis-tick-font-size\": \"14px\" // Axis ticks size\n  }\n})"
+  },
+  {
+    "objectID": "surveys-tab/dust_survey_google.html",
+    "href": "surveys-tab/dust_survey_google.html",
+    "title": "XDMComs",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "surveys-tab/surveys-index.html",
+    "href": "surveys-tab/surveys-index.html",
+    "title": "Surveys & Content Management",
+    "section": "",
+    "text": "We will now leverage the tools and workflows introduced in Session 1 with practical applications related to survey creation, data management, and visualization. Here, you will explore how to design effective surveys, integrate real-world data, and create interactive dashboards tailored for research and communication purposes. The examples and tools provided, including Google Forms, Shiny applications, and R workflows, will help you gain hands-on experience in transforming data into insights for diverse audiences."
+  },
+  {
+    "objectID": "surveys-tab/surveys-index.html#real-world-application-multi-country-climate-surveys-dust-consortium",
+    "href": "surveys-tab/surveys-index.html#real-world-application-multi-country-climate-surveys-dust-consortium",
+    "title": "Surveys & Content Management",
+    "section": "Real-World Application: Multi-Country Climate Surveys (DUST Consortium)",
+    "text": "Real-World Application: Multi-Country Climate Surveys (DUST Consortium)\nThis section highlights a real-world example of a multi-country survey conducted under a European Horizon research consortium. The project investigated citizens’ attitudes toward participating in policy-making processes, with a particular emphasis on regions potentially impacted by climate change policies.\nKey resources include:\n\nHosting a survey using Google Forms: A guide for designing and distributing surveys online.\nSurvey support webpage: An example of an RStudio-based workflow website and dashboard created to support research efforts, showcasing survey data integration and visualization techniques."
+  },
+  {
+    "objectID": "surveys-tab/surveys-index.html#real-world-application-european-research-dashboards-eut-consortium",
+    "href": "surveys-tab/surveys-index.html#real-world-application-european-research-dashboards-eut-consortium",
+    "title": "Surveys & Content Management",
+    "section": "Real-World Application: European Research Dashboards (EUT Consortium)",
+    "text": "Real-World Application: European Research Dashboards (EUT Consortium)\nThis example focuses on the use of dashboards developed as support for the EUT research consortium. The project demonstrates how data visualization and dashboard technologies can support research initiatives across diverse fields. These dashboards are tailored to present complex datasets in an accessible format for researchers.\nKey resource:\n\nExample of a dashboard for a research consortium: A comprehensive dashboard showcasing data visualization and integration techniques used in collaborative research projects. This iframe may not load if using a TEPAK network."
+  },
+  {
+    "objectID": "surveys-tab/surveys-index.html#using-the-google-ecosystem-surveys-and-dashboards",
+    "href": "surveys-tab/surveys-index.html#using-the-google-ecosystem-surveys-and-dashboards",
+    "title": "Surveys & Content Management",
+    "section": "Using the Google Ecosystem: Surveys and Dashboards",
+    "text": "Using the Google Ecosystem: Surveys and Dashboards\nGoogle Forms and Google Looker Data Studio are widely used tools in various industries for data collection and visualization. Google Forms simplifies the process of designing and distributing surveys, while Looker Data Studio offers robust visualization capabilities to turn raw survey data into actionable insights. These tools are not only user-friendly but also highly adaptable to diverse research and business needs.\nIn this example, we will demonstrate the creation of a survey using Google Forms and the visualization of the collected data through Looker Data Studio. The dataset used is derived from the forcats package in R, specifically the General Social Survey on TV hours watched. This sample dataset will be used to create questionnaires and generate synthetic datasets for analysis and visualization.\nKey resources:\n\nExample of a Google survey form: A hands-on demonstration of survey design and implementation.\nExample of a Google Looker dashboard: A visual representation of survey data, highlighting key metrics and trends.\n\nAdditional Resources:\n\nGoogle Forms Overview: Official Google forms support page.\nGetting Started with Google Data Studio: A good introduction to using Data Studio for data visualization."
+  },
+  {
+    "objectID": "surveys-tab/surveys-index.html#using-shiny-for-dynamic-surveys-and-reports",
+    "href": "surveys-tab/surveys-index.html#using-shiny-for-dynamic-surveys-and-reports",
+    "title": "Surveys & Content Management",
+    "section": "Using Shiny for Dynamic Surveys and Reports",
+    "text": "Using Shiny for Dynamic Surveys and Reports\nContinuing with the General Social Survey (GSS) dataset on TV hours watched, this section demonstrates how Shiny can be used for survey creation and data collection. Using the shinysurveys package in R, we will build a fully functional survey and collect responses dynamically. The collected data will then be showcased in both static and interactive reports using Quarto.\nShiny stands out as an excellent option for building enterprise-level web applications due to its flexibility and ability to handle dynamic data inputs. Its seamless integration with R makes it a popular choice for industries needing data-driven solutions, from finance to healthcare. Meanwhile, Quarto is emerging as a vanguard publishing solution, providing powerful tools for creating professional, high-quality documents and interactive reports. Its support for JavaScript Observable -as well as Python and VS Code- enhances interactivity, making it an ideal choice for creating engaging and exploratory data narratives.\nKey highlights:\n\nSurvey Creation: Learn to design surveys with Shiny and collect real-time data seamlessly.\nStatic Report: Present collected survey data in a clear and concise Quarto report, ideal for static dissemination.\nInteractive Report: Create an engaging interactive report using Quarto and JavaScript Observable, allowing users to explore the data dynamically.\n\nKey Resources:\n\niFrame example of a Shiny questionnaire hosted on demotec: A demonstration of hosting a Shiny survey. N.B Since we are still waiting for https certification from the Uni, the iframe in this link is unlikely to work!\nDirect link to Shiny questionnaire hosted on demotec: However it is possible to access the Shiny questionnaire directly.\niFrame example of Shiny questionnaire hosted on cohesify: An alternative hosting solution for the Shiny questionnaire.\nExample of a static Quarto report\nExample of an interactive Quarto report.\n\nAdditional Resources:\n\nHadley Wickham’s 2nd Edition R for Data Science - Chapter on Quarto: An introductory guide on Quarto and its integration with R by a leading R programmer/statistician.\nQuarto Documentation: Static Reports: Official documentation for creating static reports.\nQuarto Documentation: Interactive Reports with JS Observable: Learn to integrate JavaScript Observable with Quarto for interactive visualizations. N.B These examples may not work with an Rstudio server."
+  },
+  {
+    "objectID": "classification-tab/sentiment-index.html",
+    "href": "classification-tab/sentiment-index.html",
+    "title": "Sentiment Analysis of Participatory Budgeting Tweets",
+    "section": "",
+    "text": "This section demonstrates how to perform sentiment analysis on Twitter data about Participatory Budgeting (PB). We’ll analyze tweets to understand how different social actors discuss PB and the emotional content of their messages.\nWe use R, Quarto, and the tidytext framework to score the sentiment of tweets with the AFINN lexicon. Then we explore the results with descriptive tables and basic charts.\nThe dataset covers tweets posted by a range of social actors (citizens, politicians, government agencies, etc.) and includes information such as:\naccount_value: Whether the Twitter account is run by an Individual or an Organisation. actor_value: The social actor type (e.g., Citizen, Administration, Media, etc.). frame_value: How the tweet frames participatory budgeting (e.g., Democracy, Justice, Resources, Problems, etc.)."
+  },
+  {
+    "objectID": "classification-tab/sentiment-index.html#r-script",
+    "href": "classification-tab/sentiment-index.html#r-script",
+    "title": "Sentiment Analysis of Participatory Budgeting Tweets",
+    "section": "R Script",
+    "text": "R Script\nAll the steps for reading and cleaning the data, tokenizing text, and computing sentiment scores with the AFINN lexicon are included in an R script stored in the R folder of this project. You can run all those steps in your own project or with your own data (filename is afinn_sentiment_analysis.R).\nAfter running the script, a CSV file named tw_sentiment_afinn.csv should appear in your data/ folder. Make sure you have a folder called data in your project directory. The csv contains the original tweet data plus three extra columns:\n\ntweet_id: A simple numeric ID for each tweet.\nsentiment_score: The numeric AFINN sentiment score per tweet (sum of word-level scores).\nsentiment_category: A label of “Positive”, “Negative”, or “Neutral” based on sentiment_score.\n\n\n\nCode\nlibrary(tidyverse)\nlibrary(kableExtra) # for tables\nlibrary(reactable) # for interactive tables\nlibrary(ggpubr) # for graphs\nlibrary(here) # for directory paths\nlibrary(rstatix)"
+  },
+  {
+    "objectID": "classification-tab/sentiment-index.html#loading-and-examining-the-data",
+    "href": "classification-tab/sentiment-index.html#loading-and-examining-the-data",
+    "title": "Sentiment Analysis of Participatory Budgeting Tweets",
+    "section": "Loading and Examining the Data",
+    "text": "Loading and Examining the Data\nFirst, let’s load our preprocessed dataset that contains sentiment scores:\n\n\nCode\n# Read the final sentiment-scored data\ndf_tw &lt;- read_csv(here(\"data/tw_sentiment_afinn.csv\"))\n\n# Check the first few rows\nhead(df_tw, 5)\n\n\n#&gt; # A tibble: 5 × 9\n#&gt;   id            description text  account_value actor_value frame_value tweet_id\n#&gt;   &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 id_760540204… \"Director … \".@P… Individual    Citizen     Justice            1\n#&gt; 2 id_587692331… \"OSH was t… \"Pop… Organisation  Edu         Democracy          2\n#&gt; 3 id_130291572… \"Internati… \"🏙️🌏… Organisation  Civil       Democracy          3\n#&gt; 4 id_620635276… \"mecanikal… \"Par… Individual    Citizen     Democracy          4\n#&gt; 5 id_136285753… \"Researche… \"Cit… Individual    Citizen     Democracy          5\n#&gt; # ℹ 2 more variables: sentiment_score &lt;dbl&gt;, sentiment_category &lt;chr&gt;"
+  },
+  {
+    "objectID": "classification-tab/sentiment-index.html#data-exploration",
+    "href": "classification-tab/sentiment-index.html#data-exploration",
+    "title": "Sentiment Analysis of Participatory Budgeting Tweets",
+    "section": "Data Exploration",
+    "text": "Data Exploration\n\nSentiment Overall\nThis table and graph below shows the overall distribution of sentiment for the twitter dataset.\n\n\nCode\n# Create a summary table of overall sentiment, and give useful columns headings\noverall_sentiment &lt;- df_tw %&gt;%\n  freq_table(sentiment_category) %&gt;% \n  rename(\n    `Sentiment` = \"sentiment_category\",\n    `Proportion` = \"prop\",\n    `Count` = \"n\"\n  )\n\n# Create table \noverall_sentiment %&gt;% \n  kbl()\n\n\n\n\n\nSentiment\nCount\nProportion\n\n\n\n\nNegative\n38\n5.8\n\n\nNeutral\n350\n53.5\n\n\nPositive\n266\n40.7\n\n\n\n\n\n\n\n\n\nCode\nggbarplot(\n  data = overall_sentiment,\n  x = \"Sentiment\",\n  y = \"Proportion\",\n  fill = \"Sentiment\",\n  label = TRUE,\n  label.pos = \"out\",\n  title = \"Sentiment Overall Distribution\",\n  xlab = \"Sentiment\",\n  ylab = \"Proportion (%)\")\n\n\n\n\n\n\n\n\n\nCode\n# Note the legend is actually unnecesary, labels are already included in the x axis \n\n\n\n\nSentiment by Account Type\nThis table allows you to explore how sentiment varies across different types of Twitter accounts (it doesn’t!)\n\n\nCode\n# Create a summary table of account type, and give useful columns headings\n\naccount_sentiment &lt;- df_tw %&gt;%\n  freq_table(account_value, sentiment_category) %&gt;% \n  rename(\n    `Account Type` = \"account_value\",\n    `Sentiment` = \"sentiment_category\",\n    `Proportion` = \"prop\",\n    `Count` = \"n\"\n  )\n\n# Create table \n\naccount_sentiment %&gt;% \n  kbl()\n\n\n\n\n\nAccount Type\nSentiment\nCount\nProportion\n\n\n\n\nIndividual\nNegative\n21\n6.7\n\n\nIndividual\nNeutral\n171\n54.5\n\n\nIndividual\nPositive\n122\n38.9\n\n\nOrganisation\nNegative\n17\n5.0\n\n\nOrganisation\nNeutral\n179\n52.6\n\n\nOrganisation\nPositive\n144\n42.4\n\n\n\n\n\n\n\n\n\nCode\nggbarplot(\n  data = account_sentiment,\n  x = \"Account Type\",\n  y = \"Proportion\",\n  fill = \"Sentiment\",\n  title = \"Sentiment Distribution by Account Type\",\n  xlab = \"Sentiment\",\n  ylab = \"Count\")\n\n\n\n\n\n\n\n\n\n\n\nSentiment by Actor Type\nThe table and graph allows you to explore how sentiment varies across different types of social actors.\n\n\nCode\n# Create a summary table of account type, and give useful columns headings\n\nactor_sentiment &lt;- df_tw %&gt;%\n  freq_table(actor_value, sentiment_category) %&gt;% \n  rename(\n    `Actor Type` = \"actor_value\",\n    `Sentiment` = \"sentiment_category\",\n    `Proportion` = \"prop\",\n    `Count` = \"n\"\n  )\n\n# Create table \n# We will group the table in this case, and just look at proportions\nactor_sentiment %&gt;% \n  select(-Count) %&gt;%  # remove the Count columns\n  spread(Sentiment,Proportion) %&gt;% \n  kbl()\n\n\n\n\n\nActor Type\nNegative\nNeutral\nPositive\n\n\n\n\nCitizen\n5.5\n57.7\n36.8\n\n\nCivil\n6.6\n50.0\n43.4\n\n\nEdu\nNA\n51.4\n48.6\n\n\nMedia\n6.3\n64.6\n29.1\n\n\nPolitical\n6.3\n46.5\n47.2\n\n\n\n\n\n\n\n\n\nCode\nggbarplot(\n  data = actor_sentiment,\n  x = \"Actor Type\",\n  y = \"Proportion\",\n  fill = \"Sentiment\",\n  title = \"Sentiment Distribution by Account Type\",\n  xlab = \"Sentiment\",\n  ylab = \"Count\")\n\n\n\n\n\n\n\n\n\n\n\nSentiment by Frame Type\nThe table and graph allows you to explore how sentiment varies across different types of frames.\n\n\nCode\n# Create a summary table of account type, and give useful columns headings\n\nframe_sentiment &lt;- df_tw %&gt;%\n  freq_table(frame_value, sentiment_category) %&gt;% \n  rename(\n    `Frame Type` = \"frame_value\",\n    `Sentiment` = \"sentiment_category\",\n    `Proportion` = \"prop\",\n    `Count` = \"n\"\n  )\n\n# Create table \n# We will group the table in this case, and just look at proportions\nframe_sentiment %&gt;% \n  select(-Count) %&gt;%  # remove the Count columns\n  spread(Sentiment,Proportion) %&gt;% \n  kbl()\n\n\n\n\n\nFrame Type\nNegative\nNeutral\nPositive\n\n\n\n\nDemocracy\n4.1\n55.1\n40.9\n\n\nJustice\n11.6\n41.9\n46.5\n\n\nProblems\n38.1\n42.9\n19.0\n\n\nResources\n5.3\n52.6\n42.1\n\n\n\n\n\n\n\n\n\nCode\n# Change colours and remove legend title\n\nggbarplot(\n  data = frame_sentiment,\n  x = \"Frame Type\",\n  y = \"Proportion\",\n  fill = \"Sentiment\",\n  palette = c(\"red\", \"gold\", \"darkgreen\"),  # Specify custom colors\n  title = \"Sentiment Distribution by Frame Type\",\n  xlab = \"Sentiment\",\n  ylab = \"Proportion\") +\n  theme(legend.title = element_blank() # Remove legend title\n  )"
+  },
+  {
+    "objectID": "classification-tab/sentiment-index.html#drill-into-the-sentiment-and-frames",
+    "href": "classification-tab/sentiment-index.html#drill-into-the-sentiment-and-frames",
+    "title": "Sentiment Analysis of Participatory Budgeting Tweets",
+    "section": "Drill into the Sentiment and Frames",
+    "text": "Drill into the Sentiment and Frames\n\nA reactable example\nWe can use the reactable package to create more interactive tables. It allows for data grouping and the visualisation of more detailed information.\n\n\nCode\n# First, select only the needed variables\ntweets_grouped &lt;- df_tw %&gt;%\n  select(sentiment_category, frame_value, text)\n\n# Create the reactable\nreactable(\n  tweets_grouped,\n  groupBy = c(\"sentiment_category\", \"frame_value\"),\n  columns = list(\n    sentiment_category = colDef(\n      name = \"Sentiment\",\n      width = 150\n    ),\n    frame_value = colDef(\n      name = \"Frame\",\n      width = 150\n    ),\n    text = colDef(\n      name = \"Tweet Content\",\n      width = 500,\n      align = \"left\"\n      )\n  ),\n  defaultPageSize = 10,\n  bordered = TRUE,\n  highlight = TRUE,\n  striped = TRUE\n)"
+  },
+  {
+    "objectID": "classification-tab/sentiment-index.html#more-information-on-the-tweet-data",
+    "href": "classification-tab/sentiment-index.html#more-information-on-the-tweet-data",
+    "title": "Sentiment Analysis of Participatory Budgeting Tweets",
+    "section": "More information on the Tweet data",
+    "text": "More information on the Tweet data\nThe dataset can be found in the project repo, or in the folder that was shared with your google drive at the start of the course.\nThis codebook describes the variables in the dataset\n\nWhat type of Twitter user account?\n[variable = account_value] This question asks coders to consider whether the Twitter account belongs to an “Individual” or to an “Organisation”. Although Twitter accounts are created by individuals, many accounts can belong to an organisation.\n\nIndividual\nOrganisation\n\n\n\nWhat type of social actor created the tweet?\n[variable = actor_value] This question asks coders to consider the type of social actor that created the tweet. To help choose the most appropriate category, it is advised to visit the author’s Twitter account.\n\nCitizen\nPolitical (Politician; Political Party)\nAdministration (Official; Local authority / Government agency)\nMedia (Journalist/Blogger; News Organisation)\nCivil Society (Interest group / NGO; Campaign group)\nEducation (Academic; School)\nOther\nNot applicable\n\n\n\nWhich “frame” best describes the tweet?\n[variable = frame_value] People who tweet about “participatory budgeting” (PB) present it in many different ways. They do this by emphasising (or neglecting to emphasise) particular aspects of PB. The way in which PB is “presented” and the impression it leaves on the reader of the tweet is referred to as “framing”. This question asks coders to consider how the topic of PB is “framed” in the tweet.\nA tweet may contain an explicit frame. For instance, it may refer to PB in a positive way by emphasising citizen participation or by suggesting it is a fairer way to distribute a city budget. A tweet might also present PB in a negative way by explicitly pointing out that it is an inefficient way to allocate public funds or that it is subject to corruption.\nA tweet may contain a frame even if that frame is not explicitly stated. Perhaps a tweet never explicitly states that, “PB is a fair way to distribute public goods” but if the tweet focuses on how PB funds are allocated then this is the kind of message transmitted to the reader.\nBelow we list the 7 of the most common frames we have identified related to PB. Each frame includes a short description and some examples of tweeets. We also include two extra answer options: “No frame”, where the tweet does not contain any identifiable frame, and “Other frame” for cases where the tweet’s frame does not fit any of the 7 predetermined categories.\n\nDemocratic solution\nPolitical Empowerment\nImproving accountability / transparency\nPromote social justice\nResources / spending priorities\nPB implementation problems\nNegative aspects of PB Other frame No Frame\n\nIn practice, the various frames were grouped together into simpler categories in the dataset Democracy (frames 1, 2, and 3) Justice (frame 4) Resources (frame 5) Problems (frames 6 and 7)"
+  },
+  {
+    "objectID": "classification-tab/sentiment-index.html#r-scripts",
+    "href": "classification-tab/sentiment-index.html#r-scripts",
+    "title": "Sentiment Analysis of Participatory Budgeting Tweets",
+    "section": "R scripts",
+    "text": "R scripts\nThe following R scripts can also be found in the project Repo, in the R folder.\n\nTraditional sentiment analysis\n\n\nCode\n########################################################################\n# 1. Load Required Packages\n########################################################################\n\n# Uncomment to install packages if needed:\n# install.packages(c(\"tidyverse\", \"tidytext\", \"kableExtra\"))\n\nlibrary(tidyverse)\nlibrary(tidytext)\nlibrary(kableExtra)\nlibrary(here) # for easy directory paths, defines your root directory \n\n########################################################################\n# 2. Example Dataset of Participatory Budgeting (mostly campaigns)\n########################################################################\ndf &lt;- read_csv(here(\"data/tw.csv\")) # load data with here()\n# df &lt;- read_csv(\"data/tw.csv\") # use this code if you prefer without here()\n\n########################################################################\n# 3. View Data Using kableExtra\n########################################################################\n\ndf %&gt;%\n  head(5) %&gt;%\n  kable() %&gt;%\n  kable_styling(full_width = FALSE, \n                bootstrap_options = c(\"striped\", \"hover\"))\n\n########################################################################\n# 4. Tokenize and Clean Text\n########################################################################\n\n# 4.1. Tokenization\ndf_tokens &lt;- df %&gt;%\n  mutate(tweet_id = row_number()) %&gt;%  # Create a simple ID for each tweet\n  unnest_tokens(word, text)           # Break tweets into individual words\n\n# 4.2. Remove Stop Words\ndata(\"stop_words\")  # Provided by tidytext\ndf_tokens_clean &lt;- df_tokens %&gt;%\n  anti_join(stop_words, by = \"word\")\n\n########################################################################\n# 5. Perform Sentiment Analysis Using AFINN\n########################################################################\n\n# The AFINN lexicon assigns an integer score to each word (range: -5 to 5).\nafinn &lt;- get_sentiments(\"afinn\")\n\n# 5.1 Join tokenized tweets with AFINN to get word-level scores\ndf_afinn &lt;- df_tokens_clean %&gt;%\n  inner_join(afinn, by = \"word\")\n\n# 5.2 Summarize the sentiment score for each tweet\ntweet_scores &lt;- df_afinn %&gt;%\n  group_by(tweet_id) %&gt;%\n  summarise(sentiment_score = sum(value), .groups = \"drop\")\n\n# 5.3 Merge scores back with the original tweets if you want\ndf_scored &lt;- df %&gt;%\n  mutate(tweet_id = row_number()) %&gt;%\n  left_join(tweet_scores, by = \"tweet_id\") %&gt;%\n  # Replace NA scores with 0 for tweets that had no matched words\n  mutate(sentiment_score = if_else(is.na(sentiment_score), 0, sentiment_score))\n\n########################################################################\n# 6. Convert Numeric Scores to Positive, Neutral, Negative\n########################################################################\n\n# Define categories based on the numeric AFINN score:\ndf_scored &lt;- df_scored %&gt;%\n  mutate(\n    sentiment_category = case_when(\n      sentiment_score &gt; 0  ~ \"Positive\",\n      sentiment_score &lt; 0  ~ \"Negative\",\n      TRUE                 ~ \"Neutral\"  # Covers sentiment_score == 0\n    )\n  )\n\n\n########################################################################\n# 7. Save sentiment dataframe\n########################################################################\n\ndf_scored %&gt;% \n  write_csv(\"data/tw_sentiment_afinn.csv\")\n\n\n\n\nSentiment analysis using an LLM\nHere we use an open source LLM -specifically Meta’s LLaMA open source model. Running these models locally require some extra packages and some caution with the amount of data passed to the models. The scripts perform sentiment analysis and text classification.\n\n\nCode\n# Load required libraries\nlibrary(tidyverse)\nlibrary(ollamar)\nlibrary(ellmer)\nlibrary(mall)\n\n# Load dataframe\ntw &lt;- read_csv(\"data/tw.csv\")\n\n# Load LLM\nollamar::test_connection() # test connection\nlist_models() # get a list of locally installed models\nollamar::pull('llama3.1:latest') # pull a model\n\n### Define Meta's llama\nllm_use(\n    backend = \"ollama\",\n    model = \"llama3.1:latest\",\n    .silent = TRUE,\n    seed = 123,\n    temperature = 0\n)\n\n# Perform sentiment analysis\ntw_sentiment_llama &lt;- tw |&gt;\n    llm_sentiment(col = text,\n                  pred_name = \"llama_sentiment\")\n\n# Save dataframe\ntw_sentiment_llama %&gt;%\n    write_csv(\"data/tw_sentiment_llama.csv\")\n\n\n# Perform a classification analysis\n# Technically, this is similar to one-shot classification. Define some frames.\nframe_values &lt;- c(\"justice\",\"democracy\",\"finances or resources\",\"problems\")\n\n# Perform classification analysis\n# The results are not good, which point to limitations in the\n# classification function\ntw_classification_llama &lt;- tw |&gt;\n    llm_classify(\n        col = text,\n        labels = frame_values,\n        pred_name = \"llama_classification\")\n\n# Save dataframe\ntw_classification_llama %&gt;%\n    write_csv(\"data/tw_classification_llama.csv\")"
   }
 ]

@@ -1,0 +1,460 @@
+---
+title: "Sentiment Analysis of Participatory Budgeting Tweets"
+format: 
+  html:
+    toc: true
+    toc-depth: 3
+    #code-fold: show
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  cache = FALSE
+)
+```
+
+This section demonstrates how to perform sentiment analysis on Twitter data about Participatory Budgeting (PB). We'll analyze tweets to understand how different social actors discuss PB and the emotional content of their messages.
+
+We use R, Quarto, and the tidytext framework to score the sentiment of tweets with the AFINN lexicon. Then we explore the results with descriptive tables and basic charts.
+
+The dataset covers tweets posted by a range of social actors (citizens, politicians, government agencies, etc.) and includes information such as:
+
+account_value: Whether the Twitter account is run by an Individual or an Organisation.
+actor_value: The social actor type (e.g., Citizen, Administration, Media, etc.).
+frame_value: How the tweet frames participatory budgeting (e.g., Democracy, Justice, Resources, Problems, etc.).
+
+## R Script
+All the steps for reading and cleaning the data, tokenizing text, and computing sentiment scores with the AFINN lexicon are included in an R script stored in the R folder of this project. You can run all those steps in your own project or with your own data (filename is afinn_sentiment_analysis.R). 
+
+After running the script, a CSV file named `tw_sentiment_afinn.csv` should appear in your data/ folder. Make sure you have a folder called `data` in your project directory. The csv contains the original tweet data plus three extra columns:
+
+- tweet_id: A simple numeric ID for each tweet.
+
+- sentiment_score: The numeric AFINN sentiment score per tweet (sum of word-level scores).
+- sentiment_category: A label of "Positive", "Negative", or "Neutral" based on sentiment_score.
+
+
+```{r load-libraries}
+library(tidyverse)
+library(kableExtra) # for tables
+library(reactable) # for interactive tables
+library(ggpubr) # for graphs
+library(here) # for directory paths
+library(rstatix)
+```
+
+## Loading and Examining the Data
+
+First, let's load our preprocessed dataset that contains sentiment scores:
+
+```{r load-data}
+# Read the final sentiment-scored data
+df_tw <- read_csv(here("data/tw_sentiment_afinn.csv"))
+
+# Check the first few rows
+head(df_tw, 5)
+```
+
+## Data Exploration
+
+### Sentiment Overall
+
+This table and graph below shows the overall distribution of sentiment for the twitter dataset.
+
+```{r overall-sentiment}
+# Create a summary table of overall sentiment, and give useful columns headings
+overall_sentiment <- df_tw %>%
+  freq_table(sentiment_category) %>% 
+  rename(
+    `Sentiment` = "sentiment_category",
+    `Proportion` = "prop",
+    `Count` = "n"
+  )
+
+# Create table 
+overall_sentiment %>% 
+  kbl()
+
+```
+
+
+```{r overall-dist}
+ggbarplot(
+  data = overall_sentiment,
+  x = "Sentiment",
+  y = "Proportion",
+  fill = "Sentiment",
+  label = TRUE,
+  label.pos = "out",
+  title = "Sentiment Overall Distribution",
+  xlab = "Sentiment",
+  ylab = "Proportion (%)")
+
+# Note the legend is actually unnecesary, labels are already included in the x axis 
+  
+```
+
+
+### Sentiment by Account Type
+
+This table allows you to explore how sentiment varies across different types of Twitter accounts (it doesn't!)
+
+```{r account-sentiment}
+# Create a summary table of account type, and give useful columns headings
+
+account_sentiment <- df_tw %>%
+  freq_table(account_value, sentiment_category) %>% 
+  rename(
+    `Account Type` = "account_value",
+    `Sentiment` = "sentiment_category",
+    `Proportion` = "prop",
+    `Count` = "n"
+  )
+
+# Create table 
+
+account_sentiment %>% 
+  kbl()
+```
+
+
+```{r account-dist}
+ggbarplot(
+  data = account_sentiment,
+  x = "Account Type",
+  y = "Proportion",
+  fill = "Sentiment",
+  title = "Sentiment Distribution by Account Type",
+  xlab = "Sentiment",
+  ylab = "Count")
+  
+```
+
+### Sentiment by Actor Type
+
+The table and graph allows you to explore how sentiment varies across different types of social actors.
+
+```{r actor-sentiment}
+# Create a summary table of account type, and give useful columns headings
+
+actor_sentiment <- df_tw %>%
+  freq_table(actor_value, sentiment_category) %>% 
+  rename(
+    `Actor Type` = "actor_value",
+    `Sentiment` = "sentiment_category",
+    `Proportion` = "prop",
+    `Count` = "n"
+  )
+
+# Create table 
+# We will group the table in this case, and just look at proportions
+actor_sentiment %>% 
+  select(-Count) %>%  # remove the Count columns
+  spread(Sentiment,Proportion) %>% 
+  kbl()
+```
+
+
+```{r actor-dist}
+ggbarplot(
+  data = actor_sentiment,
+  x = "Actor Type",
+  y = "Proportion",
+  fill = "Sentiment",
+  title = "Sentiment Distribution by Account Type",
+  xlab = "Sentiment",
+  ylab = "Count")
+  
+```
+
+
+### Sentiment by Frame Type
+
+The table and graph allows you to explore how sentiment varies across different types of frames.
+
+```{r frame-sentiment}
+# Create a summary table of account type, and give useful columns headings
+
+frame_sentiment <- df_tw %>%
+  freq_table(frame_value, sentiment_category) %>% 
+  rename(
+    `Frame Type` = "frame_value",
+    `Sentiment` = "sentiment_category",
+    `Proportion` = "prop",
+    `Count` = "n"
+  )
+
+# Create table 
+# We will group the table in this case, and just look at proportions
+frame_sentiment %>% 
+  select(-Count) %>%  # remove the Count columns
+  spread(Sentiment,Proportion) %>% 
+  kbl()
+```
+
+
+```{r frame-dist}
+# Change colours and remove legend title
+
+ggbarplot(
+  data = frame_sentiment,
+  x = "Frame Type",
+  y = "Proportion",
+  fill = "Sentiment",
+  palette = c("red", "gold", "darkgreen"),  # Specify custom colors
+  title = "Sentiment Distribution by Frame Type",
+  xlab = "Sentiment",
+  ylab = "Proportion") +
+  theme(legend.title = element_blank() # Remove legend title
+  )
+  
+```
+
+
+## Drill into the Sentiment and Frames
+
+### A reactable example
+We can use the reactable package to create more interactive tables. It allows for data grouping and the visualisation of more detailed information. 
+
+
+```{r}
+# First, select only the needed variables
+tweets_grouped <- df_tw %>%
+  select(sentiment_category, frame_value, text)
+
+# Create the reactable
+reactable(
+  tweets_grouped,
+  groupBy = c("sentiment_category", "frame_value"),
+  columns = list(
+    sentiment_category = colDef(
+      name = "Sentiment",
+      width = 150
+    ),
+    frame_value = colDef(
+      name = "Frame",
+      width = 150
+    ),
+    text = colDef(
+      name = "Tweet Content",
+      width = 500,
+      align = "left"
+      )
+  ),
+  defaultPageSize = 10,
+  bordered = TRUE,
+  highlight = TRUE,
+  striped = TRUE
+)
+```
+
+
+# Annexes
+
+## More information on the Tweet data
+
+The dataset can be found in the project repo, or in the folder that was shared with your google drive at the start of the course.
+
+This codebook describes the variables in the dataset
+
+### What type of Twitter user account? 
+[variable = `account_value`]
+This question asks coders to consider whether the Twitter account belongs to an "Individual" or to an "Organisation". Although Twitter accounts are created by individuals, many accounts can belong to an organisation.
+
+- Individual
+
+- Organisation
+
+### What type of social actor created the tweet? 
+[variable = `actor_value`]
+This question asks coders to consider the type of social actor that created the tweet. To help choose the most appropriate category, it is advised to visit the author's Twitter account.
+
+- Citizen
+- Political (Politician; Political Party)
+- Administration (Official; Local authority / Government agency)
+- Media (Journalist/Blogger; News Organisation)
+- Civil Society (Interest group / NGO; Campaign group)
+- Education (Academic; School)
+- Other
+- Not applicable
+
+### Which "frame" best describes the tweet? 
+[variable = `frame_value`]
+People who tweet about "participatory budgeting" (PB) present it in many different ways. They do this by emphasising (or neglecting to emphasise) particular aspects of PB. The way in which PB is "presented" and the impression it leaves on the reader of the tweet is referred to  as "framing". This question asks coders to consider how the topic of PB is "framed" in the tweet.
+
+A tweet may contain an explicit frame. For instance, it may refer to PB in a positive way by emphasising citizen participation or by suggesting it is a fairer way to distribute a city budget. A tweet might also present PB in a negative way by explicitly pointing out that it is an inefficient way to allocate public funds or that it is subject to corruption.
+
+A tweet may contain a frame even if that frame is not explicitly stated. Perhaps a tweet never explicitly states that, "PB is a fair way to distribute public goods" but if the tweet focuses on how PB funds are allocated then this is the kind of message transmitted to the reader. 
+
+Below we list the 7 of the most common frames we have identified related to PB. Each frame includes a short description and some examples of tweeets. We also include two extra answer options: "No frame", where the tweet does not contain any identifiable frame, and "Other frame" for cases where the tweet’s frame does not fit any of the 7 predetermined categories.
+
+1. Democratic solution
+2. Political Empowerment
+3. Improving accountability / transparency
+4. Promote social justice
+5. Resources / spending priorities
+6. PB implementation problems
+7. Negative aspects of PB
+Other frame
+No Frame
+
+In practice, the various frames were grouped together into simpler categories in the dataset
+`Democracy` (frames 1, 2, and 3)
+`Justice` (frame 4)
+`Resources` (frame 5)
+`Problems` (frames 6 and 7)
+
+## R scripts
+
+The following R scripts can also be found in the project Repo, in the R folder.
+
+### Traditional sentiment analysis 
+```{r, eval=FALSE}
+########################################################################
+# 1. Load Required Packages
+########################################################################
+
+# Uncomment to install packages if needed:
+# install.packages(c("tidyverse", "tidytext", "kableExtra"))
+
+library(tidyverse)
+library(tidytext)
+library(kableExtra)
+library(here) # for easy directory paths, defines your root directory 
+
+########################################################################
+# 2. Example Dataset of Participatory Budgeting (mostly campaigns)
+########################################################################
+df <- read_csv(here("data/tw.csv")) # load data with here()
+# df <- read_csv("data/tw.csv") # use this code if you prefer without here()
+
+########################################################################
+# 3. View Data Using kableExtra
+########################################################################
+
+df %>%
+  head(5) %>%
+  kable() %>%
+  kable_styling(full_width = FALSE, 
+                bootstrap_options = c("striped", "hover"))
+
+########################################################################
+# 4. Tokenize and Clean Text
+########################################################################
+
+# 4.1. Tokenization
+df_tokens <- df %>%
+  mutate(tweet_id = row_number()) %>%  # Create a simple ID for each tweet
+  unnest_tokens(word, text)           # Break tweets into individual words
+
+# 4.2. Remove Stop Words
+data("stop_words")  # Provided by tidytext
+df_tokens_clean <- df_tokens %>%
+  anti_join(stop_words, by = "word")
+
+########################################################################
+# 5. Perform Sentiment Analysis Using AFINN
+########################################################################
+
+# The AFINN lexicon assigns an integer score to each word (range: -5 to 5).
+afinn <- get_sentiments("afinn")
+
+# 5.1 Join tokenized tweets with AFINN to get word-level scores
+df_afinn <- df_tokens_clean %>%
+  inner_join(afinn, by = "word")
+
+# 5.2 Summarize the sentiment score for each tweet
+tweet_scores <- df_afinn %>%
+  group_by(tweet_id) %>%
+  summarise(sentiment_score = sum(value), .groups = "drop")
+
+# 5.3 Merge scores back with the original tweets if you want
+df_scored <- df %>%
+  mutate(tweet_id = row_number()) %>%
+  left_join(tweet_scores, by = "tweet_id") %>%
+  # Replace NA scores with 0 for tweets that had no matched words
+  mutate(sentiment_score = if_else(is.na(sentiment_score), 0, sentiment_score))
+
+########################################################################
+# 6. Convert Numeric Scores to Positive, Neutral, Negative
+########################################################################
+
+# Define categories based on the numeric AFINN score:
+df_scored <- df_scored %>%
+  mutate(
+    sentiment_category = case_when(
+      sentiment_score > 0  ~ "Positive",
+      sentiment_score < 0  ~ "Negative",
+      TRUE                 ~ "Neutral"  # Covers sentiment_score == 0
+    )
+  )
+
+
+########################################################################
+# 7. Save sentiment dataframe
+########################################################################
+
+df_scored %>% 
+  write_csv("data/tw_sentiment_afinn.csv")
+
+```
+
+### Sentiment analysis using an LLM 
+
+Here we use an open source LLM -specifically Meta's LLaMA open source model. Running these models locally require some extra packages and some caution with the amount of data passed to the models. The scripts perform sentiment analysis and text classification.
+```{r, eval=FALSE}
+# Load required libraries
+library(tidyverse)
+library(ollamar)
+library(ellmer)
+library(mall)
+
+# Load dataframe
+tw <- read_csv("data/tw.csv")
+
+# Load LLM
+ollamar::test_connection() # test connection
+list_models() # get a list of locally installed models
+ollamar::pull('llama3.1:latest') # pull a model
+
+### Define Meta's llama
+llm_use(
+    backend = "ollama",
+    model = "llama3.1:latest",
+    .silent = TRUE,
+    seed = 123,
+    temperature = 0
+)
+
+# Perform sentiment analysis
+tw_sentiment_llama <- tw |>
+    llm_sentiment(col = text,
+                  pred_name = "llama_sentiment")
+
+# Save dataframe
+tw_sentiment_llama %>%
+    write_csv("data/tw_sentiment_llama.csv")
+
+
+# Perform a classification analysis
+# Technically, this is similar to one-shot classification. Define some frames.
+frame_values <- c("justice","democracy","finances or resources","problems")
+
+# Perform classification analysis
+# The results are not good, which point to limitations in the
+# classification function
+tw_classification_llama <- tw |>
+    llm_classify(
+        col = text,
+        labels = frame_values,
+        pred_name = "llama_classification")
+
+# Save dataframe
+tw_classification_llama %>%
+    write_csv("data/tw_classification_llama.csv")
+
+```
+

@@ -93,10 +93,10 @@ library(tidyverse)
 library(kableExtra)
 tibble::tribble(
                        ~Criteria,                                                                                                 ~Description, ~`Weight`,
-            "Content management", "Data processing and analysis involving the use of R for cleaning, transformation, and descriptive analysis",           "25%",
+            "Content management", "Data processing and analysis using of R for cleaning, transformation, and descriptive analysis",           "25%",
          "Visualization Quality",                                      "Effectiveness, clarity, and creativity in presenting visual narrative",           "25%",
       "Technical Implementation",                                          "Proper use of GitHub, Quarto, and deployment of the final project",           "25%",
-  "Communication & Presentation",                                                  "Structure, coherence, and engagement of the final project",           "25%"
+  "Communication & Presentation",                                                  "Coherence and engagement of the class presentation of final project",           "25%"
   ) %>% 
   kbl() %>% 
   kable_styling(full_width = F)

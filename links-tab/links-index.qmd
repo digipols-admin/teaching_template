@@ -40,8 +40,3 @@ This video provides step by step guide. Remember to have your PAT password (the 
 
 **Alternatively, you can access the video directly:** [https://youtu.be/e8Cntd5Vv6E](https://youtu.be/e8Cntd5Vv6E)
 
-## Student links
-
-We can test student pages here:
-
-[Testing Evi's google form template](https://digipols-admin.github.io/teaching_template/links-tab/evi_survey_google.html).
