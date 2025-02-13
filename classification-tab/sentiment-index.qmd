@@ -320,6 +320,49 @@ tw_combined %>%
 
 ```
 
+#### A reactable for exploring the mismatches
+
+
+```{r}
+# First, tidy the variables names select only the needed variables
+mistmatch <- tw_combined %>%
+  rename(
+    LLaMA = llama_sentiment,
+    AFFIN = sentiment_category
+  ) %>% 
+  select(sentiment_match, frame_value, 
+         text,
+         AFFIN,
+         LLaMA)
+
+# Create the reactable
+reactable(
+  mistmatch,
+  groupBy = c("sentiment_match", "frame_value"),
+  columns = list(
+    sentiment_match = colDef(
+      name = "Result",
+      width = 150
+    ),
+    frame_value = colDef(
+      name = "Frame",
+      width = 150
+    ),
+    text = colDef(
+      name = "Tweet Content",
+      width = 400,
+      align = "left"
+      )
+  ),
+  defaultPageSize = 10,
+  bordered = TRUE,
+  highlight = TRUE,
+  striped = TRUE
+)
+
+```
+
+
 
 
 # Annexes
