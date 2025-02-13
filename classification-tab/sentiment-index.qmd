@@ -256,7 +256,7 @@ reactable(
 
 ## Annex 1: R scripts
 
-The following R scripts can also be found in the project Repo, in the R folder.
+The following R scripts can also be found in the digipols-admin project Repo, in the R folder.
 
 ### Traditional sentiment analysis 
 ```{r, eval=FALSE}
