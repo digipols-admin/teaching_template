@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Links – XDMComs</title>
+<title>Images – XDMComs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -108,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Text analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../links-tab/links-index.html" aria-current="page"> 
+    <a class="nav-link" href="../links-tab/links-index.html"> 
 <span class="menu-text">Useful links</span></a>
   </li>  
 </ul>
@@ -127,10 +161,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cloning-a-github-repo-with-a-quarto-website-template-and-pushing-to-r" id="toc-cloning-a-github-repo-with-a-quarto-website-template-and-pushing-to-r" class="nav-link active" data-scroll-target="#cloning-a-github-repo-with-a-quarto-website-template-and-pushing-to-r">Cloning a github repo with a Quarto website template and pushing to R</a>
-  <ul class="collapse">
-  <li><a href="#miscellaneous" id="toc-miscellaneous" class="nav-link" data-scroll-target="#miscellaneous">Miscellaneous</a></li>
-  </ul></li>
+  <li><a href="#the-ulr-alternative" id="toc-the-ulr-alternative" class="nav-link active" data-scroll-target="#the-ulr-alternative">The ULR Alternative</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul>
 </nav>
     </div>
@@ -139,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Links</h1>
+<h1 class="title">Images</h1>
 </div>
 
 
@@ -156,52 +188,26 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Here are some useful links to have open during set up:</p>
-<p><strong>This website’s git hub</strong> <a href="https://github.com/digipols-admin/teaching_template">https://github.com/digipols-admin/teaching_template</a>.</p>
-<p><strong>Your website template</strong> <a href="https://github.com/YOUR-USERNAME/class_website_template">https://github.com/YOUR-USERNAME/class_website_template</a>. Replace with your actual Username and the github repo (the name of your github project).</p>
-<p><strong>The R server</strong> <a href="http://demotec.cut.ac.cy:8787">http://demotec.cut.ac.cy:8787</a>.</p>
-<section id="cloning-a-github-repo-with-a-quarto-website-template-and-pushing-to-r" class="level2">
-<h2 class="anchored" data-anchor-id="cloning-a-github-repo-with-a-quarto-website-template-and-pushing-to-r">Cloning a github repo with a Quarto website template and pushing to R</h2>
-<p>To save time in creating websites using R and github we have prepared a short video explainer that covers all the steps. The important aspect is to have a template in your github account that you can re-use at will.</p>
-<p>We have prepared a template, so can avoid the process of creating a template. Although we do encourage you to create your own templates in github. For instance, you may want a template for creating online presentations, or scientific reports. Once you have a template repo in github, it’s very simply to push it to R.</p>
-<p>These are the basic steps:</p>
-<section id="step-1-clone-a-repo-and-make-it-a-template" class="level4">
-<h4 class="anchored" data-anchor-id="step-1-clone-a-repo-and-make-it-a-template">Step 1: Clone a repo and make it a template</h4>
+<p>Rendering images can sometiems be tricky when dealing with path directories. In principle, there shouldn’t be a problem as long as the path directory is correctly set. There are alternatives however.</p>
+<section id="the-ulr-alternative" class="level3">
+<h3 class="anchored" data-anchor-id="the-ulr-alternative">The ULR Alternative</h3>
+</section>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<p>We can refer directly to the github</p>
+<p>We can load the homepage image of this website, which is called <code>home3.png</code>, in these ways:</p>
 <ol type="1">
-<li>Clone a repo (a template for a Quarto website) from my personal github account: <code>fmendez72/xdmcoms-website</code> into your own github account</li>
-<li>In your github account set the cloned repo as a “Template” [so you can re-use it]</li>
-<li>Assign the repo you just cloned a “Template” status and use it to create a github repo for a NEW quarto website</li>
+<li>We could use the full URL path</li>
 </ol>
-</section>
-<section id="step-2-pull-the-website-into-r" class="level4">
-<h4 class="anchored" data-anchor-id="step-2-pull-the-website-into-r">Step 2: Pull the website into R</h4>
-<ol start="4" type="1">
-<li>Pull the repo as a new R project</li>
-<li>Build the website in R and push it to git</li>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](https://raw.githubusercontent.com/digipols-admin/teaching_template/main/images/home3.png)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="https://raw.githubusercontent.com/digipols-admin/teaching_template/main/images/home3.png" class="img-fluid"></p>
+<ol start="2" type="1">
+<li>Or html code</li>
 </ol>
-<p>The video provides a step by step guide on how to do this:</p>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/e8Cntd5Vv6E" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This video provides step by step guide. Remember to have your PAT password (the long one) and that you need to go to the Build tab in R in order to click on the “Render website” button. For changes to be reflected on your online website it is necessary to build the website.</p>
-</div>
-</div>
-<p><strong>Alternatively, you can access the video directly:</strong> <a href="https://youtu.be/e8Cntd5Vv6E">https://youtu.be/e8Cntd5Vv6E</a></p>
-</section>
-<section id="miscellaneous" class="level3">
-<h3 class="anchored" data-anchor-id="miscellaneous">Miscellaneous</h3>
-<p><strong>Dealing with iamges</strong> <a href="https://digipols-admin.github.io/teaching_template/teaching_template/links-tab/images_testing.html">Using a URL command</a>.</p>
+<p><br></p>
+<p><img src="https://raw.githubusercontent.com/digipols-admin/teaching_template/main/images/home3.png"></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -6,7 +6,7 @@ Here are some useful links to have open during set up:
 
 **This website's git hub** [https://github.com/digipols-admin/teaching_template](https://github.com/digipols-admin/teaching_template).
 
-**Your website template** [https://github.com/YOUR-USERNAME/class_website_template](https://github.com/YOUR-USERNAME/class_website_template).
+**Your website template** [https://github.com/YOUR-USERNAME/class_website_template](https://github.com/YOUR-USERNAME/class_website_template). Replace with your actual Username and the github repo (the name of your github project).
 
 **The R server** [http://demotec.cut.ac.cy:8787](http://demotec.cut.ac.cy:8787).
 
@@ -39,4 +39,11 @@ This video provides step by step guide. Remember to have your PAT password (the 
 :::
 
 **Alternatively, you can access the video directly:** [https://youtu.be/e8Cntd5Vv6E](https://youtu.be/e8Cntd5Vv6E)
+
+
+### Miscellaneous
+
+**Dealing with iamges** [Using a URL command](https://digipols-admin.github.io/teaching_template/teaching_template/links-tab/images_testing.html).
+
+
 

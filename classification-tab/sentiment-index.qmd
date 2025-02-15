@@ -320,8 +320,8 @@ tw_combined %>%
 
 ```
 
-#### A reactable for exploring the mismatches
-
+### AFFIN vs LLaMA: A reactable for exploring mismatches 
+In the table below we can drill into the annotated dataset to see the mismatching between the two different sentiment approaches. 
 
 ```{r}
 # First, tidy the variables names select only the needed variables

@@ -1,0 +1,28 @@
+---
+title: "Images"
+format: html
+---
+
+Rendering images can sometiems be tricky when dealing with path directories. In principle, there shouldn't be a problem as long as the path directory is correctly set. There are alternatives however. 
+
+### The ULR Alternative
+
+### Example
+
+We can refer directly to the github
+
+We can load the homepage image of this website, which is called `home3.png`, in these ways:
+
+1. We could use the full URL path
+```markdown
+![](https://raw.githubusercontent.com/digipols-admin/teaching_template/main/images/home3.png)
+```
+
+![](https://raw.githubusercontent.com/digipols-admin/teaching_template/main/images/home3.png)
+
+
+2. Or html code
+
+<br>
+
+<img src="https://raw.githubusercontent.com/digipols-admin/teaching_template/main/images/home3.png">
