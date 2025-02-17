@@ -26,3 +26,4 @@ We can load the homepage image of this website, which is called `home3.png`, in 
 <br>
 
 <img src="https://raw.githubusercontent.com/digipols-admin/teaching_template/main/images/home3.png">
+

@@ -30,6 +30,3 @@ knitr:
     code-fold: true
     message: false
     warning: false
-
-variables:
-  img-path: "https://raw.githubusercontent.com/digipols-admin/teaching_template/main/images/"

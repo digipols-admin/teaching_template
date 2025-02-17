@@ -31,9 +31,11 @@ The dataset covers tweets posted by a range of social actors (citizens, politici
 A short codebook with more details on the data structure is in the Annex of this webpage. 
 
 ## R Script
-All the steps for reading and cleaning the data, tokenizing text, and computing sentiment scores with the AFINN lexicon are included in an R script stored in the R folder of this project. You can run all those steps in your own project or with your own data (filename is afinn_sentiment_analysis.R). 
+All the steps for reading and cleaning the data, tokenizing text, and computing sentiment scores with the AFINN lexicon are included in an R script stored in the R folder of this project. This means you can run all those steps in your own Rstudio project (filename is `R/afinn_sentiment_analysis.R`) or with your own data by addapting the R scripts accordingly. 
 
-After running the script, a CSV file named `tw_sentiment_afinn.csv` should appear in your data/ folder. Make sure you have a folder called `data` in your project directory. The csv contains the original tweet data plus three extra columns:
+We will also compare traditional sentiment analysis using a dictionary approach (e.g. AFINN) with a Large Language Model (LLM) approach. To replicate the LLM approach covered in the class session, there is also an R script for running an LLM model on the Rstudio server, which  can also be found in the project Repo (the path on the project repo is `R/mall_sentiment_classification.R`). 
+
+For replicating the AFINN approach, after running the script, a CSV file named `tw_sentiment_afinn.csv` should appear in your data/ folder. Make sure you have a folder called `data` in your project directory. The csv contains the original tweet data plus three extra columns:
 
 - tweet_id: A simple numeric ID for each tweet.
 
