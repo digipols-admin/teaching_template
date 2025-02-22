@@ -30,20 +30,21 @@ sessions <- tribble(
   ~Session, ~Description, ~Date, ~Time,
   "Session 1", "Introduction to Data-Driven Communication", "Saturday 25/1/25", "4:8pm",
   "Session 2", "Survey Design & Implementation", "Sunday 26/1/25", "9:2pm",
-  "Session 3", "Content management using R", "Friday 31/2/25", "6:8pm",
-  "Session 4", "Visualization and Dashboard Creation", "Friday 7/2/25", "6:8pm",
-  "Session 5", "Advanced Analysis: Framing and Sentiment Insights", "Saturday 15/2/25", "4:8pm",
-  "Session 6", "Integrating and Presenting Final Projects", "Friday 21/2/25", "6:8pm",
-  "Session 6", "Integrating and Presenting Final Projects", "Sunday 23/2/25", "9:2pm"
+  "Session 3", "Content management using R", "Saturday 01/2/25", "10:1pm",
+  "Session 4", "Visualization and Dashboard Creation", "Saturday 08/2/25", "10:1pm",
+  "Session 5", "Advanced Analysis: Framing and Sentiment Insights", "Saturday 15/2/25", "10:2pm",
+  "*Session 6", "Integrating and Presenting Final Projects", "Suday 21/2/25", "10:12pm",
+  "*Session 6", "Integrating and Presenting Final Projects", "Saturday 01/03/25", "10:1pm"
 )
 
 # Render the table using kableExtra, remove first column heading
-sessions %>%
+t1 <- sessions %>%
   rename(" "=Session) %>% 
   kbl()
-```
 
-**Note:** Final timetable to be confirmed on first class meeting
+add_footnote(t1, c("Note: For the final session the class is split over two weekends"), notation = "symbol")
+
+```
 
 
 ### Course Content

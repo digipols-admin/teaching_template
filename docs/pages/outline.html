@@ -240,17 +240,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Session, <span class="sc">~</span>Description, <span class="sc">~</span>Date, <span class="sc">~</span>Time,</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Session 1"</span>, <span class="st">"Introduction to Data-Driven Communication"</span>, <span class="st">"Saturday 25/1/25"</span>, <span class="st">"4:8pm"</span>,</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Session 2"</span>, <span class="st">"Survey Design &amp; Implementation"</span>, <span class="st">"Sunday 26/1/25"</span>, <span class="st">"9:2pm"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Session 3"</span>, <span class="st">"Content management using R"</span>, <span class="st">"Friday 31/2/25"</span>, <span class="st">"6:8pm"</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Session 4"</span>, <span class="st">"Visualization and Dashboard Creation"</span>, <span class="st">"Friday 7/2/25"</span>, <span class="st">"6:8pm"</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Session 5"</span>, <span class="st">"Advanced Analysis: Framing and Sentiment Insights"</span>, <span class="st">"Saturday 15/2/25"</span>, <span class="st">"4:8pm"</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Session 6"</span>, <span class="st">"Integrating and Presenting Final Projects"</span>, <span class="st">"Friday 21/2/25"</span>, <span class="st">"6:8pm"</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Session 6"</span>, <span class="st">"Integrating and Presenting Final Projects"</span>, <span class="st">"Sunday 23/2/25"</span>, <span class="st">"9:2pm"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Session 3"</span>, <span class="st">"Content management using R"</span>, <span class="st">"Saturday 01/2/25"</span>, <span class="st">"10:1pm"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Session 4"</span>, <span class="st">"Visualization and Dashboard Creation"</span>, <span class="st">"Saturday 08/2/25"</span>, <span class="st">"10:1pm"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Session 5"</span>, <span class="st">"Advanced Analysis: Framing and Sentiment Insights"</span>, <span class="st">"Saturday 15/2/25"</span>, <span class="st">"10:2pm"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"*Session 6"</span>, <span class="st">"Integrating and Presenting Final Projects"</span>, <span class="st">"Suday 21/2/25"</span>, <span class="st">"10:12pm"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"*Session 6"</span>, <span class="st">"Integrating and Presenting Final Projects"</span>, <span class="st">"Saturday 01/03/25"</span>, <span class="st">"10:1pm"</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Render the table using kableExtra, remove first column heading</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>sessions <span class="sc">%&gt;%</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>t1 <span class="ot">&lt;-</span> sessions <span class="sc">%&gt;%</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">" "</span><span class="ot">=</span>Session) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>()</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">add_footnote</span>(t1, <span class="fu">c</span>(<span class="st">"Note: For the final session the class is split over two weekends"</span>), <span class="at">notation =</span> <span class="st">"symbol"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
@@ -278,40 +280,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td style="text-align: left;">Session 3</td>
 <td style="text-align: left;">Content management using R</td>
-<td style="text-align: left;">Friday 31/2/25</td>
-<td style="text-align: left;">6:8pm</td>
+<td style="text-align: left;">Saturday 01/2/25</td>
+<td style="text-align: left;">10:1pm</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Session 4</td>
 <td style="text-align: left;">Visualization and Dashboard Creation</td>
-<td style="text-align: left;">Friday 7/2/25</td>
-<td style="text-align: left;">6:8pm</td>
+<td style="text-align: left;">Saturday 08/2/25</td>
+<td style="text-align: left;">10:1pm</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Session 5</td>
 <td style="text-align: left;">Advanced Analysis: Framing and Sentiment Insights</td>
 <td style="text-align: left;">Saturday 15/2/25</td>
-<td style="text-align: left;">4:8pm</td>
+<td style="text-align: left;">10:2pm</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Session 6</td>
+<td style="text-align: left;">*Session 6</td>
 <td style="text-align: left;">Integrating and Presenting Final Projects</td>
-<td style="text-align: left;">Friday 21/2/25</td>
-<td style="text-align: left;">6:8pm</td>
+<td style="text-align: left;">Suday 21/2/25</td>
+<td style="text-align: left;">10:12pm</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Session 6</td>
+<td style="text-align: left;">*Session 6</td>
 <td style="text-align: left;">Integrating and Presenting Final Projects</td>
-<td style="text-align: left;">Sunday 23/2/25</td>
-<td style="text-align: left;">9:2pm</td>
+<td style="text-align: left;">Saturday 01/03/25</td>
+<td style="text-align: left;">10:1pm</td>
 </tr>
-</tbody>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0; border: 0;"><sup>*</sup> Note: For the final session the class is split over two weekends</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tfoot>
+
 </table>
 
 
 </div>
 </div>
-<p><strong>Note:</strong> Final timetable to be confirmed on first class meeting</p>
 </section>
 <section id="course-content" class="level3">
 <h3 class="anchored" data-anchor-id="course-content">Course Content</h3>
