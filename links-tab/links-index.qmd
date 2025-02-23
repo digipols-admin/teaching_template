@@ -43,7 +43,7 @@ This video provides step by step guide. Remember to have your PAT password (the 
 
 ### Miscellaneous
 
-**Dealing with iamges** [Using a URL command](links-tab/images_testing.qmd).
+**Dealing with iamges** [Using a URL command](/links-tab/images_testing.qmd).
 
 
 
